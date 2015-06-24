@@ -5,6 +5,7 @@
 
 (require 'system-setup)
 
+(require 'ace-setup)
 (require 'company-setup)
 (require 'elixir-setup)
 (require 'emacs-setup)
