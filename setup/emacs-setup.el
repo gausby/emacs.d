@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; disable splash screen
+(setq inhibit-startup-message t)
+
 ;; should disable .#-files (i actually don't know if this is a good thing)
 (setq create-lockfiles nil)
 
