@@ -8,6 +8,7 @@
 (require 'company-setup)
 (require 'elixir-setup)
 (require 'emacs-setup)
+(require 'god-mode-setup)
 (require 'looks-setup)
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
