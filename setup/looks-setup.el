@@ -11,6 +11,9 @@
   (set-face-attribute 'mode-line nil :font "--source code pro-normal-r-normal-normal-14--128-128-c-*-iso10646-1")
   )
 
+;; colors and theme
+(setq ns-use-srgb-colorspace t)
+
 ;; stop that blinking cursor
 (blink-cursor-mode 0)
 
