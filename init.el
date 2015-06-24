@@ -10,6 +10,7 @@
 (require 'emacs-setup)
 (require 'god-mode-setup)
 (require 'looks-setup)
+(require 'popwin-setup)
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)

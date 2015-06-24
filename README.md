@@ -3,12 +3,13 @@ My Emacs Configuration
 
 This time around I will set stuff up with Cask.
 
+I have been looking at the [Emacs configuration](https://github.com/tonini/emacs.d/) by [Samuel Tonini](https://github.com/tonini), and some parts of his config has been lifted into this one.
 
 Requirements
 ------------
 
   * Emacs 24+
-  * Cask https://github.com/cask/cask
+  * [Cask](https://github.com/cask/cask) for handling dependencies
 
 
 Installation
