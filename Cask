@@ -3,8 +3,10 @@
 
 (depends-on "bind-key")
 (depends-on "cask")
+(depends-on "company")
 (depends-on "dash")
 (depends-on "drag-stuff")
+(depends-on "erlang")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "f")
