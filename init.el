@@ -8,4 +8,7 @@
 (require 'emacs-setup)
 (require 'looks-setup)
 
+(setq custom-file (expand-file-name "customize.el" user-emacs-directory))
+(load custom-file)
+
 (provide 'init)
