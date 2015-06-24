@@ -5,6 +5,10 @@
 
 ;;; Code:
 
+;; remove most of the chrome
+(menu-bar-mode -1)
+(tool-bar-mode 0)
+
 ;; font and font sizes
 (if (equal tty-erase-char 0)
     (set-face-attribute 'default nil :font "--source code pro-normal-r-normal-normal-18--128-128-c-*-iso10646-1")
