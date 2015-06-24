@@ -36,6 +36,9 @@
 ;; delete selection when active and typing
 (delete-selection-mode t)
 
+;; perform whitespace cleanup on save
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
 (provide 'emacs-setup)
 
 ;;; emacs-setup.el ends here
