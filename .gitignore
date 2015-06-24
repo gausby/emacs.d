@@ -5,6 +5,7 @@ doc/*
 bookmarks
 backup
 backup.*
+backups
 org-clock-save.el
 ac-comphist.dat
 tramp

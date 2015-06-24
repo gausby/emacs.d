@@ -5,5 +5,7 @@
 
 (require 'company-setup)
 (require 'elixir-setup)
+(require 'emacs-setup)
+(require 'looks-setup)
 
 (provide 'init)
