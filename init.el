@@ -3,6 +3,8 @@
 
 (add-to-list 'load-path (expand-file-name "setup" user-emacs-directory))
 
+(require 'system-setup)
+
 (require 'company-setup)
 (require 'elixir-setup)
 (require 'emacs-setup)
