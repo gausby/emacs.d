@@ -1,7 +1,7 @@
 ;;; looks-setup.el --- editor theme and looks config
 
 ;;; Commentary:
-;;  Setup the looks of the editor
+;;  Setup the looks of the editor and keys that changes the looks
 
 ;;; Code:
 
@@ -35,4 +35,4 @@
 
 (provide 'looks-setup)
 
-;;; emacs-setup.el ends here
+;;; looks-setup.el ends here
