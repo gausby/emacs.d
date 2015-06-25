@@ -28,6 +28,11 @@
 ;; Show empty lines after buffer end
 (set-default 'indicate-empty-lines t)
 
+;; Scale buffer text size
+(global-set-key (kbd "H-+") 'text-scale-increase)
+(global-set-key (kbd "H--") 'text-scale-decrease)
+(global-set-key (kbd "H-0") 'text-scale-adjust)
+
 (provide 'looks-setup)
 
 ;;; emacs-setup.el ends here
