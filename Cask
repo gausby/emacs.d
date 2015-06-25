@@ -16,6 +16,7 @@
 (depends-on "god-mode")
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
+(depends-on "julia-mode")
 (depends-on "magit")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
