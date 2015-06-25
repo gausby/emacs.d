@@ -7,6 +7,7 @@
 (depends-on "company")
 (depends-on "dash")
 (depends-on "drag-stuff")
+(depends-on "elm-mode")
 (depends-on "erlang")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
