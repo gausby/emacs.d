@@ -14,6 +14,7 @@
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "god-mode")
+(depends-on "haskell-mode")
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
 (depends-on "julia-mode")

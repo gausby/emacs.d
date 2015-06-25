@@ -11,6 +11,7 @@
 (require 'emacs-setup)
 (require 'expand-region-setup)
 (require 'god-mode-setup)
+(require 'haskell-setup)
 (require 'looks-setup)
 (require 'popwin-setup)
 
