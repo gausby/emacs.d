@@ -18,6 +18,8 @@
 
 (add-to-list 'ido-ignore-files "\\`node_modules/")
 
+(global-set-key (kbd "M-x") 'smex)
+
 (provide 'smex-setup)
 
 ;;; smex-setup.el ends here
