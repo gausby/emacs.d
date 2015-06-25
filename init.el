@@ -14,6 +14,7 @@
 (require 'haskell-setup)
 (require 'looks-setup)
 (require 'popwin-setup)
+(require 'smex-setup)
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
