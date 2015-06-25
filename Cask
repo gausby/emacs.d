@@ -4,6 +4,8 @@
 (depends-on "ace-jump-mode")
 (depends-on "bind-key")
 (depends-on "cask")
+(depends-on "color-theme-sanityinc-tomorrow")
+(depends-on "color-theme-sanityinc-solarized")
 (depends-on "company")
 (depends-on "dash")
 (depends-on "drag-stuff")

@@ -17,6 +17,7 @@
 
 ;; colors and theme
 (setq ns-use-srgb-colorspace t)
+(load-theme 'sanityinc-tomorrow-eighties t)
 
 ;; stop that blinking cursor
 (blink-cursor-mode 0)
