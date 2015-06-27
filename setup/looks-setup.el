@@ -7,7 +7,8 @@
 
 ;; remove most of the chrome
 (menu-bar-mode -1)
-(tool-bar-mode 0)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; font and font sizes
 (if (equal tty-erase-char 0)
