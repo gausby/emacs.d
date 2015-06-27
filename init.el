@@ -13,6 +13,7 @@
 (require 'expand-region-setup)
 (require 'god-mode-setup)
 (require 'haskell-setup)
+(require 'julia-setup)
 (require 'looks-setup)
 (require 'popwin-setup)
 (require 'smex-setup)
