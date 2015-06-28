@@ -11,7 +11,7 @@
 (scroll-bar-mode -1)
 
 ;; fringes
-(set-fringe-style -1)
+(set-window-fringes nil 12 0)
 
 ;; colors and theme
 (setq ns-use-srgb-colorspace t)
