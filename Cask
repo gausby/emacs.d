@@ -32,6 +32,8 @@
 (depends-on "popwin")
 (depends-on "prodigy")
 (depends-on "projectile")
+(depends-on "rainbow-mode")
+(depends-on "rainbow-delimiters")
 (depends-on "s")
 (depends-on "smartparens")
 (depends-on "smex")

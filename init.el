@@ -9,6 +9,7 @@
 (require 'company-setup)
 (require 'elixir-setup)
 (require 'elm-setup)
+(require 'emacs-lisp-setup)
 (require 'emacs-setup)
 (require 'expand-region-setup)
 (require 'god-mode-setup)
