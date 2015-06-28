@@ -29,6 +29,7 @@
 (depends-on "neotree")
 (depends-on "nyan-mode")
 (depends-on "pallet")
+(depends-on "paredit")
 (depends-on "popwin")
 (depends-on "prodigy")
 (depends-on "projectile")

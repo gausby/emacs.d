@@ -9,7 +9,7 @@
   (rainbow-delimiters-mode +1)
   (rainbow-mode +1)
   (flycheck-mode +1)
-  (smartparens-mode +1))
+  (enable-paredit-mode))
 
 (add-hook 'emacs-lisp-mode-hook  't-emacs-lisp-mode-hook)
 
