@@ -15,6 +15,7 @@
 (require 'haskell-setup)
 (require 'julia-setup)
 (require 'looks-setup)
+(require 'neotree-setup)
 (require 'popwin-setup)
 (require 'smex-setup)
 
