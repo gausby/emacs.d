@@ -10,6 +10,9 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; fringes
+(set-fringe-style -1)
+
 ;; colors and theme
 (setq ns-use-srgb-colorspace t)
 (load-theme 'sanityinc-tomorrow-eighties t)
