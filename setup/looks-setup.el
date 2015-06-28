@@ -20,8 +20,6 @@
 ;; stop that blinking cursor
 (blink-cursor-mode 0)
 
-;; highlight the current line
-(global-hl-line-mode t)
 ;; hilight matching parans
 (show-paren-mode t)
 
