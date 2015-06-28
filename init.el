@@ -19,6 +19,7 @@
 (require 'neotree-setup)
 (require 'popwin-setup)
 (require 'smex-setup)
+(require 'yasnippet-setup)
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
