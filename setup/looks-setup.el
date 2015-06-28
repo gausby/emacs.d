@@ -22,6 +22,8 @@
 
 ;; highlight the current line
 (global-hl-line-mode t)
+;; hilight matching parans
+(show-paren-mode t)
 
 ;; Show empty lines after buffer end
 (set-default 'indicate-empty-lines t)
