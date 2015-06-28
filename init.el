@@ -14,6 +14,7 @@
 (require 'expand-region-setup)
 (require 'god-mode-setup)
 (require 'haskell-setup)
+(require 'html-setup)
 (require 'julia-setup)
 (require 'looks-setup)
 (require 'neotree-setup)

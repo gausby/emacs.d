@@ -1,3 +1,10 @@
+;;; elixir-setup.el --- setup for elixir programming environment
+
+;;; Commentary:
+;; Setup for elixir- and alchemist-mode
+;; Notice that this setup needs alchemist and elixir-mode to be checked out in ~/Project/
+
+;;; Code:
 (add-to-list 'load-path "~/Projects/emacs-elixir/")
 (add-to-list 'load-path "~/Projects/alchemist.el/")
 
@@ -19,6 +26,7 @@
 		      :actions '(insert)))))
 
 (defun t-elixir-mode-hook ()
+  (yas/minor-mode +1)
   (smartparens-mode +1)
   (tester-init-test-run #'alchemist-mix-test-file "_test.exs$")
   (tester-init-test-suite-run #'alchemist-mix-test))
@@ -30,3 +38,5 @@
 (add-hook 'erlang-mode-hook 't-erlang-mode-hook)
 
 (provide 'elixir-setup)
+
+;;; elixir-setup.el ends here
