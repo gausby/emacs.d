@@ -39,6 +39,12 @@
 ;; perform whitespace cleanup on save
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
+;; setup indentation
+(set-default 'indent-tabs-mode nil)
+(setq-default tab-width 4)
+;; always indent on newlines
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
 (provide 'emacs-setup)
 
 ;;; emacs-setup.el ends here
