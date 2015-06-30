@@ -7,6 +7,7 @@
 
 (require 'ace-setup)
 (require 'company-setup)
+(require 'diary-mode)
 (require 'elixir-setup)
 (require 'elm-setup)
 (require 'emacs-lisp-setup)

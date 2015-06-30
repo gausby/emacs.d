@@ -14,7 +14,13 @@ Requirements
 
 Installation
 ------------
-
+### Fetch dependencies
 Use Git to clone the repo into ~/.emacs.d and install the dependencies using `cask install` in the newly cloned folder.
 
+### Elixir
 The setup require emacs-elixir and alchemist.el to be cloned into the ~/Projects directory.
+
+### Calendar and Diary
+Calendar needs a diary file. Write `touch ~/.diary` in the terminal to generate one.
+
+The calendar location is set to Copenhagen, Denmark.
