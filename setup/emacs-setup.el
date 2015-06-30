@@ -45,6 +45,12 @@
 ;; always indent on newlines
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
+;; setup scrolling
+(setq scroll-step 1)
+;; don't go bananas when scrolling
+(setq scroll-conservatively 10000)
+
+
 ;; The following code is taken from the Emacs Prelude starter package
 ;; Prelude is licensed GNU General Public License version 3 and is copy right Bozhidar Batsov
 (defun prelude-move-beginning-of-line (arg)
