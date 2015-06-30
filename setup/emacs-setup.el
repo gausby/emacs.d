@@ -45,6 +45,32 @@
 ;; always indent on newlines
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
+;; The following code is taken from the Emacs Prelude starter package
+;; Prelude is licensed GNU General Public License version 3 and is copy right Bozhidar Batsov
+(defun prelude-move-beginning-of-line (arg)
+  "Move point back to indentation of beginning of line.
+Move point to the first non-whitespace character on this line.
+If point is already there, move to the beginning of the line.
+Effectively toggle between the first non-whitespace character and
+the beginning of the line.
+If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+point reaches the beginning or end of the buffer, stop there."
+  (interactive "^p")
+  (setq arg (or arg 1))
+
+  ;; Move lines first
+  (when (/= arg 1)
+    (let ((line-move-visual nil))
+      (forward-line (1- arg))))
+
+  (let ((orig-point (point)))
+    (back-to-indentation)
+    (when (= orig-point (point))
+      (move-beginning-of-line 1))))
+
+(global-set-key (kbd "C-A") 'prelude-move-beginning-of-line)
+;; https://github.com/bbatsov/prelude/blob/fe7997bc6e05647a935e279094a9c571d175e2dc/core/prelude-core.el#L138-L159
+
 (provide 'emacs-setup)
 
 ;;; emacs-setup.el ends here
