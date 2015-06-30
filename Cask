@@ -25,6 +25,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "julia-mode")
 (depends-on "magit")
+(depends-on "markdown-mode")
 (depends-on "multiple-cursors")
 (depends-on "neotree")
 (depends-on "nyan-mode")
