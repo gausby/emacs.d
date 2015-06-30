@@ -3,7 +3,9 @@ My Emacs Configuration
 
 This time around I will set stuff up with Cask.
 
-I have been looking at the [Emacs configuration](https://github.com/tonini/emacs.d/) by [Samuel Tonini](https://github.com/tonini), and some parts of his config has been lifted into this one.
+ * I have been looking at the [Emacs configuration](https://github.com/tonini/emacs.d/) by [Samuel Tonini](https://github.com/tonini), and some parts of his config has been lifted into this one.
+
+ * Some bits has been taken from [Bozhidar Batsov](https://github.com/bbatsov)'s [Emacs Prelude](https://github.com/bbatsov/prelude) starter package.
 
 Requirements
 ------------
