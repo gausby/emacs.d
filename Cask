@@ -10,6 +10,8 @@
 (depends-on "dash")
 (depends-on "drag-stuff")
 (depends-on "elm-mode")
+(depends-on "erc-colorize")
+(depends-on "erc-hl-nicks")
 (depends-on "erlang")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
@@ -42,3 +44,4 @@
 (depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "yasnippet")
+(depends-on "znc")

@@ -10,6 +10,7 @@
 (require 'diary-mode-setup)
 (require 'elixir-setup)
 (require 'elm-setup)
+(require 'erc-setup)
 (require 'emacs-lisp-setup)
 (require 'emacs-setup)
 (require 'expand-region-setup)
