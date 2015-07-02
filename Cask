@@ -1,5 +1,6 @@
 (source gnu)
 (source melpa)
+(source org)
 
 (depends-on "ace-jump-mode")
 (depends-on "bind-key")
@@ -31,6 +32,7 @@
 (depends-on "multiple-cursors")
 (depends-on "neotree")
 (depends-on "nyan-mode")
+(depends-on "org")
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "popwin")

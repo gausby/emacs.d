@@ -21,6 +21,7 @@
 (require 'looks-setup)
 (require 'markdown-mode-setup)
 (require 'neotree-setup)
+(require 'org-setup)
 (require 'popwin-setup)
 (require 'smex-setup)
 (require 'yasnippet-setup)
