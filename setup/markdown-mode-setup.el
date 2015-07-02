@@ -8,8 +8,8 @@
 
 (setq-default markdown-command "pandoc -S -s --self-contained -f markdown -t html5 ")
 
-(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . gfm-mode))
 
 (provide 'markdown-mode-setup)
 ;;; markdown-mode-setup.el ends here
