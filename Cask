@@ -26,6 +26,7 @@
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
 (depends-on "ido-ubiquitous")
+(depends-on "irfc")
 (depends-on "julia-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")

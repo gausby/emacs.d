@@ -18,6 +18,7 @@
 (require 'god-mode-setup)
 (require 'haskell-setup)
 (require 'html-setup)
+(require 'irfc-setup)
 (require 'julia-setup)
 (require 'looks-setup)
 (require 'mail-setup)
