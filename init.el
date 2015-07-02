@@ -14,6 +14,7 @@
 (require 'emacs-lisp-setup)
 (require 'emacs-setup)
 (require 'expand-region-setup)
+(require 'git-setup)
 (require 'god-mode-setup)
 (require 'haskell-setup)
 (require 'html-setup)
