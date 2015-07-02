@@ -23,6 +23,9 @@
       ;; ...and please stop complaining about my key bindings!
       erc-track-enable-keybindings nil)
 
+;; Get rid of the iswitchb obsolete message when hitting C-c C-b
+(eval-after-load "erc" '(define-key erc-mode-map (kbd "C-c C-b") nil))
+
 (provide 'erc-setup)
 
 ;;; erc-setup.el ends here
