@@ -31,6 +31,7 @@
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
 (depends-on "neotree")
+(depends-on "notmuch")
 (depends-on "nyan-mode")
 (depends-on "org")
 (depends-on "pallet")

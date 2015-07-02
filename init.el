@@ -20,6 +20,7 @@
 (require 'html-setup)
 (require 'julia-setup)
 (require 'looks-setup)
+(require 'mail-setup)
 (require 'markdown-mode-setup)
 (require 'neotree-setup)
 (require 'org-setup)
