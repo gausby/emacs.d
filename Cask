@@ -43,6 +43,7 @@
 (depends-on "rainbow-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "s")
+(depends-on "sauron")
 (depends-on "smartparens")
 (depends-on "smex")
 (depends-on "undo-tree")

@@ -24,6 +24,7 @@
 (require 'mail-setup)
 (require 'markdown-mode-setup)
 (require 'neotree-setup)
+(require 'notifications-setup)
 (require 'org-setup)
 (require 'popwin-setup)
 (require 'smex-setup)
