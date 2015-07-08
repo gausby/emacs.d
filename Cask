@@ -35,6 +35,7 @@
 (depends-on "notmuch")
 (depends-on "nyan-mode")
 (depends-on "org")
+(depends-on "org-present")
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "popwin")
