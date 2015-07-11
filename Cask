@@ -28,6 +28,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "irfc")
 (depends-on "julia-mode")
+(depends-on "launchctl")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
