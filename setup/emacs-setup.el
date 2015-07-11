@@ -11,6 +11,12 @@
 ;; should disable .#-files (i actually don't know if this is a good thing)
 (setq create-lockfiles nil)
 
+;; utf-8 all the things
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
