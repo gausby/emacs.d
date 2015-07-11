@@ -9,9 +9,15 @@
 (require 'org)
 (require 'org-present)
 
+;; Agenda
+(setq org-directory "~/Dropbox/org"
+      org-default-notes-file (concat org-directory "/notes.org")
+      org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
+
 ;; enable syntax highlighting in code blocks
 (setq org-src-fontify-natively t)
 
+;; Present
 (eval-after-load "org-present"
   '(progn
      (add-hook 'org-present-mode-hook
