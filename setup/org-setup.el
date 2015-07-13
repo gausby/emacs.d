@@ -4,6 +4,7 @@
 ;;  Setup for org mode. This will
 ;;
 ;;   * Enable syntax highlighting in code blocks
+;;   * Integrate with diary-mode
 
 ;;; Code:
 (require 'org)
@@ -13,6 +14,9 @@
 (setq org-directory "~/Dropbox/org"
       org-default-notes-file (concat org-directory "/notes.org")
       org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
+
+;; Integrations
+(setq org-agenda-include-diary t)
 
 ;; enable syntax highlighting in code blocks
 (setq org-src-fontify-natively t)
