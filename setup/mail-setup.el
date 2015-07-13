@@ -9,6 +9,15 @@
 ;;; Code:
 (require 'notmuch)
 
+(setq notmuch-saved-searches
+      '((:name "inbox" :query "tag:inbox" :key "i")
+        (:name "unread" :query "tag:unread" :key "u")
+        (:name "flagged" :query "tag:flagged" :key "f")
+        (:name "sent" :query "tag:sent" :key "t")
+        (:name "drafts" :query "tag:draft" :key "d")
+        (:name "all mail" :query "*" :key "a")
+        (:name "today" :query "date:today..now")))
+
 ;; mode hooks
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
 
