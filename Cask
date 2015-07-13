@@ -3,6 +3,8 @@
 (source org)
 
 (depends-on "ace-jump-mode")
+(depends-on "bbdb")
+(depends-on "bbdb-vcard")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "color-theme-sanityinc-tomorrow")

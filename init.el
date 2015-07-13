@@ -6,6 +6,7 @@
 (require 'system-setup)
 
 (require 'ace-setup)
+(require 'bbdb-setup)
 (require 'company-setup)
 (require 'diary-mode-setup)
 (require 'elixir-setup)
