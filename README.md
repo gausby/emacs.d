@@ -20,7 +20,7 @@ Installation
 Use Git to clone the repo into ~/.emacs.d and install the dependencies using `cask install` in the newly cloned folder.
 
 ### Elixir
-The setup require emacs-elixir and alchemist.el to be cloned into the ~/Projects directory.
+The setup require emacs-elixir and alchemist.el to be cloned into the *~/Development/forks*-directory. I have some clones going there but the official repos might work just as well—or even better.
 
 ### Calendar and Diary
 Calendar needs a diary file. Write `touch ~/.diary` in the terminal to generate one.

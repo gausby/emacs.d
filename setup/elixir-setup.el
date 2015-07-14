@@ -2,11 +2,11 @@
 
 ;;; Commentary:
 ;; Setup for elixir- and alchemist-mode
-;; Notice that this setup needs alchemist and elixir-mode to be checked out in ~/Project/
+;; Notice that this setup needs alchemist and elixir-mode to be checked out in ~/Development/forks
 
 ;;; Code:
-(add-to-list 'load-path "~/Projects/emacs-elixir/")
-(add-to-list 'load-path "~/Projects/alchemist.el/")
+(add-to-list 'load-path "~/Development/forks/emacs-elixir/")
+(add-to-list 'load-path "~/Development/forks/alchemist.el/")
 
 (require 'elixir-mode)
 (require 'alchemist)
