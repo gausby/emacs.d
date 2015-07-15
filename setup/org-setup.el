@@ -5,10 +5,18 @@
 ;;
 ;;   * Enable syntax highlighting in code blocks
 ;;   * Integrate with diary-mode
+;;   * Let journal use a title block as headline
+;;   * Let journal headlines be in the format: July 15 2015, Wednesday week 29
 
 ;;; Code:
 (require 'org)
+(require 'org-journal)
 (require 'org-present)
+
+;; Journal
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-date-format "%B %e %Y, %A week %V"
+      org-journal-time-prefix "** ")
 
 ;; Agenda
 (setq org-directory "~/Dropbox/org"
