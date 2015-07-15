@@ -5,6 +5,7 @@
 ;; This will:
 ;;
 ;;   * Add a hook for always signing messages
+;;   * Make notmuch hello screen less cluttered
 ;;   * Configure saved searches for my notmuch setup
 ;;   * Use jump search (press `j` in the notmuch-hello) to navigate saved notmuch searches
 ;;     - i = everything in the inbox
@@ -17,6 +18,11 @@
 
 ;;; Code:
 (require 'notmuch)
+
+(setq notmuch-hello-sections
+      '(notmuch-hello-insert-search
+        notmuch-hello-insert-saved-searches
+        notmuch-hello-insert-alltags))
 
 (setq notmuch-saved-searches
       '((:name "unread" :query "tag:unread and not tag:mailing-list" :key "u")
