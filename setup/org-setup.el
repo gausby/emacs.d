@@ -6,7 +6,10 @@
 ;;   * Enable syntax highlighting in code blocks
 ;;   * Integrate with diary-mode
 ;;   * Let journal use a title block as headline
-;;   * Let journal headlines be in the format: July 15 2015, Wednesday week 29
+;;   * Let journal headlines be in the format:
+;;       July 15 2015
+;;       #TAGS: Wednesday week29
+;;       * Today
 
 ;;; Code:
 (require 'org)
@@ -15,7 +18,7 @@
 
 ;; Journal
 (setq org-journal-date-prefix "#+TITLE: "
-      org-journal-date-format "%B %e %Y, %A week %V"
+      org-journal-date-format "%B %e %Y%n#+FILETAGS: :%A:week%V:%n%n* Today"
       org-journal-time-prefix "** ")
 
 ;; Agenda
