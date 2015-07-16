@@ -4,6 +4,14 @@
 ;;  Setup the looks of the editor and keys that changes the looks
 
 ;;; Code:
+;;    * Remove most of the chrome, menu-, tool- and scrollbars
+;;    * Set the color-theme
+;;    * use srgb colorspace
+;;    * Disable the blinking cursor
+;;    * highlight matching pairs `()`, `[]`, etc
+;;    * indicate empty lines at the end of the buffer in the fringe
+;;    * set font sizes
+;;    * make it possible to scale font sizes using H-+, H--, and H-0
 
 ;; remove most of the chrome
 (menu-bar-mode -1)
