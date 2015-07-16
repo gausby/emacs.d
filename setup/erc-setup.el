@@ -4,6 +4,8 @@
 ;;  Setup for erc and znc
 
 ;;; Code:
+;;    * Switch to unread erc buffer on `C-c e u` and back to the previous
+;;      non erc buffer when there is no more unread buffers
 (require 'erc)
 
 (erc-colorize-mode 1)
@@ -25,6 +27,9 @@
 
 ;; Get rid of the iswitchb obsolete message when hitting C-c C-b
 (eval-after-load "erc" '(define-key erc-mode-map (kbd "C-c C-b") nil))
+
+;; Switch to unread buffer
+(define-key global-map (kbd "C-c e u") 'erc-track-switch-buffer)
 
 (provide 'erc-setup)
 
