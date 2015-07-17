@@ -15,6 +15,10 @@
 ;;     - s = sent messages
 ;;     - t = display today (email received within the last 24 hours from now
 ;;     - m = mailing-lists
+;;     - c = display who connect to me on various social media sites
+;;
+;;  I rely on a bash script that tag mail in my notmuch mail database. I should perhaps
+;;  open source this script at some point.
 
 ;;; Code:
 (require 'notmuch)
@@ -33,7 +37,10 @@
         (:name "today" :query "tag:inbox and date:-24h..now and not tag:mailing-list" :key "t")
         (:name "mailing-lists" :key "m"
                :query "tag:mailing-list" :sort-order 'newest-first
-               :count-query "tag:mailing-list and tag:unread")))
+               :count-query "tag:mailing-list and tag:unread")
+        (:name "connections" :key "c"
+               :query "tag:friend-request date:-7d..now"
+               :count-query "tag:friend-request date:-24h..now")))
 
 ;; mode hooks
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
