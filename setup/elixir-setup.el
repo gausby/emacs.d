@@ -1,8 +1,15 @@
 ;;; elixir-setup.el --- setup for elixir programming environment
 
 ;;; Commentary:
-;; Setup for elixir- and alchemist-mode
-;; Notice that this setup needs alchemist and elixir-mode to be checked out in ~/Development/forks
+;; Notice that this setup needs alchemist and elixir-mode to be checked out in ~/Development/forks.
+;; I keep a fork of the two projects on github, I got upstream set to the official repos and sync
+;; them regularly.
+;;
+;;   * enable elixir- and alchemist-mode
+;;   * setup my yasnippets, these are found in `~/.emacs.d/snippets/elixir-mode`
+;;   * auto-complete do with `..end` with indentation
+;;   * highlight matching do..end-pairs
+;;   * set `M-,` to jump-back to code when visiting definition in Erlang code
 
 ;;; Code:
 (add-to-list 'load-path "~/Development/forks/emacs-elixir/")
