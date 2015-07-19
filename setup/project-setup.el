@@ -20,8 +20,7 @@
 ;; Projectile
 (projectile-global-mode)
 
-(setq projectile-known-projects-file "~/.projectile/projectile-bookmarks.eld"
-      projectile-switch-project-action 'neotree-projectile-action)
+(setq projectile-known-projects-file "~/.projectile-cache/projectile-bookmarks.eld")
 
 ;; Neotree
 (global-set-key (kbd "C-c .") 'neotree-toggle)
