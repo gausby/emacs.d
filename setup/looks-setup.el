@@ -23,7 +23,7 @@
 
 ;; colors and theme
 (setq ns-use-srgb-colorspace t)
-(load-theme 'sanityinc-solarized-light t)
+(load-theme 'solarized t)
 
 ;; stop that blinking cursor
 (blink-cursor-mode 0)
