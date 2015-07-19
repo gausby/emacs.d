@@ -3,6 +3,7 @@
 (source org)
 
 (depends-on "ace-jump-mode")
+(depends-on "ag")
 (depends-on "bbdb")
 (depends-on "bbdb-vcard")
 (depends-on "bind-key")

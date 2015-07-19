@@ -24,10 +24,10 @@
 (require 'looks-setup)
 (require 'mail-setup)
 (require 'markdown-mode-setup)
-(require 'neotree-setup)
 (require 'notifications-setup)
 (require 'org-setup)
 (require 'popwin-setup)
+(require 'project-setup)
 (require 'smex-setup)
 (require 'yasnippet-setup)
 
