@@ -27,6 +27,7 @@
 
 ;; stop that blinking cursor
 (blink-cursor-mode 0)
+(global-hl-line-mode t)
 
 ;; hilight matching parans
 (show-paren-mode t)
