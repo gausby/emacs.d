@@ -5,7 +5,6 @@
 
 (require 'system-setup)
 
-(require 'ace-setup)
 (require 'bbdb-setup)
 (require 'company-setup)
 (require 'diary-mode-setup)
@@ -24,6 +23,7 @@
 (require 'looks-setup)
 (require 'mail-setup)
 (require 'markdown-mode-setup)
+(require 'navigation-setup)
 (require 'notifications-setup)
 (require 'org-setup)
 (require 'popwin-setup)

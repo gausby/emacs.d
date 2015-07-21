@@ -2,8 +2,8 @@
 (source melpa)
 (source org)
 
-(depends-on "ace-jump-mode")
 (depends-on "ag")
+(depends-on "avy")
 (depends-on "bbdb")
 (depends-on "bbdb-vcard")
 (depends-on "bind-key")
