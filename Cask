@@ -33,6 +33,7 @@
 (depends-on "julia-mode")
 (depends-on "launchctl")
 (depends-on "magit")
+(depends-on "macrostep")
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
 (depends-on "neotree")
