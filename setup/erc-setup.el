@@ -2,10 +2,12 @@
 
 ;;; Commentary:
 ;;  Setup for erc and znc
+;;
+;;  * Keybindings should be prefixed with `C-c i`, i for "irc"
+;;  * Switch to Next unread erc buffer on `C-c i n` and back to the previous
+;;    non erc buffer when there is no more unread buffers (n for next)
 
 ;;; Code:
-;;    * Switch to unread erc buffer on `C-c e u` and back to the previous
-;;      non erc buffer when there is no more unread buffers
 (require 'erc)
 
 (erc-colorize-mode 1)
@@ -29,7 +31,7 @@
 (eval-after-load "erc" '(define-key erc-mode-map (kbd "C-c C-b") nil))
 
 ;; Switch to unread buffer
-(define-key global-map (kbd "C-c e u") 'erc-track-switch-buffer)
+(define-key global-map (kbd "C-c i n") 'erc-track-switch-buffer)
 
 (provide 'erc-setup)
 
