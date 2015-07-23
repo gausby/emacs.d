@@ -7,6 +7,7 @@
 ;;  * Make silver surfer resuse the same buffer for search results
 ;;  * Highlight search term in silver searcher results
 ;;  * Set up neotree
+;;  * Focus neotree on current project root with `C-c p .`
 
 ;;; Code:
 (require 'neotree)
@@ -22,6 +23,7 @@
 
 ;; Neotree
 (global-set-key (kbd "C-c .") 'neotree-toggle)
+(define-key global-map (kbd "C-c p .") 'neotree-projectile-action)
 
 (setq neo-banner-message nil
       neo-theme 'arrow
