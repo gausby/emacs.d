@@ -6,6 +6,7 @@
 ;;  * Keybindings should be prefixed with `C-c i`, i for "irc"
 ;;  * Switch to Next unread erc buffer on `C-c i n` and back to the previous
 ;;    non erc buffer when there is no more unread buffers (n for next)
+;;  * Disable/Enable track mode with `C-C i t` (t for track)
 
 ;;; Code:
 (require 'erc)
@@ -32,6 +33,7 @@
 
 ;; Switch to unread buffer
 (define-key global-map (kbd "C-c i n") 'erc-track-switch-buffer)
+(define-key global-map (kbd "C-c i t") 'erc-track-mode)
 
 (provide 'erc-setup)
 
