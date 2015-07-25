@@ -13,6 +13,7 @@
 (push '("*alchemist-test-report*" :height 25 :stick t) popwin:special-display-config)
 (push '("*alchemist message*" :height 20 :noselect t) popwin:special-display-config)
 (push '("*ag search*" :height 20 :dedicated t) popwin:special-display-config)
+(push '("*BBDB*" :height 25 :dedicated t) popwin:special-display-config)
 
 (define-key global-map (kbd "C-x p") 'popwin:display-last-buffer)
 
