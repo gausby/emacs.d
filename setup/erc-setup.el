@@ -27,9 +27,9 @@
 (add-hook 'erc-mode-hook 'my-erc-mode-hook)
 
 (setq erc-timestamp-only-if-changed-flag t
-      erc-insert-timestamp-function 'erc-insert-timestamp-right
+      erc-insert-timestamp-function 'erc-insert-timestamp-left
       erc-fill-column nil
-      erc-timestamp-format "[%H:%M]"
+      erc-timestamp-format "%H:%M "
       erc-hide-timestamps t)
 
 ;; messages
