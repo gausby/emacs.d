@@ -14,6 +14,8 @@
 (push '("*alchemist message*" :height 20 :noselect t) popwin:special-display-config)
 (push '("*ag search*" :height 20 :dedicated t) popwin:special-display-config)
 
+(define-key global-map (kbd "C-x p") 'popwin:display-last-buffer)
+
 (provide 'popwin-setup)
 
 ;;; popwin-setup.el ends here
