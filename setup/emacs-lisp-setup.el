@@ -21,6 +21,10 @@
 
 (define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand)
 
+;; scratch message
+(setq initial-scratch-message
+      ";; 'Tis but a scratch!\n;; A scratch? Your arm's off!\n;; No, it isn't!\n\n")
+
 (provide 'emacs-lisp-setup)
 
 ;;; emacs-lisp-setup.el ends here
