@@ -56,6 +56,9 @@
 ;; don't go bananas when scrolling
 (setq scroll-conservatively 10000)
 
+;; change the way the buffer names are written in the modeline
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
 
 ;; The following code is taken from the Emacs Prelude starter package
 ;; Prelude is licensed GNU General Public License version 3 and is copy right Bozhidar Batsov
