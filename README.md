@@ -19,6 +19,19 @@ Installation
 ### Fetch dependencies
 Use Git to clone the repo into ~/.emacs.d and install the dependencies using `cask install` in the newly cloned folder.
 
+### Fonts
+unicode-fonts require the following fonts to be installed on the system:
+
+  * [DejaVu Sans and DejaVu Sans Mono][dejavu]
+  * [Quivira][quivira]
+  * [Noto Sans and Noto Sans Symbol][noto]
+  * [Symbola][symbola] by George Douros
+
+[dejavu]: http://dejavu-fonts.org/wiki/Download
+[quivira]: http://www.quivira-font.com/downloads.php
+[noto]: http://www.google.com/get/noto/
+[symbola]: http://www.fontspace.com/unicode-fonts-for-ancient-scripts/symbola
+
 ### Elixir
 The setup require emacs-elixir and alchemist.el to be cloned into the *~/Development/forks*-directory. I have some clones going there but the official repos might work just as well—or even better.
 

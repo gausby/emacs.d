@@ -45,7 +45,10 @@
     (progn
       (set-face-attribute 'default nil :font "--source code pro-normal-r-normal-normal-18--128-128-c-*-iso10646-1")
       (set-face-attribute 'mode-line nil :font "--source code pro-normal-r-normal-normal-10--128-128-c-*-iso10646-1")
-      (set-face-attribute 'mode-line-inactive nil :font "--source code pro-normal-r-normal-normal-10--128-128-c-*-iso10646-1")))
+      (set-face-attribute 'mode-line-inactive nil :font "--source code pro-normal-r-normal-normal-10--128-128-c-*-iso10646-1")
+      (progn
+        (require 'unicode-fonts)
+        (unicode-fonts-setup))))
 
 (provide 'looks-setup)
 
