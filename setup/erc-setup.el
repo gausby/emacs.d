@@ -7,11 +7,11 @@
 ;;  * Disable fill mode, makes it easier to search using erc-occur
 ;;  * Keybindings should be prefixed with `C-c i`, i for "irc"
 ;;  * Connect to all servers using `C-c i c a`, connect to only one using `C-c i c c`
-;;  * Switch to Next unread erc buffer on `C-c i n` and back to the previous
+;;  * Switch to Next unread erc buffer on `C-c i b` and back to the previous
 ;;    non erc buffer when there is no more unread buffers (n for next)
 ;;  * Disable/Enable track mode with `C-c i t` (t for track)
 ;;  * Disable/Enable timestamps with `C-c i d` (d for 'date-time')
-;;  * Search in erc buffers with `C-c i s` (s for search)
+;;  * Search in erc buffers with `C-c i s s` (s for search)
 ;;  * Define a hydra for jumping to irc channels bound to `C-c i j` (j for jump)
 
 ;;; Code:
@@ -46,12 +46,12 @@
 (eval-after-load "erc" '(define-key erc-mode-map (kbd "C-c C-b") nil))
 
 ;; define keybindings
-(define-key global-map (kbd "C-c i c a") 'znc-all)
-(define-key global-map (kbd "C-c i c c") 'znc-erc)
-(define-key global-map (kbd "C-c i n") 'erc-track-switch-buffer)
-(define-key global-map (kbd "C-c i t") 'erc-track-mode)
-(define-key global-map (kbd "C-c i d") 'erc-toggle-timestamps)
-(define-key global-map (kbd "C-c i s") 'erc-occur)
+(global-set-key (kbd "C-c i c a") 'znc-all)
+(global-set-key (kbd "C-c i c c") 'znc-erc)
+(global-set-key (kbd "C-c i b") 'erc-track-switch-buffer)
+(global-set-key (kbd "C-c i t") 'erc-track-mode)
+(global-set-key (kbd "C-c i d") 'erc-toggle-timestamps)
+(global-set-key (kbd "C-c i s s") 'erc-occur)
 
 (global-set-key (kbd "C-c i j") (defhydra hydra-switch-to-irc-buffer (:color blue)
                                   "Jump to IRC channel"
