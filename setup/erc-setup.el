@@ -55,16 +55,16 @@
 
 (global-set-key (kbd "C-c i j") (defhydra hydra-switch-to-irc-buffer (:color blue)
                                   "Jump to IRC channel"
-                                  ("a" (switch-to-buffer "#emacs-elixir"))
-                                  ("c" (switch-to-buffer "#cphex"))
-                                  ("e" (switch-to-buffer "#elixir-lang"))
-                                  ("f" (switch-to-buffer "#cphftw"))
-                                  ("g" (switch-to-buffer "#erlang"))
-                                  ("j" (switch-to-buffer "#copenhagenjs"))
-                                  ("l" (switch-to-buffer "#labitat"))
-                                  ("n" (switch-to-buffer "#nerdtracker"))
-                                  ("o" (switch-to-buffer "#erlounge"))
-                                  ("s" (switch-to-buffer "#stackvm"))))
+                                  ("e" (switch-to-buffer "#elixir-lang") "#elixir-lang")
+                                  ("a" (switch-to-buffer "#emacs-elixir") "#emacs-elixir")
+                                  ("c" (switch-to-buffer "#cphex") "#cphex")
+                                  ("f" (switch-to-buffer "#cphftw") "#cphftw")
+                                  ("j" (switch-to-buffer "#copenhagenjs") "#copenhagenjs")
+                                  ("n" (switch-to-buffer "#nerdtracker") "#nerdtracker")
+                                  ("g" (switch-to-buffer "#erlang") "#erlang")
+                                  ("o" (switch-to-buffer "#erlounge") "#erlounge")
+                                  ("l" (switch-to-buffer "#labitat") "#labitat")
+                                  ("s" (switch-to-buffer "#stackvm") "#stackvm")))
 
 (provide 'erc-setup)
 
