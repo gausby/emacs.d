@@ -12,6 +12,7 @@
 ;;  * Disable/Enable track mode with `C-c i t` (t for track)
 ;;  * Disable/Enable timestamps with `C-c i d` (d for 'date-time')
 ;;  * Search in erc buffers with `C-c i s` (s for search)
+;;  * Define a hydra for jumping to irc channels bound to `C-c i j` (j for jump)
 
 ;;; Code:
 (require 'erc)
@@ -51,6 +52,19 @@
 (define-key global-map (kbd "C-c i t") 'erc-track-mode)
 (define-key global-map (kbd "C-c i d") 'erc-toggle-timestamps)
 (define-key global-map (kbd "C-c i s") 'erc-occur)
+
+(global-set-key (kbd "C-c i j") (defhydra hydra-switch-to-irc-buffer (:color blue)
+                                  "Jump to IRC channel"
+                                  ("a" (switch-to-buffer "#emacs-elixir"))
+                                  ("c" (switch-to-buffer "#cphex"))
+                                  ("e" (switch-to-buffer "#elixir-lang"))
+                                  ("f" (switch-to-buffer "#cphftw"))
+                                  ("g" (switch-to-buffer "#erlang"))
+                                  ("j" (switch-to-buffer "#copenhagenjs"))
+                                  ("l" (switch-to-buffer "#labitat"))
+                                  ("n" (switch-to-buffer "#nerdtracker"))
+                                  ("o" (switch-to-buffer "#erlounge"))
+                                  ("s" (switch-to-buffer "#stackvm"))))
 
 (provide 'erc-setup)
 
