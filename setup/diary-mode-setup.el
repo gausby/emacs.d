@@ -11,6 +11,7 @@
 ;;  * Current date is marked in calendar view
 ;;  * Calendar view is fancy
 ;;  * Emacs knows about our location. It is set to Copenhagen, Denmark
+;;  * The calendar does not know about any holidays, except my own
 
 ;;; Code:
 (require 'calendar)
@@ -20,9 +21,18 @@
 (calendar-set-date-style 'european)
 
 (setq calendar-week-start-day 1
-      view-diary-entries-initially t
-      mark-diary-entries-in-calendar t
-      number-of-diary-entries 7)
+      calendar-view-diary-initially-flag t
+      calendar-mark-diary-entries-flag t)
+
+(setq holiday-christian-holidays nil
+      holiday-oriental-holidays nil
+      holiday-bahai-holidays nil
+      holiday-islamic-holidays nil
+      holiday-hebrew-holidays nil)
+
+(setq holiday-general-holidays
+      '((holiday-fixed 12 31 "Party")
+        (holiday-fixed  1  1 "Hangover")))
 
 ;; Let emacs know where we are
 (setq calendar-latitude +55.0
