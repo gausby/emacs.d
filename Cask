@@ -14,6 +14,7 @@
 (depends-on "dash")
 (depends-on "drag-stuff")
 (depends-on "elm-mode")
+(depends-on "emms")
 (depends-on "erc-colorize")
 (depends-on "erc-hl-nicks")
 (depends-on "erlang")
