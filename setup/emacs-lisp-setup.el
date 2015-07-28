@@ -2,6 +2,7 @@
 
 ;;; Commentary:
 ;;  emacs-lisp programming environment
+;;  * recognize Cask files as elisp
 
 ;;; Code:
 (require 'macrostep)
@@ -24,6 +25,9 @@
 ;; scratch message
 (setq initial-scratch-message
       ";; 'Tis but a scratch!\n;; A scratch? Your arm's off!\n;; No, it isn't!\n\n")
+
+;; recognize Cask files as elisp
+(add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 
 (provide 'emacs-lisp-setup)
 
