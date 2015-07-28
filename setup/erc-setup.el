@@ -13,10 +13,13 @@
 ;;  * Disable/Enable timestamps with `C-c i d` (d for 'date-time')
 ;;  * Search in erc buffers with `C-c i s s` (s for search)
 ;;  * Define a hydra for jumping to irc channels bound to `C-c i j` (j for jump)
+;;  * Log conversations to ~/.erc/logs (this folder should get created manually)
+;;  * Use the silver searcher to search the irc logs using `C-c i s l` (s l: search logs)
 
 ;;; Code:
 (require 'erc)
 (require 'erc-stamp)
+(require 'erc-log)
 
 (erc-colorize-mode 1)
 (erc-spelling-mode 1)
@@ -27,14 +30,28 @@
   (visual-line-mode))
 (add-hook 'erc-mode-hook 'my-erc-mode-hook)
 
-(setq erc-timestamp-only-if-changed-flag t
-      erc-insert-timestamp-function 'erc-insert-timestamp-left
+(setq erc-insert-timestamp-function 'erc-insert-timestamp-left
       erc-fill-column nil
       erc-timestamp-format "%H:%M "
       erc-hide-timestamps t)
 
 ;; messages
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
+
+;; log to disk
+(erc-log-mode)
+(setq erc-log-channels-directory "~/.erc/logs/"
+      erc-generate-log-file-name-function 'erc-generate-log-file-name-with-date
+      erc-save-buffer-on-part nil
+      erc-save-queries-on-quit nil
+      erc-log-write-after-insert t
+      erc-log-write-after-send t
+      erc-log-file-coding-system 'utf-8)
+
+(defun mg/search-erc-logs (term)
+  "Search the irc logs for a given term"
+  (interactive "sTerm to search for in the logs: ")
+  (ag-files term '(:file-regex "#") "~/.erc/logs/"))
 
 ;; tracking ----------------------------------------------------------------
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
@@ -52,6 +69,7 @@
 (global-set-key (kbd "C-c i t") 'erc-track-mode)
 (global-set-key (kbd "C-c i d") 'erc-toggle-timestamps)
 (global-set-key (kbd "C-c i s s") 'erc-occur)
+(global-set-key (kbd "C-c i s l") 'mg/search-erc-logs)
 
 (global-set-key (kbd "C-c i j") (defhydra hydra-switch-to-irc-buffer (:color blue)
                                   "Jump to IRC channel"
