@@ -16,6 +16,7 @@
 ;;     - t = display today (email received within the last 24 hours from now
 ;;     - m = mailing-lists
 ;;     - c = display who connect to me on various social media sites
+;;   * In search lists `u` can be used to display messages taged with *unread*
 ;;
 ;;  I rely on a bash script that tag mail in my notmuch mail database. I should perhaps
 ;;  open source this script at some point.
@@ -41,6 +42,13 @@
         (:name "connections" :key "c"
                :query "tag:friend-request date:-7d..now"
                :count-query "tag:friend-request date:-24h..now")))
+
+;; key-bindings in search lists
+(define-key notmuch-search-mode-map "u"
+  (lambda (&optional beg end)
+    "display only unread messages for the current search view"
+    (interactive (notmuch-search-interactive-region))
+    (notmuch-search-filter-by-tag "unread")))
 
 ;; mode hooks
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
