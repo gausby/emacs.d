@@ -31,8 +31,9 @@
       holiday-hebrew-holidays nil)
 
 (setq holiday-general-holidays
-      '((holiday-fixed 12 31 "Party")
-        (holiday-fixed  1  1 "Hangover")))
+      '((holiday-fixed  1  1 "That one day with ski jumping on the telly")
+        (holiday-fixed  1  9 "Lee Van Cleef memorial day")
+        (holiday-fixed 12 31 "Party")))
 
 ;; Let emacs know where we are
 (setq calendar-latitude +55.0
