@@ -27,8 +27,8 @@
 (require 'navigation-setup)
 (require 'notifications-setup)
 (require 'org-setup)
-(require 'popwin-setup)
 (require 'project-setup)
+(require 'shackle-setup)
 (require 'smex-setup)
 (require 'yasnippet-setup)
 
