@@ -12,6 +12,8 @@
 ;;  * Calendar view is fancy
 ;;  * Emacs knows about our location. It is set to Copenhagen, Denmark
 ;;  * The calendar does not know about any holidays, except my own
+;;  * keybinding `C-c o c` will open the calendar
+;;  * Keybinding `C-c o j e` will insert a new entry in todays journal file
 
 ;;; Code:
 (require 'calendar)
@@ -44,6 +46,10 @@
 (add-hook 'diary-display-hook 'fancy-diary-display)
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+
+;; Keybindings
+(global-set-key (kbd "C-c o c") 'calendar)
+(global-set-key (kbd "C-c o j e") 'org-journal-new-entry)
 
 (provide 'diary-mode-setup)
 
