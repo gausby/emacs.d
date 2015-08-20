@@ -63,6 +63,15 @@
 (eval-after-load "erc" '(define-key erc-mode-map (kbd "C-c C-b") nil))
 
 ;; define keybindings
+(define-key erc-mode-map (kbd "C-c C-o") nil)
+(define-key erc-mode-map (kbd "C-c C-i") nil)
+(define-key erc-mode-map (kbd "C-c C-j") nil)
+(define-key erc-mode-map (kbd "C-c C-o") nil)
+(define-key erc-mode-map (kbd "C-c C-l") nil)
+(define-key erc-mode-map (kbd "C-c C-p") nil)
+(define-key erc-mode-map (kbd "C-c C-s") nil)
+(define-key erc-mode-map (kbd "C-c C-t") nil)
+
 (global-set-key (kbd "C-c i c a") 'znc-all)
 (global-set-key (kbd "C-c i c c") 'znc-erc)
 (global-set-key (kbd "C-c i b") 'erc-track-switch-buffer)
