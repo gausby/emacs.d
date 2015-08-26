@@ -13,6 +13,8 @@
 
 ;;; Code:
 (require 'org)
+(require 'org-agenda)
+(require 'org-capture)
 (require 'org-journal)
 (require 'org-present)
 
@@ -25,6 +27,12 @@
 (setq org-directory "~/Dropbox/org"
       org-default-notes-file (concat org-directory "/notes.org")
       org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
+
+;; Capture
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/Dropbox/org/notes.org" "Tasks") "* TODO %?")
+        ("r" "To read" entry (file+headline "~/Dropbox/org/notes.org" "Reading") "* UNREAD %?")
+        ("w" "To watch" entry (file+headline "~/Dropbox/org/notes.org" "Watching") "* UNWATCHED %?")))
 
 ;; Integrations
 (setq org-agenda-include-diary t)
