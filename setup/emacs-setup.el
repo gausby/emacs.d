@@ -11,6 +11,9 @@
 ;; should disable .#-files (i actually don't know if this is a good thing)
 (setq create-lockfiles nil)
 
+;; don't create auto save files (those starting with a '#')
+(setq auto-save-default nil)
+
 ;; utf-8 all the things
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
