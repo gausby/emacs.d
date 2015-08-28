@@ -15,11 +15,13 @@
 ;;  * Define a hydra for jumping to irc channels bound to `C-c i j` (j for jump)
 ;;  * Log conversations to ~/.erc/logs (this folder should get created manually)
 ;;  * Use the silver searcher to search the irc logs using `C-c i s l` (s l: search logs)
+;;  * Use erc-view-log mode for erc log files
 
 ;;; Code:
 (require 'erc)
 (require 'erc-stamp)
 (require 'erc-log)
+(require 'erc-view-log)
 
 (erc-colorize-mode 1)
 (erc-spelling-mode 1)
@@ -52,6 +54,12 @@
   "Search the irc logs for a given term"
   (interactive "sTerm to search for in the logs: ")
   (ag-files term '(:file-regex "[^\*]") "~/.erc/logs/"))
+
+;; viewing logs ------------------------------------------------------------
+(setq erc-view-log-my-nickname-match '("gausby"))
+
+(add-to-list 'auto-mode-alist
+             `(,(format "%s.*\\.txt" (regexp-quote (expand-file-name erc-log-channels-directory))) . erc-view-log-mode))
 
 ;; tracking ----------------------------------------------------------------
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
