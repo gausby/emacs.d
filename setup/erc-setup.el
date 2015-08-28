@@ -51,7 +51,7 @@
 (defun mg/search-erc-logs (term)
   "Search the irc logs for a given term"
   (interactive "sTerm to search for in the logs: ")
-  (ag-files term '(:file-regex "#") "~/.erc/logs/"))
+  (ag-files term '(:file-regex "[^\*]") "~/.erc/logs/"))
 
 ;; tracking ----------------------------------------------------------------
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
