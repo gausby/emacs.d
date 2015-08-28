@@ -101,6 +101,13 @@
                                   ("l" (switch-to-buffer "#labitat") "#labitat")
                                   ("s" (switch-to-buffer "#stackvm") "#stackvm")))
 
+(define-key erc-view-log-mode-map (kbd "n") 'next-line)
+(define-key erc-view-log-mode-map (kbd "p") 'previous-line)
+(define-key erc-view-log-mode-map (kbd "o") 'occur)
+(define-key erc-view-log-mode-map (kbd "M-n") 'erc-view-log-next-mention)
+(define-key erc-view-log-mode-map (kbd "M-p") 'erc-view-log-previous-mention)
+(define-key erc-view-log-mode-map (kbd "q") 'bury-buffer)
+
 (provide 'erc-setup)
 
 ;;; erc-setup.el ends here
