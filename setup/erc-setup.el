@@ -34,7 +34,7 @@
 
 (setq erc-insert-timestamp-function 'erc-insert-timestamp-left
       erc-fill-column nil
-      erc-timestamp-format "%H:%M "
+      erc-timestamp-format "%H:%M:%S "
       erc-hide-timestamps t)
 
 ;; messages
