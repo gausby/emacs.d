@@ -2,6 +2,7 @@
 (source melpa)
 (source org)
 
+(depends-on "ac-emmet")
 (depends-on "ag")
 (depends-on "avy")
 (depends-on "bbdb")
@@ -14,6 +15,7 @@
 (depends-on "dash")
 (depends-on "drag-stuff")
 (depends-on "elm-mode")
+(depends-on "emmet-mode")
 (depends-on "emms")
 (depends-on "erc-colorize")
 (depends-on "erc-hl-nicks")

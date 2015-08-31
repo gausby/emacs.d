@@ -18,7 +18,6 @@
 (require 'git-setup)
 (require 'god-mode-setup)
 (require 'haskell-setup)
-(require 'html-setup)
 (require 'irfc-setup)
 (require 'julia-setup)
 (require 'looks-setup)
@@ -30,6 +29,7 @@
 (require 'project-setup)
 (require 'shackle-setup)
 (require 'smex-setup)
+(require 'webdev-setup)
 (require 'yasnippet-setup)
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
