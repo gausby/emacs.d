@@ -39,3 +39,14 @@ The setup require emacs-elixir and alchemist.el to be cloned into the *~/Develop
 Calendar needs a diary file. Write `touch ~/.diary` in the terminal to generate one.
 
 The calendar location is set to Copenhagen, Denmark.
+
+### Gist
+Create a token on github and add the following to your *~/.gitconfig*
+
+```config
+[github]
+    user = *GITHUB_USER_NAME*
+    oauth-token = *TOKEN*
+```
+
+Replace *GITHUB_USER_NAME* and *TOKEN* with the appropriate values.
