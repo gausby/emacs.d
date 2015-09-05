@@ -19,6 +19,7 @@
 (depends-on "emms")
 (depends-on "erc-colorize")
 (depends-on "erc-hl-nicks")
+(depends-on "erc-terminal-notifier")
 (depends-on "erc-view-log")
 (depends-on "erlang")
 (depends-on "exec-path-from-shell")

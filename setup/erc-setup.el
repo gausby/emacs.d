@@ -16,9 +16,11 @@
 ;;  * Log conversations to ~/.erc/logs (this folder should get created manually)
 ;;  * Use the silver searcher to search the irc logs using `C-c i s l` (s l: search logs)
 ;;  * Use erc-view-log mode for erc log files
+;;  * Use terminal-notifier to send notifications to the OSX messages system
 
 ;;; Code:
 (require 'erc)
+(require 'erc-terminal-notifier)
 (require 'erc-stamp)
 (require 'erc-log)
 (require 'erc-view-log)
