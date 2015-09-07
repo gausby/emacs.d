@@ -10,13 +10,24 @@
 ;;       July 15 2015
 ;;       #TAGS: Wednesday week29
 ;;       * Today
+;;   * Visually replace org bullets with utf-8 bullets
 
 ;;; Code:
 (require 'org)
 (require 'org-agenda)
+(require 'org-bullets)
 (require 'org-capture)
 (require 'org-journal)
 (require 'org-present)
+
+;; Looks
+;; Enable syntax highlighting in code blocks
+(setq org-src-fontify-natively t)
+
+(defun mg/org-mode-hook ()
+  "Hooks for web-mode"
+  (org-bullets-mode 1))
+(add-hook 'org-mode-hook 'mg/org-mode-hook)
 
 ;; Journal
 (setq org-journal-date-prefix "#+TITLE: "
@@ -36,9 +47,6 @@
 
 ;; Integrations
 (setq org-agenda-include-diary t)
-
-;; enable syntax highlighting in code blocks
-(setq org-src-fontify-natively t)
 
 ;; Present
 (eval-after-load "org-present"

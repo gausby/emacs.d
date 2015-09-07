@@ -48,6 +48,7 @@
 (depends-on "notmuch")
 (depends-on "nyan-mode")
 (depends-on "org")
+(depends-on "org-bullets")
 (depends-on "org-journal")
 (depends-on "org-present")
 (depends-on "pallet")
