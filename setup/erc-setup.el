@@ -74,6 +74,9 @@
 (eval-after-load "erc" '(define-key erc-mode-map (kbd "C-c C-b") nil))
 
 ;; define keybindings
+(define-prefix-command 'irc-global-map)
+(global-set-key (kbd "C-c i") 'irc-global-map)
+
 (define-key erc-mode-map (kbd "C-c C-i") nil)
 (define-key erc-mode-map (kbd "C-c C-j") nil)
 (define-key erc-mode-map (kbd "C-c C-l") nil)
@@ -82,15 +85,15 @@
 (define-key erc-mode-map (kbd "C-c C-s") nil)
 (define-key erc-mode-map (kbd "C-c C-t") nil)
 
-(global-set-key (kbd "C-c i c a") 'znc-all)
-(global-set-key (kbd "C-c i c c") 'znc-erc)
-(global-set-key (kbd "C-c i b") 'erc-track-switch-buffer)
-(global-set-key (kbd "C-c i t") 'erc-track-mode)
-(global-set-key (kbd "C-c i d") 'erc-toggle-timestamps)
-(global-set-key (kbd "C-c i s s") 'erc-occur)
-(global-set-key (kbd "C-c i s l") 'mg/search-erc-logs)
+(define-key 'irc-global-map (kbd "c a") 'znc-all)
+(define-key 'irc-global-map (kbd "c c") 'znc-erc)
+(define-key 'irc-global-map (kbd "b") 'erc-track-switch-buffer)
+(define-key 'irc-global-map (kbd "t") 'erc-track-mode)
+(define-key 'irc-global-map (kbd "d") 'erc-toggle-timestamps)
+(define-key 'irc-global-map (kbd "s s") 'erc-occur)
+(define-key 'irc-global-map (kbd "s l") 'mg/search-erc-logs)
 
-(global-set-key (kbd "C-c i j") (defhydra hydra-switch-to-irc-buffer (:color blue)
+(define-key 'irc-global-map (kbd "j") (defhydra hydra-switch-to-irc-buffer (:color blue)
                                   "Jump to IRC channel"
                                   ("e" (switch-to-buffer "#elixir-lang") "#elixir-lang")
                                   ("a" (switch-to-buffer "#emacs-elixir") "#emacs-elixir")
