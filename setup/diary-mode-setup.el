@@ -48,8 +48,11 @@
 (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
 
 ;; Keybindings
-(global-set-key (kbd "C-c o c") 'calendar)
-(global-set-key (kbd "C-c o j e") 'org-journal-new-entry)
+(define-prefix-command 'o-global-map)
+(global-set-key (kbd "C-c o") 'o-global-map)
+
+(define-key 'o-global-map (kbd "c") 'calendar)
+(define-key 'o-global-map (kbd "e") 'org-journal-new-entry)
 
 (provide 'diary-mode-setup)
 
