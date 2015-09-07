@@ -48,6 +48,15 @@
 ;; Integrations
 (setq org-agenda-include-diary t)
 
+;; Babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sh         . t)
+   (emacs-lisp . t)
+   (css        . t)))
+
+(setq org-confirm-babel-evaluate nil) ;; don't ask about evaluating code
+
 ;; Present
 (eval-after-load "org-present"
   '(progn
