@@ -53,6 +53,7 @@
 
 (define-key 'o-global-map (kbd "c") 'calendar)
 (define-key 'o-global-map (kbd "e") 'org-journal-new-entry)
+(define-key 'o-global-map (kbd "a") 'org-agenda)
 
 (provide 'diary-mode-setup)
 
