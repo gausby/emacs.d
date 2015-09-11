@@ -8,5 +8,8 @@
 
 (setq irfc-directory "~/Documents/RFC")
 
+(add-to-list 'auto-mode-alist
+             `(,(format "%s/.*\\.txt" (regexp-quote (expand-file-name irfc-directory))) . irfc-mode))
+
 (provide 'irfc-setup)
 ;;; irfc-setup.el ends here
