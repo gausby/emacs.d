@@ -55,6 +55,7 @@
  '((sh         . t)
    (emacs-lisp . t)
    (css        . t)
+   (haskell    . t)
    (plantuml   . t)))
 
 (setq org-confirm-babel-evaluate nil) ;; don't ask about evaluating code
