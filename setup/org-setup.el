@@ -55,6 +55,7 @@
  '((sh         . t)
    (emacs-lisp . t)
    (css        . t)
+   (calc       . t)
    (haskell    . t)
    (plantuml   . t)))
 
