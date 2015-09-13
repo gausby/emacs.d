@@ -11,6 +11,7 @@
 ;;       #TAGS: Wednesday week29
 ;;       * Today
 ;;   * Visually replace org bullets with utf-8 bullets
+;;   * Setup source blocks for execution in various langauges
 
 ;;; Code:
 (require 'org)
@@ -53,9 +54,13 @@
  'org-babel-load-languages
  '((sh         . t)
    (emacs-lisp . t)
-   (css        . t)))
+   (css        . t)
+   (plantuml   . t)))
 
 (setq org-confirm-babel-evaluate nil) ;; don't ask about evaluating code
+
+;; @todo perhaps link the jar file so I don't need to update this variable when plantuml update
+(setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8029/plantuml.8029.jar")
 
 ;; Present
 (eval-after-load "org-present"
