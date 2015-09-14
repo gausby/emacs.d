@@ -54,7 +54,9 @@
  'org-babel-load-languages
  '((sh         . t)
    (emacs-lisp . t)
+   (C          . t)
    (css        . t)
+   (js         . t)
    (calc       . t)
    (haskell    . t)
    (plantuml   . t)))
