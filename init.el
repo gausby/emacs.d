@@ -20,6 +20,7 @@
 (require 'haskell-setup)
 (require 'irfc-setup)
 (require 'julia-setup)
+(require 'latex-setup)
 (require 'looks-setup)
 (require 'mail-setup)
 (require 'markdown-mode-setup)
