@@ -7,7 +7,6 @@
 ;;
 ;;   * enable elixir- and alchemist-mode
 ;;   * setup my yasnippets, these are found in `~/.emacs.d/snippets/elixir-mode`
-;;   * auto-complete do with `..end` with indentation
 ;;   * highlight matching do..end-pairs
 ;;   * set `M-,` to jump-back to code when visiting definition in Erlang code
 
@@ -18,30 +17,16 @@
 (require 'elixir-mode)
 (require 'alchemist)
 
-(eval-after-load 'smartparens
-  '(progn
-     (defun my-elixir-do-end-close-action (id action context)
-       (when (eq action 'insert)
-         (newline-and-indent)
-         (previous-line)
-         (indent-according-to-mode)))
-
-     (sp-with-modes '(elixir-mode)
-       (sp-local-pair "do" "end"
-                      :when '(("SPC" "RET"))
-                      :post-handlers '(:add my-elixir-do-end-close-action)
-                      :actions '(insert)))))
-
-(defun t-elixir-mode-hook ()
+(defun mg/elixir-mode-hook ()
   (alchemist-mode +1)
   (yas/minor-mode +1)
   (smartparens-mode +1))
 
-(defun t-erlang-mode-hook ()
+(defun mg/erlang-mode-hook ()
   (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
 
-(add-hook 'elixir-mode-hook 't-elixir-mode-hook)
-(add-hook 'erlang-mode-hook 't-erlang-mode-hook)
+(add-hook 'elixir-mode-hook 'mg/elixir-mode-hook)
+(add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)
 
 (provide 'elixir-setup)
 
