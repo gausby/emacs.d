@@ -31,7 +31,8 @@
 ;; in chat -----------------------------------------------------------------
 (defun my-erc-mode-hook ()
   (erc-fill-disable)
-  (visual-line-mode))
+  (visual-line-mode)
+  (set-visual-wrap-column 80))
 (add-hook 'erc-mode-hook 'my-erc-mode-hook)
 
 (setq erc-insert-timestamp-function 'erc-insert-timestamp-left

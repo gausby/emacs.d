@@ -27,7 +27,9 @@
 
 (defun mg/org-mode-hook ()
   "Hooks for web-mode"
-  (org-bullets-mode 1))
+  (org-bullets-mode 1)
+  (visual-line-mode 1)
+  (set-visual-wrap-column 80))
 (add-hook 'org-mode-hook 'mg/org-mode-hook)
 
 ;; Journal

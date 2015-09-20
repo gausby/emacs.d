@@ -3,6 +3,7 @@
 
 (add-to-list 'load-path (expand-file-name "setup" user-emacs-directory))
 
+(require 'helpers)
 (require 'system-setup)
 
 (require 'bbdb-setup)
