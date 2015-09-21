@@ -48,6 +48,7 @@
 (depends-on "neotree")
 (depends-on "notmuch")
 (depends-on "nyan-mode")
+(depends-on "ob-http")
 (depends-on "org")
 (depends-on "org-bullets")
 (depends-on "org-journal")

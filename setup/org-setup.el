@@ -56,6 +56,7 @@
  'org-babel-load-languages
  '((sh         . t)
    (emacs-lisp . t)
+   (http       . t)
    (C          . t)
    (css        . t)
    (js         . t)
