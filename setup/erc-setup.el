@@ -29,11 +29,11 @@
 (erc-spelling-mode 1)
 
 ;; in chat -----------------------------------------------------------------
-(defun my-erc-mode-hook ()
+(defun mg/erc-mode-hook ()
   (erc-fill-disable)
   (visual-line-mode)
   (set-visual-wrap-column 80))
-(add-hook 'erc-mode-hook 'my-erc-mode-hook)
+(add-hook 'erc-mode-hook 'mg/erc-mode-hook)
 
 (setq erc-insert-timestamp-function 'erc-insert-timestamp-left
       erc-fill-column nil
