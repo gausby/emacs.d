@@ -71,6 +71,11 @@
 (add-to-list 'auto-mode-alist
              `(,(format "%s.*\\.txt" (regexp-quote (expand-file-name erc-log-channels-directory))) . erc-view-log-mode))
 
+(defun mg/erc-view-log-mode-hook ()
+  (visual-line-mode)
+  (set-visual-wrap-column 80))
+(add-hook 'erc-view-log-mode-hook 'mg/erc-view-log-mode-hook)
+
 ;; Get rid of the iswitchb obsolete message when hitting C-c C-b
 (eval-after-load "erc" '(define-key erc-mode-map (kbd "C-c C-b") nil))
 
