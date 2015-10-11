@@ -14,7 +14,8 @@
 ;;     - d = drafts
 ;;     - s = sent messages
 ;;     - t = display today (email received within the last 24 hours from now
-;;     - m = mailing-lists
+;;     - m = mailing-lists (unread)
+;;     - M = mailing-lists archive
 ;;     - c = display who connect to me on various social media sites
 ;;   * In search lists `u` can be used to display messages taged with *unread*
 ;;
@@ -37,8 +38,10 @@
         (:name "sent" :query "tag:sent" :key "s")
         (:name "today" :query "tag:inbox and date:-24h..now and not tag:mailing-list" :key "t")
         (:name "mailing-lists" :key "m"
-               :query "tag:mailing-list" :sort-order 'newest-first
+               :query "tag:mailing-list and tag:unread" :sort-order 'newest-first
                :count-query "tag:mailing-list and tag:unread")
+        (:name "mailing-list archive" :key "M"
+               :query "tag:mailing-list" :sort-order 'newest-first)
         (:name "connections" :key "c"
                :query "tag:friend-request date:-7d..now"
                :count-query "tag:friend-request date:-24h..now")))
