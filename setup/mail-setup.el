@@ -10,7 +10,8 @@
 ;;   * Use jump search (press `j` in the notmuch-hello) to navigate saved notmuch searches
 ;;     - i = everything in the inbox
 ;;     - u = unread messages
-;;     - f = flagged messages
+;;     - f = flagged messages + not replied
+;;     - F = all flagged messages
 ;;     - d = drafts
 ;;     - s = sent messages
 ;;     - t = display today (email received within the last 24 hours from now
@@ -33,7 +34,8 @@
 (setq notmuch-saved-searches
       '((:name "unread" :query "tag:unread and not tag:mailing-list" :key "u")
         (:name "inbox" :query "tag:inbox" :key "i")
-        (:name "flagged" :query "tag:flagged" :key "f")
+        (:name "flagged and not replied" :query "tag:flagged and not tag:replied" :key "f")
+        (:name "flagged" :query "tag:flagged" :key "F")
         (:name "drafts" :query "tag:draft" :key "d")
         (:name "sent" :query "tag:sent" :key "s")
         (:name "today" :query "tag:inbox and date:-24h..now and not tag:mailing-list" :key "t")
