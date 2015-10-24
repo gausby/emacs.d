@@ -15,6 +15,7 @@
 
      ("*alchemist help*" :align below :ratio 0.75 :select t)
      ("*alchemist test report*" :align below :ratio 0.5 :select t)
+     ("*Alchemist-IEx*" :align right :ratio 0.33 :select t)
 
      ("*ag search*" :align below :ratio 0.33 :select t))))
 

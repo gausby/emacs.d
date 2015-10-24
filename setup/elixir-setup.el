@@ -28,6 +28,10 @@
 (add-hook 'elixir-mode-hook 'mg/elixir-mode-hook)
 (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)
 
+(defun mg/alchemist-iex-mode-hook ()
+  (text-scale-set -3))
+(add-hook 'alchemist-iex-mode-hook 'mg/alchemist-iex-mode-hook)
+
 (provide 'elixir-setup)
 
 ;;; elixir-setup.el ends here
