@@ -29,7 +29,7 @@
 (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)
 
 (defun mg/alchemist-iex-mode-hook ()
-  (text-scale-set -3))
+  (text-scale-set -2))
 (add-hook 'alchemist-iex-mode-hook 'mg/alchemist-iex-mode-hook)
 
 (provide 'elixir-setup)
