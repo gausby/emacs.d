@@ -8,7 +8,7 @@ This time around I will set stuff up with Cask.
  * Some bits has been taken from [Bozhidar Batsov](https://github.com/bbatsov)'s [Emacs Prelude](https://github.com/bbatsov/prelude) starter package.
 
 Requirements
-------------
+-------------
 
   * Emacs 24+
   * [Cask](https://github.com/cask/cask) for handling dependencies
