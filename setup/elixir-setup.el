@@ -28,6 +28,10 @@
 (add-hook 'elixir-mode-hook 'mg/elixir-mode-hook)
 (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)
 
+(defun mg/alchemist-test-report-mode-hook ()
+  (text-scale-set -2))
+(add-hook 'alchemist-test-report-mode-hook 'mg/alchemist-test-report-mode-hook)
+
 (defun mg/alchemist-iex-mode-hook ()
   (text-scale-set -2))
 (add-hook 'alchemist-iex-mode-hook 'mg/alchemist-iex-mode-hook)
