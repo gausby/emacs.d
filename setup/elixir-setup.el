@@ -29,7 +29,8 @@
 (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)
 
 (defun mg/alchemist-test-report-mode-hook ()
-  (text-scale-set -2))
+  (text-scale-set -2)
+  (toggle-truncate-lines))
 (add-hook 'alchemist-test-report-mode-hook 'mg/alchemist-test-report-mode-hook)
 
 (defun mg/alchemist-iex-mode-hook ()
