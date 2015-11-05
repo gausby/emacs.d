@@ -59,6 +59,7 @@
 (depends-on "projectile")
 (depends-on "rainbow-mode")
 (depends-on "rainbow-delimiters")
+(depends-on "restclient")
 (depends-on "s")
 (depends-on "sauron")
 (depends-on "shackle")
