@@ -76,11 +76,13 @@
      (add-hook 'org-present-mode-hook
                (lambda ()
                  (org-present-big)
+                 (set-visual-wrap-column 256)
                  (org-display-inline-images)
                  (org-present-hide-cursor)
                  (org-present-read-only)))
      (add-hook 'org-present-mode-quit-hook
                (lambda ()
+                 (set-visual-wrap-column 80)
                  (org-present-small)
                  (org-remove-inline-images)
                  (org-present-show-cursor)
