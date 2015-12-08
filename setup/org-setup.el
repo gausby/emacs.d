@@ -68,7 +68,7 @@
 (setq org-confirm-babel-evaluate nil) ;; don't ask about evaluating code
 
 ;; @todo perhaps link the jar file so I don't need to update this variable when plantuml update
-(setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8029/plantuml.8029.jar")
+(setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8031/plantuml.8031.jar")
 
 ;; Present
 (eval-after-load "org-present"
