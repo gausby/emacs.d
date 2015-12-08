@@ -29,7 +29,7 @@
   "Hooks for web-mode"
   (org-bullets-mode 1)
   (visual-line-mode 1)
-  (set-visual-wrap-column 80))
+  (set-visual-wrap-column 90))
 (add-hook 'org-mode-hook 'mg/org-mode-hook)
 
 ;; Journal
