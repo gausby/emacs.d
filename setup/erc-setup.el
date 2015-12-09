@@ -32,7 +32,7 @@
 (defun mg/erc-mode-hook ()
   (erc-fill-disable)
   (visual-line-mode)
-  (set-visual-wrap-column 80))
+  (set-visual-wrap-column 90))
 (add-hook 'erc-mode-hook 'mg/erc-mode-hook)
 
 (setq erc-insert-timestamp-function 'erc-insert-timestamp-left
