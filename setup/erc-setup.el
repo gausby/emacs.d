@@ -105,6 +105,7 @@
                                   ("a" (switch-to-buffer "#emacs-elixir") "#emacs-elixir")
                                   ("c" (switch-to-buffer "#cphex") "#cphex")
                                   ("f" (switch-to-buffer "#cphftw") "#cphftw")
+                                  ("b" (switch-to-buffer "##bittorrent") "##bittorrent")
                                   ("j" (switch-to-buffer "#copenhagenjs") "#copenhagenjs")
                                   ("n" (switch-to-buffer "#nerdtracker") "#nerdtracker")
                                   ("g" (switch-to-buffer "#erlang") "#erlang")
