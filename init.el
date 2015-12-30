@@ -6,6 +6,7 @@
 (require 'helpers)
 (require 'system-setup)
 
+(require 'browser-setup)
 (require 'bbdb-setup)
 (require 'company-setup)
 (require 'diary-mode-setup)
