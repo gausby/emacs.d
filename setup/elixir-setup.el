@@ -9,6 +9,7 @@
 ;;   * setup my yasnippets, these are found in `~/.emacs.d/snippets/elixir-mode`
 ;;   * highlight matching do..end-pairs
 ;;   * set `M-,` to jump-back to code when visiting definition in Erlang code
+;;   * add an "*elixir scratch* pad buffer" for quick testing and evaluating with `C-c a v q`
 
 ;;; Code:
 (add-to-list 'load-path "~/Development/forks/emacs-elixir/")
@@ -36,6 +37,18 @@
 (defun mg/alchemist-iex-mode-hook ()
   (text-scale-set -2))
 (add-hook 'alchemist-iex-mode-hook 'mg/alchemist-iex-mode-hook)
+
+;; scratch pad buffer
+(defun mg/alchemist-create-scratch-buffer ()
+  "Open a buffer in elixir/alchemist mode; use `C-c a v q` for
+evaluating the expressions in Elixir"
+  (interactive)
+  (switch-to-buffer "*elixir scratch*")
+  (elixir-mode)
+  (alchemist-mode))
+;; bind the scratch pad to C-c a i s, why 'i'? Dunno, it has something to do with
+;; evaluating stuff, I guess.
+(define-key alchemist-mode-keymap (kbd "i s") 'mg/alchemist-create-scratch-buffer)
 
 (provide 'elixir-setup)
 
