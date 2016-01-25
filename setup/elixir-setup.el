@@ -50,6 +50,9 @@ evaluating the expressions in Elixir"
 ;; evaluating stuff, I guess.
 (define-key alchemist-mode-keymap (kbd "i s") 'mg/alchemist-create-scratch-buffer)
 
+;; require my elixir yasnippets
+(require 'mg-elixir-snippets)
+
 (provide 'elixir-setup)
 
 ;;; elixir-setup.el ends here

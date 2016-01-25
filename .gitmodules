@@ -1,6 +1,6 @@
 [submodule "snippets/web-mode"]
 	path = snippets/web-mode
 	url = git@github.com:gausby/HTML5-YASnippet-bundle.git
-[submodule "snippets/elixir-mode"]
-	path = snippets/elixir-mode
+[submodule "site-lisp/mg-elixir-snippets"]
+	path = site-lisp/mg-elixir-snippets
 	url = git@github.com:gausby/mg-elixir-snippets.git
