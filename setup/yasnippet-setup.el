@@ -1,14 +1,12 @@
-;;; yasnippet-setup.el --- setup for everything ace
+;;; yasnippet-setup.el --- setup for the yasnippet system
 
 ;;; Commentary:
-;;  Setup for the various ace modes
+;;  * Enable yasnippet globally
 
 ;;; Code:
 (require 'yasnippet)
-(setq yas-snippet-dirs "~/.emacs.d/snippets")
 
 (yas-global-mode +1)
 
 (provide 'yasnippet-setup)
-
 ;;; yasnippet-setup.el ends here
