@@ -20,9 +20,9 @@
 (require 'system-setup)
 
 (require 'yasnippet-setup)
+(require 'company-setup)
 (require 'browser-setup)
 (require 'bbdb-setup)
-(require 'company-setup)
 (require 'diary-mode-setup)
 (require 'elixir-setup)
 (require 'elm-setup)
