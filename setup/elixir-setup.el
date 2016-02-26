@@ -50,6 +50,12 @@ evaluating the expressions in Elixir"
 ;; evaluating stuff, I guess.
 (define-key alchemist-mode-keymap (kbd "i s") 'mg/alchemist-create-scratch-buffer)
 
+(defun mg/alchemist-run-credo-on-project ()
+  "Run credo on project"
+  (interactive)
+  (alchemist-mix-execute "credo"))
+(define-key alchemist-mode-keymap (kbd "p c") 'mg/alchemist-run-credo-on-project)
+
 ;; require my elixir yasnippets
 (require 'mg-elixir-snippets)
 
