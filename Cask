@@ -30,6 +30,7 @@
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "flycheck-haskell")
+(depends-on "fountain-mode")
 (depends-on "gist")
 (depends-on "god-mode")
 (depends-on "haskell-mode")
