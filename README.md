@@ -19,6 +19,8 @@ Installation
 ### Fetch dependencies
 Use Git to clone the repo into ~/.emacs.d and install the dependencies using `cask install` in the newly cloned folder.
 
+Some dependencies are installed using git submodules, these can be initialized by typing `git submodule init` followed by `git submodule update`.
+
 ### Fonts
 unicode-fonts require the following fonts to be installed on the system:
 
