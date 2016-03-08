@@ -22,6 +22,8 @@ Use Git to clone the repo into ~/.emacs.d and install the dependencies using `ca
 Some dependencies are installed using git submodules, these can be initialized by typing `git submodule init` followed by `git submodule update`.
 
 ### Fonts
+The font I use is [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) from Adobe. Follow the install instructions for your operating system.
+
 unicode-fonts require the following fonts to be installed on the system:
 
   * [DejaVu Sans and DejaVu Sans Mono][dejavu]
