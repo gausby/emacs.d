@@ -95,6 +95,10 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "M-`") 'ispell-word)
 (global-set-key (kbd "H-`") 'ispell-complete-word)
 
+;; undoing
+(global-undo-tree-mode)
+(global-set-key (kbd "C-M-_") 'undo-tree-visualize)
+
 (provide 'emacs-setup)
 
 ;;; emacs-setup.el ends here
