@@ -111,7 +111,9 @@
                                   ("g" (switch-to-buffer "#erlang") "#erlang")
                                   ("o" (switch-to-buffer "#erlounge") "#erlounge")
                                   ("l" (switch-to-buffer "#labitat") "#labitat")
-                                  ("s" (switch-to-buffer "#stackvm") "#stackvm")))
+                                  ("s" (switch-to-buffer "#stackvm") "#stackvm")
+                                  ("v" (switch-to-buffer "#vernemq") "#vernemq")
+                                  ("r" (switch-to-buffer "#riak") "#riak")))
 
 (define-key erc-view-log-mode-map (kbd "n") 'next-line)
 (define-key erc-view-log-mode-map (kbd "p") 'previous-line)
