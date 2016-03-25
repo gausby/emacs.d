@@ -107,6 +107,7 @@
                                   ("f" (switch-to-buffer "#cphftw") "#cphftw")
                                   ("b" (switch-to-buffer "##bittorrent") "##bittorrent")
                                   ("j" (switch-to-buffer "#copenhagenjs") "#copenhagenjs")
+                                  ("d" (switch-to-buffer "#cauldron") "#cauldron")
                                   ("n" (switch-to-buffer "#nerdtracker") "#nerdtracker")
                                   ("g" (switch-to-buffer "#erlang") "#erlang")
                                   ("o" (switch-to-buffer "#erlounge") "#erlounge")
