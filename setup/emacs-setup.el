@@ -89,6 +89,9 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "C-A") 'prelude-move-beginning-of-line)
 ;; https://github.com/bbatsov/prelude/blob/fe7997bc6e05647a935e279094a9c571d175e2dc/core/prelude-core.el#L138-L159
 
+;; disabling version-control backends should speed up opening of files
+(setq vc-handled-backends nil)
+
 ;; setup spelling
 (global-set-key (kbd "M-`") nil)
 (global-set-key (kbd "M-$") nil)
