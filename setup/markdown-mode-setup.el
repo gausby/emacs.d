@@ -2,6 +2,7 @@
 
 ;;; Commentary:
 ;;  - Setup for markdown mode, use github flavored markdown
+;;  - Enable fountain mode for .fountain files
 ;;  - Enable visual line mode for markdown buffers
 
 ;;; Code:
@@ -15,6 +16,8 @@
 (defun mg/gfm-mode-hook ()
   (visual-line-mode +1))
 (add-hook 'gfm-mode-hook 'mg/gfm-mode-hook)
+
+(add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
 (provide 'markdown-mode-setup)
 ;;; markdown-mode-setup.el ends here
