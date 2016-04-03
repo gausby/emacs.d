@@ -12,6 +12,7 @@
 ;;    * indicate empty lines at the end of the buffer in the fringe
 ;;    * set font sizes
 ;;    * make it possible to scale font sizes using H-+, H--, and H-0
+;;    * fix some styles I don't care about in the Material theme
 
 ;; remove most of the chrome
 (menu-bar-mode -1)
@@ -49,6 +50,13 @@
       (progn
         (require 'unicode-fonts)
         (unicode-fonts-setup))))
+
+;; Fix material theme's org mode
+;; level 1 and 2 headers has these ugly borders, get rid of them
+(let* ((headline `(:background nil :box nil)))
+  (custom-theme-set-faces 'user
+                          `(org-level-1 ((t (,@headline))))
+                          `(org-level-2 ((t (,@headline))))))
 
 (provide 'looks-setup)
 
