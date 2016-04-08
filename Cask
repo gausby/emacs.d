@@ -55,6 +55,7 @@
 (depends-on "org-bullets")
 (depends-on "org-journal")
 (depends-on "org-present")
+(depends-on "origami")
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "prodigy")
