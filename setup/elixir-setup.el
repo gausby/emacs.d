@@ -17,11 +17,13 @@
 
 (require 'elixir-mode)
 (require 'alchemist)
+(require 'origami)
 
 (defun mg/elixir-mode-hook ()
   (alchemist-mode +1)
   (yas/minor-mode +1)
-  (smartparens-mode +1))
+  (smartparens-mode +1)
+  (origami-mode +1))
 
 (defun mg/erlang-mode-hook ()
   (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
@@ -55,6 +57,10 @@ evaluating the expressions in Elixir"
   (interactive)
   (alchemist-mix-execute "credo"))
 (define-key alchemist-mode-keymap (kbd "p c") 'mg/alchemist-run-credo-on-project)
+
+;; origami
+(define-key origami-mode-map (kbd "C-c [") 'origami-close-node)
+(define-key origami-mode-map (kbd "C-c ]") 'origami-open-node)
 
 ;; require my elixir yasnippets
 (require 'mg-elixir-snippets)
