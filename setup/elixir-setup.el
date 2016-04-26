@@ -11,6 +11,7 @@
 ;;   * set `M-,` to jump-back to code when visiting definition in Erlang code
 ;;   * add an "*elixir scratch* pad buffer" for quick testing and evaluating with `C-c a v q`
 ;;   * hitting `h` in a test report buffer will activate `highlight-phrase`
+;;   * open an new line and insert a pipe on C-return
 
 ;;; Code:
 (add-to-list 'load-path "~/Development/forks/emacs-elixir/")
@@ -63,6 +64,16 @@ evaluating the expressions in Elixir"
 ;; origami
 (define-key origami-mode-map (kbd "C-c [") 'origami-close-node)
 (define-key origami-mode-map (kbd "C-c ]") 'origami-open-node)
+
+;; Open a new line with a pipe on control return
+(defun mg/open-new-line-with-pipe ()
+     "open a new line with a pipe"
+     (interactive)
+     (progn
+       (newline)
+       (insert "|> ")
+       (indent-according-to-mode)))
+(define-key elixir-mode-map [(control return)] #'mg/open-new-line-with-pipe)
 
 ;; require my elixir yasnippets
 (require 'mg-elixir-snippets)
