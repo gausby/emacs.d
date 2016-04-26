@@ -10,6 +10,7 @@
 ;;   * highlight matching do..end-pairs
 ;;   * set `M-,` to jump-back to code when visiting definition in Erlang code
 ;;   * add an "*elixir scratch* pad buffer" for quick testing and evaluating with `C-c a v q`
+;;   * hitting `h` in a test report buffer will activate `highlight-phrase`
 
 ;;; Code:
 (add-to-list 'load-path "~/Development/forks/emacs-elixir/")
@@ -32,9 +33,10 @@
 (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)
 
 (defun mg/alchemist-test-report-mode-hook ()
-  (text-scale-set -2)
-  (toggle-truncate-lines))
+  (text-scale-set -2))
 (add-hook 'alchemist-test-report-mode-hook 'mg/alchemist-test-report-mode-hook)
+
+(define-key alchemist-test-report-mode-map "h" #'highlight-phrase)
 
 (defun mg/alchemist-iex-mode-hook ()
   (text-scale-set -2))
