@@ -8,7 +8,7 @@
 
 ;;; Code:
 (require 'bbdb)
-(setq bbdb-file "~/.bbdb")
+(setq bbdb-file "~/.bbdb.gpg")
 
 (setq bbdb-phone-style nil
       bbdb-send-mail-style 'compose-mail)
