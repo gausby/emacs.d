@@ -63,6 +63,7 @@
    (calc       . t)
    (haskell    . t)
    (latex      . t)
+   (lfe        . t)
    (plantuml   . t)))
 
 (setq org-confirm-babel-evaluate nil) ;; don't ask about evaluating code

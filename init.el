@@ -37,6 +37,7 @@
 (require 'irfc-setup)
 (require 'julia-setup)
 (require 'latex-setup)
+(require 'lfe-setup)
 (require 'looks-setup)
 (require 'mail-setup)
 (require 'markdown-mode-setup)
