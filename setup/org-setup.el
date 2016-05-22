@@ -22,6 +22,15 @@
 (require 'org-present)
 
 ;; Looks
+;; Remove the background box on headlines in the material theme
+(let* ((headline `(:background nil :box nil)))
+  (custom-theme-set-faces 'user
+                          `(org-level-4 ((t (:height 1.0))))
+                          `(org-level-3 ((t (:height 1.0))))
+                          `(org-level-2 ((t (,@headline :height 1.0))))
+                          `(org-level-1 ((t (,@headline :height 1.2))))
+                          `(org-document-title ((t (,@headline :height 1.25 :underline nil))))))
+
 ;; Enable syntax highlighting in code blocks
 (setq org-src-fontify-natively t)
 
@@ -88,6 +97,9 @@
                  (org-remove-inline-images)
                  (org-present-show-cursor)
                  (org-present-read-write)))))
+
+;; Looks
+(setq org-hide-emphasis-markers t) ;; hide asterisks and slashes for bold and italics
 
 (provide 'org-setup)
 

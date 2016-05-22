@@ -51,13 +51,6 @@
         (require 'unicode-fonts)
         (unicode-fonts-setup))))
 
-;; Fix material theme's org mode
-;; level 1 and 2 headers has these ugly borders, get rid of them
-(let* ((headline `(:background nil :box nil)))
-  (custom-theme-set-faces 'user
-                          `(org-level-1 ((t (,@headline))))
-                          `(org-level-2 ((t (,@headline))))))
-
 (provide 'looks-setup)
 
 ;;; looks-setup.el ends here
