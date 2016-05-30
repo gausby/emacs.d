@@ -45,7 +45,7 @@
 (require 'notifications-setup)
 (require 'org-setup)
 (require 'project-setup)
-(require 'shackle-setup)
+(require 'window-setup)
 (require 'smex-setup)
 (require 'webdev-setup)
 

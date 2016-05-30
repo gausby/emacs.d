@@ -1,7 +1,10 @@
-;;; shackle-setup.el --- setup for shackle
+;;; window-setup.el --- setup for window handling
 
 ;;; Commentary:
-;;  Setup for how certain buffers behave
+;;  Setup for how windows behave
+;;
+;;  - Shackle will position certain buffers
+;;  - winner-mode is enabled
 
 ;;; Code:
 (require 'shackle)
@@ -19,5 +22,8 @@
 
      ("*ag search*" :align below :ratio 0.33 :select t))))
 
-(provide 'shackle-setup)
-;;; shackle-setup.el ends here
+;; enable winner mode
+(winner-mode t)
+
+(provide 'window-setup)
+;;; window-setup.el ends here
