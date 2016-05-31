@@ -51,11 +51,12 @@
 (define-prefix-command 'o-global-map)
 (global-set-key (kbd "C-c o") 'o-global-map)
 
-(define-key 'o-global-map (kbd "c") 'calendar)
+(define-key 'o-global-map (kbd "C") 'calendar)
 (define-key 'o-global-map (kbd "e") 'org-journal-new-entry)
 (define-key 'o-global-map (kbd "a") 'org-agenda)
 (define-key 'o-global-map (kbd "f") 'org-iswitchb)
 (define-key 'o-global-map (kbd "c") 'bbdb)
+(define-key 'o-global-map (kbd "m") 'notmuch) ;; mail
 
 (provide 'diary-mode-setup)
 
