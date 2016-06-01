@@ -89,6 +89,22 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "C-A") 'prelude-move-beginning-of-line)
 ;; https://github.com/bbatsov/prelude/blob/fe7997bc6e05647a935e279094a9c571d175e2dc/core/prelude-core.el#L138-L159
 
+;; the following will make fill-paragraph unfill the paragraph
+;; if the command is executed twice in a row
+(defun endless/fill-or-unfill ()
+  "Like `fill-paragraph', but unfill if used twice."
+  (interactive)
+  (let ((fill-column
+         (if (eq last-command 'endless/fill-or-unfill)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (call-interactively #'fill-paragraph)))
+
+(global-set-key [remap fill-paragraph]
+                #'endless/fill-or-unfill)
+;; taken from http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
+
 ;; disabling version-control backends should speed up opening of files
 (setq vc-handled-backends nil)
 
