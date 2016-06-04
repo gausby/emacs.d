@@ -33,6 +33,7 @@
 (depends-on "flycheck-cask")
 (depends-on "flycheck-haskell")
 (depends-on "flycheck-rust")
+(depends-on "flyspell-popup")
 (depends-on "fountain-mode")
 (depends-on "gist")
 (depends-on "god-mode")

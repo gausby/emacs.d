@@ -29,6 +29,7 @@
 (require 'erc-setup)
 (require 'emacs-lisp-setup)
 (require 'emacs-setup)
+(require 'spelling-setup)
 (require 'emms-system-setup)
 (require 'expand-region-setup)
 (require 'git-setup)
