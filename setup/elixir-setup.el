@@ -25,7 +25,8 @@
   (alchemist-mode +1)
   (yas/minor-mode +1)
   (smartparens-mode +1)
-  (origami-mode +1))
+  (origami-mode +1)
+  (flyspell-prog-mode))
 
 (defun mg/erlang-mode-hook ()
   (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
