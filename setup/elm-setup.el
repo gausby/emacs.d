@@ -1,7 +1,7 @@
 ;;; elm-setup.el --- setup for elm
 
 ;;; Commentary:
-;;  Setup for elm which is a minimal version of evil that can be toggled
+;;  Setup for elm which is a super sweet language for building UI apps
 
 ;;; Code:
 (require 'elm-mode)
