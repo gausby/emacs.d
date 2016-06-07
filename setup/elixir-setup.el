@@ -19,8 +19,13 @@
 
 (require 'elixir-mode)
 (require 'alchemist)
+(require 'flycheck-mix)
 (require 'origami)
 
+;; experimental
+(add-to-list 'flycheck-checkers 'elixir-mix)
+
+;;
 (defun mg/elixir-mode-hook ()
   (alchemist-mode +1)
   (yas/minor-mode +1)

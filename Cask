@@ -31,6 +31,7 @@
 (depends-on "flx-ido")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
+(depends-on "flycheck-mix")
 (depends-on "flycheck-rust")
 (depends-on "flyspell-popup")
 (depends-on "fountain-mode")
