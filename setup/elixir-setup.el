@@ -20,7 +20,6 @@
 (require 'elixir-mode)
 (require 'alchemist)
 (require 'flycheck-mix)
-(require 'origami)
 
 ;; experimental
 (add-to-list 'flycheck-checkers 'elixir-mix)
@@ -30,7 +29,6 @@
   (alchemist-mode +1)
   (yas/minor-mode +1)
   (smartparens-mode +1)
-  (origami-mode +1)
   (flyspell-prog-mode))
 
 (defun mg/erlang-mode-hook ()
@@ -66,10 +64,6 @@ evaluating the expressions in Elixir"
   (interactive)
   (alchemist-mix-execute "credo"))
 (define-key alchemist-mode-keymap (kbd "p c") 'mg/alchemist-run-credo-on-project)
-
-;; origami
-(define-key origami-mode-map (kbd "C-c [") 'origami-close-node)
-(define-key origami-mode-map (kbd "C-c ]") 'origami-open-node)
 
 ;; Open a new line with a pipe on control return
 (defun mg/open-new-line-with-pipe ()
