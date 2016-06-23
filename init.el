@@ -48,7 +48,7 @@
 (require 'org-setup)
 (require 'project-setup)
 (require 'window-setup)
-(require 'smex-setup)
+(require 'swiper-setup)
 (require 'webdev-setup)
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
