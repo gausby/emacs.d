@@ -3,6 +3,7 @@
 ;;; Commentary:
 ;;  * use ivy for completion and complleation
 ;;  * activate ivy mode for projectile
+;;  * Swiper! No swiping!
 
 ;;; Code:
 (require 'swiper)
@@ -17,6 +18,8 @@
 
 ;; keybindings
 (global-set-key "\C-s" 'swiper)
+(global-set-key "\C-r" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 
 (provide 'swiper-setup)
