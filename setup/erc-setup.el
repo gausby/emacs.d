@@ -62,7 +62,8 @@
       topic
       ""))
 
-(setq erc-log-channels-directory "~/.erc/logs/"
+(setq erc-enable-logging 'erc-log-all-but-server-buffers
+      erc-log-channels-directory "~/.erc/logs/"
       erc-generate-log-file-name-function 'erc-generate-log-file-name-with-date
       erc-save-buffer-on-part nil
       erc-save-queries-on-quit nil
