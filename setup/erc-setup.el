@@ -63,7 +63,7 @@
 (defun mg/search-erc-logs (term)
   "Search the irc logs for a given term"
   (interactive "sTerm to search for in the logs: ")
-  (ag-files term '(:file-regex "[^\*]") "~/.erc/logs/"))
+  (counsel-ag term "~/.erc/logs/"))
 
 ;; viewing logs ------------------------------------------------------------
 (setq erc-view-log-my-nickname-match '("gausby"))
