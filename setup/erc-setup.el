@@ -14,6 +14,7 @@
 ;;  * Search in erc buffers with `C-c i s s` (s for search)
 ;;  * Define a hydra for jumping to irc channels bound to `C-c i j` (j for jump)
 ;;  * Log conversations to ~/.erc/logs (this folder should get created manually)
+;;  * Filter out system messages from the logs
 ;;  * Use the silver searcher to search the irc logs using `C-c i s l` (s l: search logs)
 ;;  * Use erc-view-log mode for erc log files
 ;;  * Use terminal-notifier to send notifications to the OSX messages system
@@ -28,7 +29,7 @@
 (erc-colorize-mode 1)
 (erc-spelling-mode 1)
 
-;; in chat -----------------------------------------------------------------
+;; in chat -----------------------------------------------------------
 (defun mg/erc-mode-hook ()
   (erc-fill-disable)
   (visual-line-mode)
@@ -43,18 +44,29 @@
 ;; messages
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
-;; tracking ----------------------------------------------------------------
+;; tracking -----------------------------------------------------------
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                                 "324" "329" "332" "333" "353" "477")
       ;; ...and please stop complaining about my key bindings!
       erc-track-enable-keybindings nil)
 
-;; log to disk
+;; log to disk --------------------------------------------------------
 (erc-log-mode)
+
+;; The following regexp should look for lines starting with
+;; timestamp/spaces. three asterisks and a space; this should take
+;; care of the system messages that we don't want to log.
+(defun mg/erc-log-filter (topic)
+  "Filter out system messges from the logs"
+  (if (equal (string-match-p "^\[[:digit:]: ]+\\*\\*\\*[[:space:]]" topic) nil)
+      topic
+      ""))
+
 (setq erc-log-channels-directory "~/.erc/logs/"
       erc-generate-log-file-name-function 'erc-generate-log-file-name-with-date
       erc-save-buffer-on-part nil
       erc-save-queries-on-quit nil
+      erc-log-filter-function 'mg/erc-log-filter
       erc-log-write-after-insert t
       erc-log-write-after-send t
       erc-log-file-coding-system 'utf-8)
@@ -65,7 +77,7 @@
   (interactive "sTerm to search for in the logs: ")
   (counsel-ag term "~/.erc/logs/"))
 
-;; viewing logs ------------------------------------------------------------
+;; viewing logs ------------------------------------------------------
 (setq erc-view-log-my-nickname-match '("gausby"))
 
 (add-to-list 'auto-mode-alist
