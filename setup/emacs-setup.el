@@ -118,6 +118,10 @@ point reaches the beginning or end of the buffer, stop there."
 (global-undo-tree-mode)
 (global-set-key (kbd "C-M-_") 'undo-tree-visualize)
 
+;; Promote some paredit functions to global keybindings
+(global-set-key "\M-(" #'paredit-wrap-round)
+(global-set-key "\M-[" #'paredit-wrap-square)
+
 (provide 'emacs-setup)
 
 ;;; emacs-setup.el ends here
