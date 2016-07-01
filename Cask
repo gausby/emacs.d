@@ -81,5 +81,6 @@
 (depends-on "unicode-fonts")
 (depends-on "use-package")
 (depends-on "web-mode")
+(depends-on "writegood-mode")
 (depends-on "yasnippet")
 (depends-on "znc")
