@@ -22,6 +22,13 @@
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 
+;; fix position when exiting swiper
+;; taken from: http://pragmaticemacs.com/emacs/dont-search-swipe/
+(defun mg/swiper-recenter (&rest args)
+  "recenter display after swiper"
+  (recenter))
+(advice-add 'swiper :after #'mg/swiper-recenter)
+
 (provide 'swiper-setup)
 
 ;;; swiper-setup.el ends here
