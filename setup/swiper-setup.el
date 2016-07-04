@@ -17,9 +17,8 @@
 (setq projectile-completion-system 'ivy)
 
 ;; keybindings
-(global-set-key "\C-s" 'swiper)
-(global-set-key "\C-r" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "M-g s") 'swiper)
+(global-set-key (kbd "M-g r") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 
 ;; fix position when exiting swiper
