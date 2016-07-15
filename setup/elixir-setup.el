@@ -44,7 +44,8 @@
 (define-key alchemist-test-report-mode-map "h" #'highlight-phrase)
 
 (defun mg/alchemist-iex-mode-hook ()
-  (text-scale-set -2))
+  (text-scale-set -2)
+  (company-mode -1))
 (add-hook 'alchemist-iex-mode-hook 'mg/alchemist-iex-mode-hook)
 
 ;; scratch pad buffer
