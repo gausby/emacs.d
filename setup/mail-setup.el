@@ -32,7 +32,7 @@
         notmuch-hello-insert-alltags))
 
 (setq notmuch-saved-searches
-      '((:name "unread" :query "tag:unread and not tag:mailing-list" :key "u")
+      '((:name "unread" :query "tag:unread and not (tag:mailing-list or tag:github)" :key "u")
         (:name "inbox" :query "tag:inbox" :key "i")
         (:name "flagged and not replied" :query "tag:flagged and not tag:replied" :key "f")
         (:name "flagged" :query "tag:flagged" :key "F")
@@ -44,6 +44,11 @@
                :count-query "tag:mailing-list and tag:unread")
         (:name "mailing-list archive" :key "M"
                :query "tag:mailing-list" :sort-order 'newest-first)
+        (:name "github" :key "g"
+               :query "tag:github and tag:unread" :sort-order 'newest-first
+               :count-query "tag:github and tag:unread")
+        (:name "github archive" :key "G"
+               :query "tag:github" :sort-order 'newest-first)
         (:name "connections" :key "c"
                :query "tag:friend-request date:-7d..now"
                :count-query "tag:friend-request date:-24h..now")))
