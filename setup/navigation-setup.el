@@ -13,6 +13,16 @@
 (global-set-key (kbd "M-g l") 'avy-goto-line)
 (global-set-key (kbd "M-g w") 'avy-goto-word-or-subword-1)
 
+;; bm visual bookmarks
+(custom-theme-set-faces 'user
+                        `(bm-face ((t (:background "#5f5f5f")))))
+
+(global-set-key (kbd "M-g m") 'bm-toggle)
+(global-set-key (kbd "M-g n") 'bm-next)
+(global-set-key (kbd "M-g p") 'bm-previous)
+(global-set-key (kbd "M-g b") 'bm-show-all)
+(global-set-key (kbd "M-g B") 'bm-show)
+
 (provide 'navigation-setup)
 
 ;;; navigation-setup.el ends here

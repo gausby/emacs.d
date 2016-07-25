@@ -19,8 +19,8 @@
 ;; keybindings
 (global-set-key (kbd "M-g s") 'swiper)
 (global-set-key (kbd "M-g r") 'ivy-resume)
-(global-set-key (kbd "M-g p") 'avy-goto-line-above)
-(global-set-key (kbd "M-g n") 'avy-goto-line-below)
+;; (global-set-key (kbd "M-g p") 'avy-goto-line-above)
+;; (global-set-key (kbd "M-g n") 'avy-goto-line-below)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 
 ;; fix position when exiting swiper
