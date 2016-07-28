@@ -15,7 +15,7 @@
 
 ;; bm visual bookmarks
 (custom-theme-set-faces 'user
-                        `(bm-face ((t (:background "#5f5f5f")))))
+                        `(bm-face ((t (:background "#222C31")))))
 
 (global-set-key (kbd "M-g m") 'bm-toggle)
 (global-set-key (kbd "M-g n") 'bm-next)
