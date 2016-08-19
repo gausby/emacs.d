@@ -9,6 +9,7 @@
 (depends-on "bbdb-vcard")
 (depends-on "bind-key")
 (depends-on "bm")
+(depends-on "bookmark+")
 (depends-on "cargo")
 (depends-on "cask")
 (depends-on "color-theme-sanityinc-tomorrow")
