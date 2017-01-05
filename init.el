@@ -4,6 +4,8 @@
 
 (add-to-list 'load-path (concat emacs-config-dir "/site/"))
 
+(setq custom-file (concat emacs-config-dir "custom.el"))
+
 
 ;;; package.el configuration
 (require 'package)
