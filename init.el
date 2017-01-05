@@ -5,7 +5,7 @@
 (add-to-list 'load-path (concat emacs-config-dir "/site/"))
 
 (setq custom-file (concat emacs-config-dir "custom.el"))
-
+(defconst *emacs-config-dir* (concat emacs-config-dir "/configs/" ""))
 
 ;;; package.el configuration
 (require 'package)
@@ -44,6 +44,19 @@
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
+
+;; A function to load config files
+(defun load-config-files (files)
+  (dolist (f files)
+    (load (expand-file-name
+           (concat *emacs-config-dir* f)))
+    (message "Loaded config file: %s" f)))
+;; load our config files for the individual modes
+(load-config-files
+ '("defuns" ;; Has to go first
+   "global" ;; Has to go second
+   ))
+
 
 (setq custom-safe-themes t)
 (load-theme 'material)
