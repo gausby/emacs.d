@@ -1,6 +1,7 @@
 .DS_Store
 *.elc
 \#*
+/el-get/
 doc/*
 bookmarks
 backup
