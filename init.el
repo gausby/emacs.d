@@ -1,4 +1,19 @@
 ;; paths ---------------------------------------------------------------
+;; (when (memq window-system '(mac ns))
+;;   (exec-path-from-shell-initialize))
+(cond
+ ((eq system-type 'darwin)
+  (progn
+    (push "/usr/local/bin" exec-path)
+    (push "/usr/local/sbin" exec-path)
+    (push "/usr/bin" exec-path)
+    (push "/usr/sbin" exec-path)
+    (setenv "PATH"
+            (concat "/usr/local/bin:/usr/local/sbin:"
+                    "/usr/bin:/usr/sbin:"
+                    (getenv "PATH")))
+    )))
+
 (setq emacs-config-dir (file-name-directory
                         (or (buffer-file-name) load-file-name)))
 
@@ -40,14 +55,18 @@
 
 ;; el-get-sources overrides
 (setq el-get-sources
- '((:name material-theme :type elpa)
+      '((:name material-theme :type elpa)
+        ;; building swiper with info docs seems to fail at the moment
+        (:name swiper :build (("make" "compile")) :info nil)
    ))
 
 (setq my-packages
       (append
        '(el-get
          expand-region
-         avy)
+         avy
+         swiper
+         )
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
