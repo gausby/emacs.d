@@ -66,6 +66,7 @@
          expand-region
          avy
          swiper
+         counsel-projectile
          )
        (mapcar 'el-get-source-name el-get-sources)))
 
