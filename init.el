@@ -67,6 +67,7 @@
          avy
          swiper
          counsel-projectile
+         magit
          )
        (mapcar 'el-get-source-name el-get-sources)))
 
