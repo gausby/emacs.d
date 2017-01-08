@@ -1,6 +1,4 @@
 ;; paths ---------------------------------------------------------------
-;; (when (memq window-system '(mac ns))
-;;   (exec-path-from-shell-initialize))
 (cond
  ((eq system-type 'darwin)
   (progn
@@ -58,7 +56,12 @@
       '((:name material-theme :type elpa)
         ;; building swiper with info docs seems to fail at the moment
         (:name swiper :build (("make" "compile")) :info nil)
-   ))
+        (:name znc
+               :description "Let ERC connect to ZNC bouncers"
+               :type github
+               :pkgname "sshirokov/ZNC.el"
+           )
+      ))
 
 (setq my-packages
       (append
@@ -68,6 +71,7 @@
          swiper
          counsel-projectile
          magit
+         erc erc-colorize erc-view-log erc-highlight-nicknames
          )
        (mapcar 'el-get-source-name el-get-sources)))
 
