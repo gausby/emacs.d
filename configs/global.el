@@ -1,3 +1,8 @@
+(el-get-bundle elpa:material-theme
+  (progn
+    (setq custom-safe-themes t)
+    (load-theme 'material)))
+
 ;; get rid of the start up screen
 (setq inhibit-startup-message t)
 
@@ -11,6 +16,7 @@
 (global-auto-revert-mode t)
 ;; remove whitespace when buffers are saved
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
 
 ;; set text input and behaviour ----------------------------------------
 (prefer-coding-system       'utf-8)

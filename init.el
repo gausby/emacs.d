@@ -51,43 +51,68 @@
 (setq el-get-user-package-directory
       (concat user-emacs-directory "/configs"))
 
-;; el-get-sources overrides
-(setq el-get-sources
-      '((:name material-theme :type elpa)
-        ;; building swiper with info docs seems to fail at the moment
-        (:name swiper :build (("make" "compile")) :info nil)
-        (:name znc
-               :description "Let ERC connect to ZNC bouncers"
-               :type github
-               :pkgname "sshirokov/ZNC.el"
-           )
-      ))
 
-(setq my-packages
-      (append
-       '(el-get
-         expand-region
-         avy
-         swiper
-         counsel-projectile
-         magit
-         erc erc-colorize erc-view-log erc-highlight-nicknames
-         )
-       (mapcar 'el-get-source-name el-get-sources)))
+(el-get-bundle swiper
+  ;; building swiper with info docs seems to fail at the moment
+  :build (("make" "compile")) :info nil
+  (progn
+    (require 'ivy)
+    (ivy-mode 1)
+    ;; don't show recent closed items in various buffers
+    (setq ivy-use-virtual-buffers nil)
 
-(el-get 'sync my-packages)
+    ;; Advices ---------------------------------------------------------
+    ;; fix position when exiting swiper
+    ;; taken from: http://pragmaticemacs.com/emacs/dont-search-swipe/
+    (defun mg/swiper-recenter (&rest args)
+      "recenter display after swiper"
+      (recenter))
+    (advice-add 'swiper :after #'mg/swiper-recenter)
+
+    ;; Keybindings -----------------------------------------------------
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    ))
+
+
+;; text editing and navigation
+(el-get-bundle expand-region
+  (progn
+    (global-set-key (kbd "C-=") 'er/expand-region)
+    (global-set-key (kbd "C-M-=") 'er/contract-region)))
+
+(el-get-bundle avy
+  (progn
+    (global-set-key (kbd "M-g l") 'avy-goto-line)
+    (global-set-key (kbd "M-g SPC") 'avy-goto-char)
+    (global-set-key (kbd "M-g w") 'avy-goto-word-1)))
+
+;; projects
+(el-get-bundle counsel-projectile
+  (progn
+    (global-set-key (kbd "C-c p p") 'counsel-projectile-switch-project)
+    (global-set-key (kbd "C-c p f") 'counsel-projectile-find-file)
+    (global-set-key (kbd "C-c p b") 'counsel-projectile-switch-to-buffer)
+    (global-set-key (kbd "C-c p s") 'counsel-projectile-ag)))
+
+(el-get-bundle magit
+  (global-set-key (kbd "C-x g") 'magit-status))
+
+;; prog-modes
+(el-get-bundle flycheck)
+
+;; lisp
+(el-get-bundle paredit)
+(el-get-bundle rainbow-delimiters)
+
 
 ;; A function to load config files
-(defun load-config-files (files)
+(defun mg/load-config-files (files)
   (dolist (f files)
-    (load (expand-file-name
-           (concat *emacs-config-dir* f)))
-    (message "Loaded config file: %s" f)))
+    (load (expand-file-name (concat *emacs-config-dir* f)))
+    (message "Done loading config file: %s" f)))
 ;; load our config files for the individual modes
-(load-config-files
+(mg/load-config-files
  '("defuns" ;; Has to go first
    "global" ;; Has to go second
+   "erc"
    ))
-
-(setq custom-safe-themes t)
-(load-theme 'material)
