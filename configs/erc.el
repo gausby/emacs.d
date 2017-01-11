@@ -1,7 +1,6 @@
 (el-get-bundle erc
   (progn
     (require 'erc)
-    ;; (require 'erc-stamp)
     (require 'erc-log)
     (require 'erc-fill)
 
@@ -69,7 +68,10 @@
 (el-get-bundle erc-colorize
   (erc-colorize-mode 1))
 
-(el-get-bundle erc-highlight-nicknames)
+(el-get-bundle erc-highlight-nicknames
+  (progn
+    (add-to-list 'erc-modules 'highlight-nicknames)
+    (erc-update-modules)))
 
 
 ;; viewing logs --------------------------------------------------------
