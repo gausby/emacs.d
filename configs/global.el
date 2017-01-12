@@ -1,10 +1,23 @@
+;; get rid of the start up screen
+(setq inhibit-startup-message t)
+
+
+;; theme
 (el-get-bundle elpa:material-theme
   (progn
     (setq custom-safe-themes t)
+    ;; Remove the background box on headlines in org-mode buffers
+    (let* ((headline `(:background nil :box nil)))
+      (custom-theme-set-faces
+       'user
+       `(org-level-4 ((t (:height 1.0))))
+       `(org-level-3 ((t (:height 1.0))))
+       `(org-level-2 ((t (,@headline :height 1.0))))
+       `(org-level-1 ((t (,@headline :height 1.2))))
+       `(org-document-title ((t (,@headline :height 1.25 :underline nil))))
+       `(org-block-begin-line ((t (:box nil))))
+       `(org-block-end-line ((t (:box nil))))))
     (load-theme 'material)))
-
-;; get rid of the start up screen
-(setq inhibit-startup-message t)
 
 
 ;; disable files from being created
@@ -35,6 +48,8 @@
 (set-default 'indicate-empty-lines t)
 
 (setq uniquify-buffer-name-style 'forward)
+
+(el-get-bundle diminish)
 
 ;; for all window systems ----------------------------------------------
 (when window-system
@@ -85,3 +100,47 @@
     (setq ns-use-native-fullscreen nil)
     (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
 ))
+
+
+;; text editing and navigation
+(el-get-bundle swiper ;; C-3 «swiper no swiping!»
+  :build (("make" "compile")) :info nil ;; (info is broken atm)
+  (progn
+    (require 'ivy)
+    (ivy-mode 1)
+    ;; don't show recent closed items in various buffers
+    (setq ivy-use-virtual-buffers nil)
+
+    ;; Advices ---------------------------------------------------------
+    ;; fix position when exiting swiper
+    ;; taken from: http://pragmaticemacs.com/emacs/dont-search-swipe/
+    (defun mg/swiper-recenter (&rest args)
+      "recenter display after swiper"
+      (recenter))
+    (advice-add 'swiper :after #'mg/swiper-recenter)
+
+    ;; Keybindings -----------------------------------------------------
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    ))
+
+(el-get-bundle avy
+  (progn
+    (global-set-key (kbd "M-g l") 'avy-goto-line)
+    (global-set-key (kbd "M-g SPC") 'avy-goto-char)
+    (global-set-key (kbd "M-g w") 'avy-goto-word-1)))
+
+(el-get-bundle expand-region
+  (progn
+    (global-set-key (kbd "C-=") 'er/expand-region)
+    (global-set-key (kbd "C-M-=") 'er/contract-region)))
+
+;; projects
+(el-get-bundle counsel-projectile
+  (progn
+    (global-set-key (kbd "C-c p p") 'counsel-projectile-switch-project)
+    (global-set-key (kbd "C-c p f") 'counsel-projectile-find-file)
+    (global-set-key (kbd "C-c p b") 'counsel-projectile-switch-to-buffer)
+    (global-set-key (kbd "C-c p s") 'counsel-projectile-ag)))
+
+(el-get-bundle magit
+  (global-set-key (kbd "C-x g") 'magit-status))
