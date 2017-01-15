@@ -48,7 +48,9 @@
 (set-default 'indicate-empty-lines t)
 
 ;; scroll one line at a time
-(setq scroll-step 1)
+(setq scroll-step 1
+      ;; don't go bananas when scrolling
+      scroll-conservatively 10000)
 
 
 ;; mode line -----------------------------------------------------------
