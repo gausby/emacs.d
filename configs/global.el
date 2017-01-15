@@ -95,6 +95,7 @@
        (set-face-attribute 'mode-line-inactive nil :font font :height 100 :weight 'normal)
        (set-face-font 'default font))
      "source code pro")
+    (el-get-bundle 'unicode-fonts (unicode-fonts-setup))
 
     ;; disable osx native fullscreen and toggle it like most other OS X programs
     (setq ns-use-native-fullscreen nil)
