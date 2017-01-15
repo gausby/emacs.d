@@ -47,6 +47,11 @@
 (show-paren-mode t)
 (set-default 'indicate-empty-lines t)
 
+;; scroll one line at a time
+(setq scroll-step 1)
+
+
+;; mode line -----------------------------------------------------------
 (setq uniquify-buffer-name-style 'forward)
 
 (el-get-bundle diminish)
