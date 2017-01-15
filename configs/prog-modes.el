@@ -57,7 +57,9 @@ expressions with Elixir"
 (defun mg/erlang-mode-hook ()
   (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
 
-(add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)
+(el-get-bundle erlang-mode
+  (progn
+    (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)))
 
 ;;
 ;; Ocaml
