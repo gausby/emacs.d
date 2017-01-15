@@ -63,4 +63,5 @@
    "prog-modes"
    "org"
    "erc"
+   "mail"
    ))
