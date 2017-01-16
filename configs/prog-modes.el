@@ -80,6 +80,7 @@ expressions with Elixir"
       (add-hook 'tuareg-mode-hook 'merlin-mode t)
       ;; Make company aware of merlin
       (with-eval-after-load 'company
+        (require 'merlin)
         (add-to-list 'company-backends 'merlin-company-backend)))))
 
 
