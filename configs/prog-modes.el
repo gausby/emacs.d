@@ -81,3 +81,15 @@ expressions with Elixir"
       ;; Make company aware of merlin
       (with-eval-after-load 'company
         (add-to-list 'company-backends 'merlin-company-backend)))))
+
+
+;;
+;; Haskell
+;;
+(el-get-bundle haskell-mode)
+(el-get-bundle commercialhaskell/intero
+  :depends (haskell-mode flycheck company-mode)
+  (progn
+    (add-to-list 'load-path (concat emacs-config-dir "el-get/intero/elisp/"))
+    (autoload 'intero-mode "intero" nil t nil)
+    (add-hook 'haskell-mode-hook 'intero-mode)))

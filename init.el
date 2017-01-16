@@ -51,6 +51,8 @@
 (setq el-get-user-package-directory
       (concat user-emacs-directory "/configs"))
 
+(el-get-bundle exec-path-from-shell)
+
 ;; A function to load config files
 (defun mg/load-config-files (files)
   (dolist (f files)
