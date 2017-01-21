@@ -94,3 +94,27 @@ expressions with Elixir"
     (add-to-list 'load-path (concat emacs-config-dir "el-get/intero/elisp/"))
     (autoload 'intero-mode "intero" nil t nil)
     (add-hook 'haskell-mode-hook 'intero-mode)))
+
+
+;;
+;; Rust
+;;
+(el-get-bundle rust-mode
+  (progn
+    (require 'rust-mode)))
+(el-get-bundle flycheck-rust)
+(el-get-bundle cargo)
+(el-get-bundle rust-racer
+  :type github
+  :pkgname "phildawes/racer"
+  :description "Rust code completion and code navigation"
+  :build '(("cargo" "build" "--release"))
+  :prepare (setq racer-cmd (concat emacs-config-dir "el-get/rust-racer/target/release/racer")
+                 racer-rust-src-path "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
+  :post-init (add-hook 'racer-mode-hook #'eldoc-mode))
+
+(el-get-bundle emacs-racer
+  :type github :pkgname "racer-rust/emacs-racer"
+  :description "Racer support for Emacs"
+  :depends (rust-mode company-mode dash s f)
+  :prepare (add-hook 'rust-mode-hook #'racer-mode))
