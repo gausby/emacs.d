@@ -51,6 +51,21 @@
       (interactive "sTerm to search for in the logs: ")
       (counsel-ag term erc-log-channels-directory))
 
+    ;; Navigation
+    (defun mg/erc-switch-to-buffer ()
+      (interactive)
+      (switch-to-buffer
+       (completing-read
+        "ERC: "
+        (delq nil
+              (mapcar
+               (lambda (buf)
+                 (when (buffer-live-p buf)
+                   (with-current-buffer buf
+                     (and (memq major-mode '(erc-mode erc-view-log-mode))
+                          (buffer-name buf)))))
+               (buffer-list))))))
+
     ;; Keybindings -----------------------------------------------------
     ;; unset keybindings
     (dolist (key '("C-c C-i" "C-c C-j" "C-c C-l"
@@ -60,6 +75,8 @@
 
     (define-key erc-mode-map (kbd "C-c C-d") 'erc-toggle-timestamps)
     (define-key erc-mode-map (kbd "C-c C-n") 'erc-track-switch-buffer)
+
+    (define-key erc-mode-map (kbd "C-c SPC") #'mg/erc-switch-to-buffer)
     ))
 
 (el-get-bundle znc :type github :pkgname "sshirokov/ZNC.el" :features znc)
