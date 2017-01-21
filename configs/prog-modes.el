@@ -99,9 +99,7 @@ expressions with Elixir"
 ;;
 ;; Rust
 ;;
-(el-get-bundle rust-mode
-  (progn
-    (require 'rust-mode)))
+(el-get-bundle rust-mode)
 (el-get-bundle flycheck-rust)
 (el-get-bundle cargo)
 (el-get-bundle rust-racer
