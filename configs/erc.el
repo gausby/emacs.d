@@ -59,7 +59,7 @@
       (define-key erc-mode-map (kbd key) nil))
 
     (define-key erc-mode-map (kbd "C-c C-d") 'erc-toggle-timestamps)
-    (define-key erc-mode-map (kbd "C-c C-b") 'erc-track-switch-buffer)
+    (define-key erc-mode-map (kbd "C-c C-n") 'erc-track-switch-buffer)
     ))
 
 (el-get-bundle znc :type github :pkgname "sshirokov/ZNC.el" :features znc)
