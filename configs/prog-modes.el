@@ -95,6 +95,22 @@ expressions with Elixir"
     (autoload 'intero-mode "intero" nil t nil)
     (add-hook 'haskell-mode-hook 'intero-mode)))
 
+;;
+;; Elm
+;;
+;; elm-format: https://github.com/avh4/elm-format#building-from-source
+;;
+(el-get-bundle elm-mode)
+(with-eval-after-load 'elm-interactive
+  (setq elm-oracle-command "~/.nvm/versions/node/v5.8.0/bin/elm-oracle"
+        elm-compile-command "~/.elmenv/shims/elm-make"
+        elm-create-package-command "~/.elmenv/shims/elm-make --yes"
+        elm-interactive-command "~/.elmenv/shims/elm-repl"
+        elm-package-command "~/.elmenv/shims/elm-package"
+        elm-reactor-command "~/.elmenv/shims/elm-reactor"))
+(with-eval-after-load 'elm-format
+  (setq elm-format-command "~/.local/bin/elm-format-0.18"))
+
 
 ;;
 ;; Rust
