@@ -128,8 +128,7 @@
     (advice-add 'swiper :after #'mg/swiper-recenter)
 
     ;; Keybindings -----------------------------------------------------
-    (global-set-key (kbd "M-x") 'counsel-M-x)
-    ))
+    (global-set-key (kbd "M-x") 'counsel-M-x)))
 
 (el-get-bundle avy
   (progn
@@ -142,13 +141,15 @@
     (global-set-key (kbd "C-=") 'er/expand-region)
     (global-set-key (kbd "C-M-=") 'er/contract-region)))
 
+
 ;; projects
 (el-get-bundle counsel-projectile
   (progn
     (global-set-key (kbd "C-c p p") 'counsel-projectile-switch-project)
     (global-set-key (kbd "C-c p f") 'counsel-projectile-find-file)
     (global-set-key (kbd "C-c p b") 'counsel-projectile-switch-to-buffer)
-    (global-set-key (kbd "C-c p s") 'counsel-projectile-ag)))
+    (global-set-key (kbd "C-c p s") 'counsel-projectile-ag)
+    (global-set-key (kbd "C-c p k") 'projectile-kill-buffers)))
 
 (el-get-bundle magit
   (global-set-key (kbd "C-x g") 'magit-status))
