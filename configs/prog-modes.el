@@ -1,13 +1,22 @@
+;;
+;; Company
+;;
 (el-get-bundle company-mode
-  (require 'company)
+  (global-company-mode 1))
+(with-eval-after-load 'company
   (setq company-idle-delay 0.7
         company-tooltip-limit 10
         company-minimum-prefix-length 2
-        company-tooltip-flip-when-above t)
-  (global-company-mode 1))
+        company-tooltip-align-annotations t))
 
+;;
+;; Flycheck
+;;
 (el-get-bundle flycheck)
 
+;;
+;; Mostly lisp related
+;;
 (el-get-bundle paredit
   (progn
     (add-hook 'emacs-lisp-mode-hook 'paredit-mode)))
@@ -23,22 +32,27 @@
 (add-to-list 'load-path "~/Development/github.com/gausby/alchemist.el/")
 
 (require 'elixir-mode)
-(require 'alchemist)
 
-(defun mg/elixir-mode-hook ()
-  (alchemist-mode +1)
-  ;; (yas/minor-mode +1)
-  (flyspell-prog-mode))
+(with-eval-after-load 'elixir-mode
+  (require 'alchemist)
+  ;; Open a new line with a pipe on control return
+  (defun mg/open-new-line-with-pipe ()
+    "open a new line with a pipe"
+    (interactive)
+    (progn
+      (newline)
+      (insert "|> ")
+      (indent-according-to-mode)))
 
-;; Open a new line with a pipe on control return
-(defun mg/open-new-line-with-pipe ()
-     "open a new line with a pipe"
-     (interactive)
-     (progn
-       (newline)
-       (insert "|> ")
-       (indent-according-to-mode)))
-(define-key elixir-mode-map [(control return)] #'mg/open-new-line-with-pipe)
+  (defun mg/elixir-mode-hook ()
+    (alchemist-mode +1)
+    ;; (yas/minor-mode +1)
+    (flyspell-prog-mode))
+  (add-hook 'elixir-mode-hook 'mg/elixir-mode-hook)
+
+  (define-key elixir-mode-map [(control return)] #'mg/open-new-line-with-pipe)
+  (define-key elixir-mode-map (kbd "C-c SPC") #'alchemist-mix)
+  (define-key elixir-mode-map (kbd "C-c C-c") #'alchemist-mix-compile))
 
 ;; scratch pad buffer
 (defun mg/alchemist-create-scratch-buffer ()
@@ -49,17 +63,17 @@ expressions with Elixir"
   (elixir-mode)
   (alchemist-mode))
 
-(add-hook 'elixir-mode-hook 'mg/elixir-mode-hook)
 
 ;;
 ;; erlang specific
 ;;
+(el-get-bundle erlang-mode
+  (progn
+    (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)))
+
 (defun mg/erlang-mode-hook ()
   (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
 
-;; (el-get-bundle erlang-mode
-;;   (progn
-;;     (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)))
 
 ;;
 ;; Ocaml
@@ -95,6 +109,7 @@ expressions with Elixir"
     (autoload 'intero-mode "intero" nil t nil)
     (add-hook 'haskell-mode-hook 'intero-mode)))
 
+
 ;;
 ;; Elm
 ;;
@@ -119,8 +134,7 @@ expressions with Elixir"
 (el-get-bundle flycheck-rust)
 (el-get-bundle cargo)
 (el-get-bundle rust-racer
-  :type github
-  :pkgname "phildawes/racer"
+  :type github :pkgname "phildawes/racer"
   :description "Rust code completion and code navigation"
   :build '(("cargo" "build" "--release"))
   :prepare (setq racer-cmd (concat emacs-config-dir "el-get/rust-racer/target/release/racer")
