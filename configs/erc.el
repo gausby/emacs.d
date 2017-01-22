@@ -55,7 +55,7 @@
   ;; set keybindings
   (define-key erc-mode-map (kbd "C-c C-d") 'erc-toggle-timestamps)
   (define-key erc-mode-map (kbd "C-c C-n") 'erc-track-switch-buffer)
-  (define-key erc-mode-map (kbd "C-c SPC") #'mg/erc-switch-to-buffer)
+  (define-key erc-mode-map (kbd "C-c b") #'mg/erc-switch-to-buffer)
   ;; Mode Hook ---------------------------------------------------------
   (defun mg/erc-mode-hook ()
     (erc-spelling-mode 1)
