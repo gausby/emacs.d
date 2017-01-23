@@ -82,13 +82,6 @@
 ;; for max os x systems (gui and terminal) -----------------------------
 (when (eq system-type 'darwin)
   (progn
-    ;; use all the special keys on the mac keyboard
-    (setq mac-option-modifier nil)
-    (setq ns-function-modifier 'super)
-    (setq mac-right-command-modifier 'hyper)
-    (setq mac-right-option-modifier 'alt)
-    (setq mac-command-modifier 'meta)
-
     ;; setup copy paste from and to os x
     (defun copy-from-osx ()
       (shell-command-to-string "pbpaste"))
@@ -97,9 +90,15 @@
     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
       (process-send-string proc text)
       (process-send-eof proc))))
-
-    (setq interprogram-cut-function 'paste-to-osx)
-    (setq interprogram-paste-function 'copy-from-osx)))
+    ;; enable the mac keys and fix copy-paste between OSX and Emacs
+    (setq interprogram-cut-function 'paste-to-osx
+          interprogram-paste-function 'copy-from-osx
+          ;; use all the special keys on the mac keyboard
+          mac-option-modifier nil
+          ns-function-modifier 'super
+          mac-right-command-modifier 'hyper
+          mac-right-option-modifier 'alt
+          mac-command-modifier 'meta)))
 
 
 ;; for max os x systems (only gui) -------------------------------------
