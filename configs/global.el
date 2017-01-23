@@ -58,6 +58,18 @@
 
 (el-get-bundle diminish)
 
+
+;; buffers
+(el-get-bundle shackle
+  :type github :pkgname "wasamasa/shackle"
+  :description "Enforce rules for pop up windows"
+  :website "https://github.com/wasamasa/shackle"
+  :features shackle
+  :prepare (shackle-mode))
+(with-eval-after-load 'shackle
+  (setq shackle-rules '(("*Buffer List*" :select t :align below :size 0.33))))
+
+
 ;; for all window systems ----------------------------------------------
 (when window-system
   (tooltip-mode -1)
