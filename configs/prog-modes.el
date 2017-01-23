@@ -18,12 +18,10 @@
 ;; Mostly lisp related
 ;;
 (el-get-bundle paredit
-  (progn
-    (add-hook 'emacs-lisp-mode-hook 'paredit-mode)))
+  (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
 
 (el-get-bundle rainbow-delimiters
-  (progn
-    (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)))
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
 
 ;;
 ;; elixir specific
@@ -68,8 +66,7 @@ expressions with Elixir"
 ;; erlang specific
 ;;
 (el-get-bundle erlang-mode
-  (progn
-    (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook)))
+  (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook))
 
 (defun mg/erlang-mode-hook ()
   (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
@@ -104,10 +101,9 @@ expressions with Elixir"
 (el-get-bundle haskell-mode)
 (el-get-bundle commercialhaskell/intero
   :depends (haskell-mode flycheck company-mode)
-  (progn
-    (add-to-list 'load-path (concat emacs-config-dir "el-get/intero/elisp/"))
-    (autoload 'intero-mode "intero" nil t nil)
-    (add-hook 'haskell-mode-hook 'intero-mode)))
+  (add-to-list 'load-path (concat emacs-config-dir "el-get/intero/elisp/"))
+  (autoload 'intero-mode "intero" nil t nil)
+  (add-hook 'haskell-mode-hook 'intero-mode))
 
 
 ;;
