@@ -80,19 +80,18 @@ expressions with Elixir"
 (if (string-equal (substring (shell-command-to-string "which opam 2> /dev/null") 0 -1) "opam not found")
     (message "Please install OPAM and Merlin")
   (el-get-bundle tuareg-mode
-    (progn
-      ;; Add opam emacs directory to the load-path
-      (add-to-list 'load-path
-                   (concat (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1)
-                           "/emacs/site-lisp"))
-      ;; Load merlin-mode
-      (autoload 'merlin-mode "merlin" nil t nil)
-      ;; Start merlin on ocaml files
-      (add-hook 'tuareg-mode-hook 'merlin-mode t)
-      ;; Make company aware of merlin
-      (with-eval-after-load 'company
-        (require 'merlin)
-        (add-to-list 'company-backends 'merlin-company-backend)))))
+    ;; Add opam emacs directory to the load-path
+    (add-to-list 'load-path
+                 (concat (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1)
+                         "/emacs/site-lisp"))
+    ;; Load merlin-mode
+    (autoload 'merlin-mode "merlin" nil t nil)
+    ;; Start merlin on ocaml files
+    (add-hook 'tuareg-mode-hook 'merlin-mode t)))
+
+(with-eval-after-load 'merlin
+  ;; Make company aware of merlin
+  (add-to-list 'company-backends 'merlin-company-backend))
 
 
 ;;
