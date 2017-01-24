@@ -91,6 +91,8 @@ expressions with Elixir"
     ;; Start merlin on ocaml files
     (add-hook 'tuareg-mode-hook 'merlin-mode t)))
 
+(with-eval-after-load 'tuareg
+  (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
 (with-eval-after-load 'merlin
   ;; Make company aware of merlin
   (add-to-list 'company-backends 'merlin-company-backend))
