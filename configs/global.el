@@ -149,6 +149,7 @@
   (global-set-key (kbd "C-M-=") 'er/contract-region))
 
 ;; projects
+(el-get-bundle projectile)
 (el-get-bundle counsel-projectile
   (global-set-key (kbd "C-c p p") 'counsel-projectile-switch-project)
   (global-set-key (kbd "C-c p f") 'counsel-projectile-find-file)
@@ -156,6 +157,11 @@
   (global-set-key (kbd "C-c p s") 'counsel-projectile-ag)
   (global-set-key (kbd "C-c p k") 'projectile-kill-buffers)
   (global-set-key (kbd "C-c p t") 'projectile-run-eshell))
+(with-eval-after-load 'projectile
+  (setq projectile-completion-system 'ivy))
+
 
 (el-get-bundle magit
   (global-set-key (kbd "C-x g") 'magit-status))
+(with-eval-after-load 'magit
+  (setq magit-completing-read-function 'ivy-completing-read))
