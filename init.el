@@ -64,8 +64,8 @@
 (mg/load-config-files
  '("defuns" ;; Has to go first
    "global" ;; Has to go second
+   "text-modes"
    "prog-modes"
-   "org"
    "erc"
    "mail"
    ))

@@ -9,10 +9,12 @@
         company-minimum-prefix-length 2
         company-tooltip-align-annotations t))
 
+
 ;;
 ;; Flycheck
 ;;
 (el-get-bundle flycheck)
+
 
 ;;
 ;; Mostly lisp related
