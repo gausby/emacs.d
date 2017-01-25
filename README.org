@@ -30,7 +30,9 @@
       - [[http://www.fontspace.com/unicode-fonts-for-ancient-scripts/symbola][Symbola]] by George Douros
 
 
-* Programming Modes
+* Preparing Programming and Text Modes
+
+** Erlang
 
 ** Elixir
 
@@ -38,15 +40,27 @@
    *~/Development/github/gausby/*-directory. I have some clones going there but the official
    repos might work just as well—or even better.
 
+** Haskell
+
+** Rust
+
+** OCaml
+
+** Emacs Lisp
+
+** Elm
 
 ** Gist
 
-   Create a token on github and add the following to your *~/.gitconfig*
+   Execute the interactive =gist-list= command and enter your github name/passphrase when
+   asked; then enter the 2-factor-auth code. This will result in an auth token being
+   generated and the proper auth data is added to the *~/.gitconfig*.
+
+   If there are problems connecting to github try removing the following lines from your
+   *~/.gitconfig*:
 
    #+BEGIN_SRC conf
    [github]
        user = *GITHUB_USER_NAME*
        oauth-token = *TOKEN*
    #+END_SRC
-
-   Replace =GITHUB_USER_NAME= and =TOKEN= with the appropriate values.

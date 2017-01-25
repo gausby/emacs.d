@@ -161,7 +161,13 @@
   (setq projectile-completion-system 'ivy))
 
 
+;;
+;; Git
+;;
 (el-get-bundle magit
   (global-set-key (kbd "C-x g") 'magit-status))
 (with-eval-after-load 'magit
   (setq magit-completing-read-function 'ivy-completing-read))
+
+(el-get-bundle git)
+(el-get-bundle gist)
