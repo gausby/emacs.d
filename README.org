@@ -1,0 +1,52 @@
+#+TITLE: My Emacs Configuration
+#+AUTHOR: Martin Gausby
+
+
+* Requirements
+
+  - Emacs 25+
+
+
+* Installation
+** Fetch dependencies
+
+   Use Git to clone the repo into ~/.emacs.d and start Emacs.
+
+   #+BEGIN_SRC shell
+   $ git clone git@github.com:gausby/emacs.d.git ~/.emacs.d/
+   #+END_SRC
+
+
+*** Fonts
+
+    The font I use is [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+    from Adobe. Follow the install instructions for your operating system.
+
+    unicode-fonts require the following fonts to be installed on the system:
+
+      - [[http://dejavu-fonts.org/wiki/Download][DejaVu Sanns and DejaVu Sans Mono]]
+      - [[http://www.quivira-font.com/downloads.php][Quivira]]
+      - [[http://www.google.com/get/noto/][Noto Sans and Noto Sans Symbol]]
+      - [[http://www.fontspace.com/unicode-fonts-for-ancient-scripts/symbola][Symbola]] by George Douros
+
+
+* Programming Modes
+
+** Elixir
+
+   The setup require emacs-elixir and alchemist.el to be cloned into the
+   *~/Development/github/gausby/*-directory. I have some clones going there but the official
+   repos might work just as well—or even better.
+
+
+** Gist
+
+   Create a token on github and add the following to your *~/.gitconfig*
+
+   #+BEGIN_SRC conf
+   [github]
+       user = *GITHUB_USER_NAME*
+       oauth-token = *TOKEN*
+   #+END_SRC
+
+   Replace =GITHUB_USER_NAME= and =TOKEN= with the appropriate values.
