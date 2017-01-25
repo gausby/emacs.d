@@ -19,10 +19,10 @@
 
 *** Fonts
 
-    The font I use is [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
-    from Adobe. Follow the install instructions for your operating system.
+    The font I use is [[https://github.com/adobe-fonts/source-code-pro][Source Code Pro]] from Adobe. Follow the install instructions for your
+    operating system.
 
-    unicode-fonts require the following fonts to be installed on the system:
+    The package ~unicode-fonts~ require the following fonts to be installed on the system:
 
       - [[http://dejavu-fonts.org/wiki/Download][DejaVu Sanns and DejaVu Sans Mono]]
       - [[http://www.quivira-font.com/downloads.php][Quivira]]
