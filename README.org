@@ -24,7 +24,7 @@
 
     The package ~unicode-fonts~ require the following fonts to be installed on the system:
 
-      - [[http://dejavu-fonts.org/wiki/Download][DejaVu Sanns and DejaVu Sans Mono]]
+      - [[https://dejavu-fonts.github.io/Download.html][DejaVu Sanns and DejaVu Sans Mono]]
       - [[http://www.quivira-font.com/downloads.php][Quivira]]
       - [[http://www.google.com/get/noto/][Noto Sans and Noto Sans Symbol]]
       - [[http://www.fontspace.com/unicode-fonts-for-ancient-scripts/symbola][Symbola]] by George Douros
