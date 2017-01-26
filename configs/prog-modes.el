@@ -109,12 +109,13 @@ expressions with Elixir"
 ;;
 (el-get-bundle elm-mode)
 (with-eval-after-load 'elm-interactive
-  (setq elm-oracle-command "~/.nvm/versions/node/v5.8.0/bin/elm-oracle"
-        elm-compile-command "~/.elmenv/shims/elm-make"
-        elm-create-package-command "~/.elmenv/shims/elm-make --yes"
-        elm-interactive-command "~/.elmenv/shims/elm-repl"
-        elm-package-command "~/.elmenv/shims/elm-package"
-        elm-reactor-command "~/.elmenv/shims/elm-reactor"))
+  (let ((default-directory "~/.elmenv/shims/"))
+    (setq elm-oracle-command "~/.nvm/versions/node/v5.8.0/bin/elm-oracle"
+          elm-compile-command (expand-file-name "elm-make")
+          elm-create-package-command (expand-file-name "elm-make --yes")
+          elm-interactive-command (expand-file-name "elm-repl")
+          elm-package-command (expand-file-name "elm-package")
+          elm-reactor-command (expand-file-name "elm-reactor"))))
 (with-eval-after-load 'elm-format
   (setq elm-format-command "~/.local/bin/elm-format-0.18"))
 
