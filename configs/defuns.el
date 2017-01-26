@@ -73,3 +73,14 @@ point reaches the beginning or end of the buffer, stop there."
 
 (global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 ;; taken from http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
+
+
+;; Open a new line with a pipe, this will usually be bound to `control
+;; return` in programming languages that support a `|>`-pipe
+(defun mg/open-new-line-with-pipe ()
+  "open a new line with a pipe"
+  (interactive)
+  (progn
+    (newline)
+    (insert "|> ")
+    (indent-according-to-mode)))

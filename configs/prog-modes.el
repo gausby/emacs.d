@@ -25,6 +25,7 @@
 (el-get-bundle rainbow-delimiters
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
 
+
 ;;
 ;; elixir specific
 ;;
@@ -35,15 +36,6 @@
 
 (with-eval-after-load 'elixir-mode
   (require 'alchemist)
-  ;; Open a new line with a pipe on control return
-  (defun mg/open-new-line-with-pipe ()
-    "open a new line with a pipe"
-    (interactive)
-    (progn
-      (newline)
-      (insert "|> ")
-      (indent-according-to-mode)))
-
   (defun mg/elixir-mode-hook ()
     (alchemist-mode +1)
     ;; (yas/minor-mode +1)
@@ -92,6 +84,7 @@ expressions with Elixir"
     (add-hook 'tuareg-mode-hook 'merlin-mode t)))
 
 (with-eval-after-load 'tuareg
+  (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
   (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
 (with-eval-after-load 'merlin
   ;; Make company aware of merlin
