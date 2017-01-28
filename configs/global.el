@@ -68,7 +68,8 @@
 (with-eval-after-load 'shackle
   (setq shackle-rules
         '(("*Buffer List*" :select t :align below :size 0.33)
-          ("*Help*" :select t :align below :size 0.5))))
+          ("*Help*" :select t :align below :size 0.5)
+          ("*Flycheck errors*" :select t :align below :size 0.33))))
 
 
 ;; for all window systems ----------------------------------------------
