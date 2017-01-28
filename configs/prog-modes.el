@@ -27,24 +27,28 @@
 
 
 ;;
-;; elixir specific
+;; Elixir specific
 ;;
 (add-to-list 'load-path "~/Development/github.com/gausby/emacs-elixir/")
-(add-to-list 'load-path "~/Development/github.com/gausby/alchemist.el/")
-
-(require 'elixir-mode)
-
+(autoload 'elixir-mode "elixir-mode" nil t nil)
+(add-to-list 'auto-mode-alist '("\\.\\(exs?\\|elixir\\)$" . elixir-mode))
 (with-eval-after-load 'elixir-mode
+  ;; Yasnippets
+  (add-to-list 'load-path "~/Development/github.com/gausby/mg-elixir-snippets/")
+  (require 'mg-elixir-snippets)
+  ;; Alchemist
+  (add-to-list 'load-path "~/Development/github.com/gausby/alchemist.el/")
   (require 'alchemist)
-  (defun mg/elixir-mode-hook ()
-    (alchemist-mode +1)
-    ;; (yas/minor-mode +1)
-    (flyspell-prog-mode))
-  (add-hook 'elixir-mode-hook 'mg/elixir-mode-hook)
-
+  ;; Keybindings
   (define-key elixir-mode-map [(control return)] #'mg/open-new-line-with-pipe)
   (define-key elixir-mode-map (kbd "C-c SPC") #'alchemist-mix)
-  (define-key elixir-mode-map (kbd "C-c C-c") #'alchemist-mix-compile))
+  (define-key elixir-mode-map (kbd "C-c C-c") #'alchemist-mix-compile)
+  ;; Mode hook
+  (defun mg/elixir-mode-hook ()
+    (alchemist-mode 1)
+    (yas/minor-mode 1)
+    (flyspell-prog-mode))
+  (add-hook 'elixir-mode-hook 'mg/elixir-mode-hook))
 
 ;; scratch pad buffer
 (defun mg/alchemist-create-scratch-buffer ()
@@ -52,8 +56,7 @@
 expressions with Elixir"
   (interactive)
   (switch-to-buffer "*elixir scratch*")
-  (elixir-mode)
-  (alchemist-mode))
+  (elixir-mode))
 
 
 ;;
