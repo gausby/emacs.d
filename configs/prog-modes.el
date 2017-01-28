@@ -29,15 +29,15 @@
 ;;
 ;; Elixir specific
 ;;
-(add-to-list 'load-path "~/Development/github.com/gausby/emacs-elixir/")
+(let ((default-directory "~/Development/github.com/gausby/"))
+  (add-to-list 'load-path (expand-file-name "emacs-elixir/")))
 (autoload 'elixir-mode "elixir-mode" nil t nil)
 (add-to-list 'auto-mode-alist '("\\.\\(exs?\\|elixir\\)$" . elixir-mode))
 (with-eval-after-load 'elixir-mode
-  ;; Yasnippets
-  (add-to-list 'load-path "~/Development/github.com/gausby/mg-elixir-snippets/")
+  (let ((default-directory "~/Development/github.com/gausby/"))
+    (add-to-list 'load-path (expand-file-name "mg-elixir-snippets/"))
+    (add-to-list 'load-path (expand-file-name "alchemist.el/")))
   (require 'mg-elixir-snippets)
-  ;; Alchemist
-  (add-to-list 'load-path "~/Development/github.com/gausby/alchemist.el/")
   (require 'alchemist)
   ;; Keybindings
   (define-key elixir-mode-map [(control return)] #'mg/open-new-line-with-pipe)
@@ -62,10 +62,8 @@ expressions with Elixir"
 ;; erlang specific
 ;;
 (el-get-bundle erlang-mode
-  (add-hook 'erlang-mode-hook 'mg/erlang-mode-hook))
-
-(defun mg/erlang-mode-hook ()
-  (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
+  (add-hook 'erlang-mode-hook (lambda ()
+      (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))))
 
 
 ;;
@@ -104,7 +102,8 @@ expressions with Elixir"
 (el-get-bundle haskell-mode)
 (el-get-bundle commercialhaskell/intero
   :depends (haskell-mode flycheck company-mode)
-  (add-to-list 'load-path (concat emacs-config-dir "el-get/intero/elisp/"))
+  (let ((default-directory (concat emacs-config-dir "el-get/intero/")))
+    (add-to-list 'load-path (expand-file-name "elisp/")))
   (autoload 'intero-mode "intero" nil t nil)
   (add-hook 'haskell-mode-hook 'intero-mode))
 
