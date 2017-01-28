@@ -172,3 +172,16 @@
 
 (el-get-bundle git)
 (el-get-bundle gist)
+
+
+;;
+;; yasnippets
+;;
+(el-get-bundle yasnippet
+  :type github :pkgname "capitaomorte/yasnippet"
+  :website "https://github.com/capitaomorte/yasnippet.git"
+  :description "YASnippet is a template system for Emacs."
+  :compile "yasnippet.el"
+  :build nil)
+(with-eval-after-load 'yasnippet
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets")))
