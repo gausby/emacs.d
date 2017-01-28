@@ -81,12 +81,17 @@ expressions with Elixir"
     ;; Load merlin-mode
     (autoload 'merlin-mode "merlin" nil t nil)
     ;; Start merlin on ocaml files
-    (add-hook 'tuareg-mode-hook 'merlin-mode t)))
+    (add-hook 'tuareg-mode-hook #'merlin-mode))
+  (el-get-bundle flyckeck-ocaml
+    :type github :pkgname "flycheck/flycheck-ocaml"))
 
 (with-eval-after-load 'tuareg
   (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
   (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
 (with-eval-after-load 'merlin
+  ;; Setup ocaml flycheck, need to disable merlins own checker first
+  (setq merlin-error-after-save nil)
+  (flycheck-ocaml-setup)
   ;; Make company aware of merlin
   (add-to-list 'company-backends 'merlin-company-backend))
 
