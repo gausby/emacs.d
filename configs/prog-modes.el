@@ -44,11 +44,10 @@
   (define-key elixir-mode-map (kbd "C-c SPC") #'alchemist-mix)
   (define-key elixir-mode-map (kbd "C-c C-c") #'alchemist-mix-compile)
   ;; Mode hook
-  (defun mg/elixir-mode-hook ()
-    (alchemist-mode 1)
-    (yas/minor-mode 1)
-    (flyspell-prog-mode))
-  (add-hook 'elixir-mode-hook 'mg/elixir-mode-hook))
+  (add-hook 'elixir-mode-hook (lambda ()
+      (alchemist-mode 1)
+      (yas/minor-mode 1)
+      (flyspell-prog-mode))))
 
 ;; scratch pad buffer
 (defun mg/alchemist-create-scratch-buffer ()
