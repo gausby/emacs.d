@@ -21,6 +21,7 @@
 ;;
 (el-get-bundle smartparens)
 (with-eval-after-load 'smartparens
+  (require 'smartparens-config)
   (show-smartparens-global-mode))
 (el-get-bundle rainbow-delimiters
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
@@ -47,12 +48,19 @@
   (define-key elixir-mode-map [(control return)] #'mg/open-new-line-with-pipe)
   (define-key elixir-mode-map (kbd "C-c SPC") #'alchemist-mix)
   (define-key elixir-mode-map (kbd "C-c C-c") #'alchemist-mix-compile)
+  (define-key elixir-mode-map (kbd "C-c C-t") #'alchemist-mix-test-stale)
   ;; Mode hook
   (add-hook 'elixir-mode-hook (lambda ()
       (alchemist-mode 1)
       (yas/minor-mode 1)
       (smartparens-mode 1)
       (flyspell-prog-mode))))
+(with-eval-after-load 'alchemist
+  (let ((default-directory "~/.exenv/shims/"))
+    (setq alchemist-mix-command (expand-file-name "mix")
+          alchemist-execute-command (expand-file-name "elixir")
+          alchemist-compile-command (expand-file-name "elixirc")
+          alchemist-iex-program-name (expand-file-name "iex"))))
 
 ;; scratch pad buffer
 (defun mg/alchemist-create-scratch-buffer ()
@@ -66,10 +74,9 @@ expressions with Elixir"
 ;;
 ;; erlang specific
 ;;
-(el-get-bundle erlang-mode
-  (add-hook 'erlang-mode-hook (lambda ()
-      (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))))
-
+(el-get-bundle erlang-mode)
+(with-eval-after-load 'erlang
+  (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
 
 ;;
 ;; Ocaml
@@ -118,7 +125,6 @@ expressions with Elixir"
 ;;
 ;; elm-format: https://github.com/avh4/elm-format#building-from-source
 ;;
-;; todo: get elm mode to play with flycheck
 ;;
 (el-get-bundle elm-mode)
 (with-eval-after-load 'elm-mode
