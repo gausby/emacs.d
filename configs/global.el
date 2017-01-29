@@ -66,9 +66,12 @@
   :prepare (shackle-mode))
 (with-eval-after-load 'shackle
   (setq shackle-rules
-        '(("*Buffer List*" :select t :align below :size 0.33)
+        '(("*Apropos*" :select t :align below :size 0.5)
+          ("*Buffer List*" :select t :align below :size 0.33)
           ("*Help*" :select t :align below :size 0.5)
-          ("*Flycheck errors*" :select t :align below :size 0.33))))
+          ("*Flycheck errors*" :select t :align below :size 0.33)
+          ("*alchemist test report*" :select t :align below :size 0.5)
+          ("*alchemist mix*" :select t :align below :size 0.33))))
 
 
 ;; for all window systems ----------------------------------------------
