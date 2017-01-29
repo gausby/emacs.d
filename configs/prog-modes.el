@@ -19,11 +19,15 @@
 ;;
 ;; Mostly lisp related
 ;;
-(el-get-bundle paredit
-  (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
-
+(el-get-bundle smartparens)
+(with-eval-after-load 'smartparens
+  (show-smartparens-global-mode))
 (el-get-bundle rainbow-delimiters
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
+(with-eval-after-load 'elisp-mode
+  (add-hook 'emacs-lisp-mode-hook (lambda ()
+      (smartparens-strict-mode 1)
+      (flyspell-prog-mode))))
 
 
 ;;
@@ -47,6 +51,7 @@
   (add-hook 'elixir-mode-hook (lambda ()
       (alchemist-mode 1)
       (yas/minor-mode 1)
+      (smartparens-mode 1)
       (flyspell-prog-mode))))
 
 ;; scratch pad buffer

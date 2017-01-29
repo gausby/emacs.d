@@ -43,7 +43,6 @@
 (delete-selection-mode t)
 
 (global-hl-line-mode t)
-(show-paren-mode t)
 (set-default 'indicate-empty-lines t)
 
 ;; scroll one line at a time
