@@ -118,7 +118,12 @@ expressions with Elixir"
 ;;
 ;; elm-format: https://github.com/avh4/elm-format#building-from-source
 ;;
+;; todo: get elm mode to play with flycheck
+;;
 (el-get-bundle elm-mode)
+(with-eval-after-load 'elm-mode
+  (add-hook 'elm-mode-hook (lambda ()
+      (flyspell-prog-mode))))
 (with-eval-after-load 'elm-interactive
   (let ((default-directory "~/.elmenv/shims/"))
     (setq elm-oracle-command "~/.nvm/versions/node/v5.8.0/bin/elm-oracle"
