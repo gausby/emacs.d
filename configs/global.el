@@ -168,7 +168,7 @@
 ;; Git
 ;;
 (el-get-bundle magit
-  (global-set-key (kbd "C-x g") 'magit-status))
+  (define-key ctl-x-map (kbd "C-g") 'magit-status))
 (with-eval-after-load 'magit
   (setq magit-completing-read-function 'ivy-completing-read))
 
