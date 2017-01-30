@@ -73,21 +73,9 @@
       (god-local-mode 1)
       (setq-local olivetti-body-width 72)
       (olivetti-mode 1)
-      ;; disable quit buffer, killing it will do fine
-      (local-set-key (kbd "q") nil)
-      ;; disable custom scroll
-      (local-set-key (kbd "e") nil)
-      (local-set-key (kbd "<SPC>") nil)
-      (local-set-key (kbd "J") nil)
-      (local-set-key (kbd "K") nil)
-      ;; end and beginning of buffer is normally M-S-> and <
-      (local-set-key (kbd ",") nil)
-      (local-set-key (kbd ".") nil)
+      ;; disable custom quit buffer, custom scrolling, and other
+      ;; keybinding oddities
+      (dolist (key '("q" "e" "J" "K" "," "." "P" "N" "H" "L" ">" "<"))
+        (local-set-key (kbd key) nil))
       (local-set-key (kbd "M-p") 'irfc-head-prev)
-      (local-set-key (kbd "M-n") 'irfc-head-next)
-      (local-set-key (kbd "P") nil)
-      (local-set-key (kbd "N") nil)
-      (local-set-key (kbd "H") nil)
-      (local-set-key (kbd "L") nil)
-      (local-set-key (kbd ">") nil)
-      (local-set-key (kbd "<") nil))))
+      (local-set-key (kbd "M-n") 'irfc-head-next))))
