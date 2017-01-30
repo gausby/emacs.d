@@ -5,6 +5,8 @@
 ;; theme
 (el-get-bundle elpa:material-theme
   (setq custom-safe-themes t)
+  (load-theme 'material))
+(with-eval-after-load 'material-theme
   ;; Remove the background box on headlines in org-mode buffers
   (let* ((headline `(:background nil :box nil)))
     (custom-theme-set-faces
@@ -15,8 +17,7 @@
      `(org-level-1 ((t (,@headline :height 1.2))))
      `(org-document-title ((t (,@headline :height 1.25 :underline nil))))
      `(org-block-begin-line ((t (:box nil))))
-     `(org-block-end-line ((t (:box nil))))))
-  (load-theme 'material))
+     `(org-block-end-line ((t (:box nil)))))))
 
 
 ;; disable files from being created
