@@ -70,6 +70,7 @@
       `(irfc-rfc-number-face ((t (:foreground "#fff59d")))))
   ;; mode hook
   (add-hook 'irfc-mode-hook (lambda ()
+      (god-local-mode 1)
       (setq-local olivetti-body-width 72)
       (olivetti-mode 1)
       ;; disable quit buffer, killing it will do fine

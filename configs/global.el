@@ -123,6 +123,17 @@
 
 
 ;; text editing and navigation
+(el-get-bundle god-mode)
+(with-eval-after-load 'god-mode
+  (define-key god-local-mode-map (kbd ".") 'repeat)
+  ;; Update the cursor based on the god mode state
+  (defun god-mode-update-cursor ()
+    (setq cursor-type
+          (if (or god-local-mode buffer-read-only) 'hollow 'box)))
+  (add-hook 'god-mode-enabled-hook 'god-mode-update-cursor)
+  (add-hook 'god-mode-disabled-hook 'god-mode-update-cursor))
+
+
 (el-get-bundle swiper ;; C-3 «swiper no swiping!»
   :build (("make" "compile")) :info nil ;; (info is broken atm)
   (ivy-mode 1)
@@ -145,9 +156,11 @@
   (global-set-key (kbd "M-g SPC") 'avy-goto-char)
   (global-set-key (kbd "M-g w") 'avy-goto-word-1))
 
+
 (el-get-bundle expand-region
   (global-set-key (kbd "C-=") 'er/expand-region)
   (global-set-key (kbd "C-M-=") 'er/contract-region))
+
 
 ;; projects
 (el-get-bundle projectile)
