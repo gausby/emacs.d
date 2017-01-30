@@ -109,17 +109,14 @@
 (when (eq window-system 'ns)
   (progn
     (setq ns-use-srgb-colorspace t)
-
     ;; set fonts
-    ((lambda (font)
-       (set-frame-font font)
-       (set-face-attribute 'default nil :font font :height 150 :weight 'normal)
-       (set-face-attribute 'mode-line nil :font font :height 100 :weight 'normal)
-       (set-face-attribute 'mode-line-inactive nil :font font :height 100 :weight 'normal)
-       (set-face-font 'default font))
-     "source code pro")
+    (let ((font "source code pro"))
+      (set-frame-font font)
+      (set-face-font 'default font)
+      (set-face-attribute 'default nil :height 152)
+      (set-face-attribute 'mode-line nil :font font :height 100)
+      (set-face-attribute 'mode-line-inactive nil :font font :height 100))
     (el-get-bundle 'unicode-fonts (unicode-fonts-setup))
-
     ;; disable osx native fullscreen and toggle it like most other OS X programs
     (setq ns-use-native-fullscreen nil)
     (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)))
