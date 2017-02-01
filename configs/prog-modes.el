@@ -1,19 +1,4 @@
 ;;
-;; Company
-;;
-(el-get-bundle company-mode
-  (global-company-mode 1))
-(with-eval-after-load 'company
-  (setq company-idle-delay 0.3
-        company-tooltip-limit 10
-        company-minimum-prefix-length 2
-        company-tooltip-align-annotations t
-        company-tooltip-flip-when-above t))
-(el-get-bundle company-statistics
-  (add-hook 'after-init-hook 'company-statistics-mode))
-
-
-;;
 ;; Flycheck
 ;;
 (el-get-bundle flycheck)
