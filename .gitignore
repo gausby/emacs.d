@@ -22,6 +22,7 @@ url
 auto-save-list
 projectile-bookmarks.eld
 projectile.cache
+company-statistics-cache.el
 
 smex-items
 network-security.data
