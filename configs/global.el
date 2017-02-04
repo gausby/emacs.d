@@ -69,10 +69,9 @@
   (setq shackle-rules
         '(("*Apropos*" :select t :align below :size 0.5)
           ("*Buffer List*" :select t :align below :size 0.33)
-          ("*Help*" :select t :align below :size 0.5)
-          ("*Flycheck errors*" :select t :align below :size 0.33)
-          ("*alchemist test report*" :select t :align below :size 0.5)
-          ("*alchemist mix*" :select t :align below :size 0.33))))
+          ("*Help*" :select t :align below :size 0.5))))
+
+(defun mg/add-shackle-rule (rule) (add-to-list 'shackle-rules rule))
 
 
 ;; for all window systems ----------------------------------------------

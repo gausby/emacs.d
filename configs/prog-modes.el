@@ -3,7 +3,8 @@
 ;;
 (el-get-bundle flycheck)
 (with-eval-after-load 'flycheck
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+  (mg/add-shackle-rule '("*Flycheck errors*" :select t :align below :size 0.33)))
 
 
 ;;
@@ -50,7 +51,12 @@
     (setq alchemist-mix-command (expand-file-name "mix")
           alchemist-execute-command (expand-file-name "elixir")
           alchemist-compile-command (expand-file-name "elixirc")
-          alchemist-iex-program-name (expand-file-name "iex"))))
+          alchemist-iex-program-name (expand-file-name "iex")))
+  (dolist ;; shackle rules
+      (rule '(("*alchemist test report*" :select t :align below :size 0.5)
+              ("*alchemist mix*" :select t :align below :size 0.33)))
+    (mg/add-shackle-rule rule)))
+
 
 ;; scratch pad buffer
 (defun mg/alchemist-create-scratch-buffer ()
@@ -67,6 +73,7 @@ expressions with Elixir"
 (el-get-bundle erlang-mode)
 (with-eval-after-load 'erlang
   (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
+
 
 ;;
 ;; Ocaml
@@ -147,3 +154,5 @@ expressions with Elixir"
   :post-init (progn
                (add-hook 'rust-mode-hook #'racer-mode)
                (add-hook 'racer-mode-hook #'eldoc-mode)))
+(with-eval-after-load 'rust-mode
+  (mg/add-shackle-rule '("*Cargo Run*" :select t :align below :size 0.3)))
