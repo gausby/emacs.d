@@ -40,6 +40,12 @@
         org-confirm-babel-evaluate nil ;; don't ask about code eval
         ;; hide asterisks and slashes for bold and italics
         org-hide-emphasis-markers t)
+  ;; org-capture and org-agenda
+  (setq org-directory "~/Documents/Planning/"
+        org-default-notes-file "capture.org"
+        org-capture-templates '(("i" "Inbox" entry (file+headline "capture.org" "Inbox") "* %?\n %i\n ")))
+  (let ((default-directory org-directory))
+    (setq org-agenda-files (list (expand-file-name "capture.org"))))
   (add-hook 'org-mode-hook (lambda ()
       (org-bullets-mode 1)
       (visual-line-mode 1)
