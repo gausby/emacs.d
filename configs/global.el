@@ -51,6 +51,10 @@
       ;; don't go bananas when scrolling
       scroll-conservatively 10000)
 
+;; Make it difficult to quit emacs
+(define-key ctl-x-map (kbd "C-S-c") 'save-buffers-kill-terminal)
+(define-key ctl-x-map (kbd "C-c") 'delete-frame)
+
 
 ;; mode line -----------------------------------------------------------
 (setq uniquify-buffer-name-style 'forward)
