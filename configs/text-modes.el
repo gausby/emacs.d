@@ -41,17 +41,32 @@
         ;; hide asterisks and slashes for bold and italics
         org-hide-emphasis-markers t)
   ;; org-capture and org-agenda
-  (setq org-directory "~/Documents/Planning/"
+  (setq org-directory "~/Notes/"
         org-default-notes-file "capture.org"
         org-capture-templates '(("i" "Inbox" entry (file+headline "capture.org" "Inbox") "* %?\n %i\n ")))
-  (let ((default-directory org-directory))
-    (setq org-agenda-files (list (expand-file-name "capture.org"))))
+  (let ((default-directory org-directory)
+        (location-format "archives/%Y-%W-archive.org::* Archived"))
+    (setq org-agenda-files (list (expand-file-name "capture.org"))
+          org-archive-location (expand-file-name (format-time-string location-format))))
+  ;; Advices -----------------------------------------------------------
+  ;; Preserve top level headings when archiving to a file
+  ;; http://orgmode.org/worg/org-hacks.html#orgheadline59
+  (defadvice org-archive-subtree (around my-org-archive-subtree activate)
+    (let ((org-archive-location
+           (if (save-excursion (org-back-to-heading)
+                               (> (org-outline-level) 1))
+               (concat (car (split-string org-archive-location "::"))
+                       "::* "
+                       (car (org-get-outline-path)))
+             org-archive-location)))
+      ad-do-it))
+  ;; Mode hook ---------------------------------------------------------
   (add-hook 'org-mode-hook (lambda ()
       (org-bullets-mode 1)
       (visual-line-mode 1)
       (set-visual-wrap-column 90)
       (set-fill-column 90))))
-
+(define-key ctl-x-map (kbd "SPC") 'org-capture)
 
 ;;
 ;; IRFC
