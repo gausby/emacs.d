@@ -44,7 +44,7 @@
   (add-hook 'elixir-mode-hook (lambda ()
       (alchemist-mode 1)
       (yas/minor-mode 1)
-      (smartparens-mode 1)
+      (smartparens-mode -1)
       (flyspell-prog-mode))))
 (with-eval-after-load 'alchemist
   (let ((default-directory "~/.exenv/shims/"))
