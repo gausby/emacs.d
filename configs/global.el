@@ -168,12 +168,12 @@
 ;; projects
 (el-get-bundle projectile)
 (el-get-bundle counsel-projectile
-  (global-set-key (kbd "C-c p p") 'counsel-projectile-switch-project)
-  (global-set-key (kbd "C-c p f") 'counsel-projectile-find-file)
-  (global-set-key (kbd "C-c p b") 'counsel-projectile-switch-to-buffer)
-  (global-set-key (kbd "C-c p s") 'counsel-projectile-ag)
-  (global-set-key (kbd "C-c p k") 'projectile-kill-buffers)
-  (global-set-key (kbd "C-c p t") 'projectile-run-eshell))
+  (define-key ctl-x-map (kbd "p p") 'counsel-projectile-switch-project)
+  (define-key ctl-x-map (kbd "p f") 'counsel-projectile-find-file)
+  (define-key ctl-x-map (kbd "p b") 'counsel-projectile-switch-to-buffer)
+  (define-key ctl-x-map (kbd "p s") 'counsel-projectile-ag)
+  (define-key ctl-x-map (kbd "p k") 'projectile-kill-buffers)
+  (define-key ctl-x-map (kbd "p t") 'projectile-run-eshell))
 (with-eval-after-load 'projectile
   (setq projectile-completion-system 'ivy))
 
