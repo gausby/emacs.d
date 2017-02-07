@@ -39,7 +39,12 @@
   (setq org-src-fontify-natively t     ;; highlight code blocks
         org-confirm-babel-evaluate nil ;; don't ask about code eval
         ;; hide asterisks and slashes for bold and italics
-        org-hide-emphasis-markers t)
+        org-hide-emphasis-markers t
+        ;; make C-a and C-e jump to logical positions
+        org-special-ctrl-a/e t
+        ;; make kill-line delete logical parts of the line (headline
+        ;; first, then tags, etc)
+        org-special-ctrl-k t)
   ;; org-capture and org-agenda
   (setq org-directory "~/Notes/"
         org-default-notes-file "capture.org"
