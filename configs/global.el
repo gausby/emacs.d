@@ -14,7 +14,7 @@
      `(org-level-4 ((t (:height 1.0))))
      `(org-level-3 ((t (:height 1.0))))
      `(org-level-2 ((t (,@headline :height 1.0))))
-     `(org-level-1 ((t (,@headline :height 1.2))))
+     `(org-level-1 ((t (,@headline :height 1.0))))
      `(org-document-title ((t (,@headline :height 1.25 :underline nil))))
      `(org-block-begin-line ((t (:box nil))))
      `(org-block-end-line ((t (:box nil)))))))
