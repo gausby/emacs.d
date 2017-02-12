@@ -75,7 +75,7 @@
 (with-eval-after-load 'org-agenda
   (setq org-agenda-start-on-weekday nil))
 
-(define-key ctl-x-map (kbd "SPC") 'org-capture)
+(define-key ctl-x-map (kbd "n") 'org-capture)
 
 
 ;;
