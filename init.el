@@ -57,9 +57,11 @@
 
 ;; A function to load config files
 (defun mg/load-config-files (files)
-  (dolist (f files)
-    (load (expand-file-name (concat *emacs-config-dir* f)))
-    (message "Done loading config file: %s" f)))
+  (let ((default-directory *emacs-config-dir*))
+    (dolist (f files)
+      (load (expand-file-name f))
+      (message "Done loading config file: %s" f))))
+
 ;; load our config files for the individual modes
 (mg/load-config-files
  '("defuns" ;; Has to go first
