@@ -156,3 +156,22 @@ expressions with Elixir"
                (add-hook 'racer-mode-hook #'eldoc-mode)))
 (with-eval-after-load 'rust-mode
   (mg/add-shackle-rule '("*Cargo Run*" :select t :align below :size 0.3)))
+
+
+;;
+;; Rest client
+;;
+(el-get-bundle restclient)
+(el-get-bundle company-restclient)
+(with-eval-after-load 'restclient
+  (add-to-list 'company-backends 'company-restclient)
+  (add-hook 'restclient-mode-hook (lambda ()
+      (smartparens-mode 1)
+      (flyspell-prog-mode))))
+;; org-babel support
+(el-get-bundle ob-restclient
+  :type github :pkgname "alf/ob-restclient.el"
+  :description "An extension to restclient.el for emacs that provides org-babel support"
+  :depends (restclient)
+  :post-init (with-eval-after-load 'org
+               (add-to-list 'org-babel-load-languages '(restclient . t))))
