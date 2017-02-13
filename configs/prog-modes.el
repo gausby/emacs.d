@@ -167,7 +167,8 @@ expressions with Elixir"
   (add-to-list 'company-backends 'company-restclient)
   (add-hook 'restclient-mode-hook (lambda ()
       (smartparens-mode 1)
-      (flyspell-prog-mode))))
+      (flyspell-prog-mode)))
+  (mg/add-shackle-rule '("*HTTP Response*" :align below :size 0.3)))
 ;; org-babel support
 (el-get-bundle ob-restclient
   :type github :pkgname "alf/ob-restclient.el"
