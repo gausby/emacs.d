@@ -103,6 +103,9 @@ expressions with Elixir"
   (flycheck-ocaml-setup)
   ;; Make company aware of merlin
   (add-to-list 'company-backends 'merlin-company-backend))
+(with-eval-after-load 'org
+  (require 'ob-ocaml)
+  (add-to-list 'org-babel-load-languages '(ocaml . t)))
 
 
 ;;
