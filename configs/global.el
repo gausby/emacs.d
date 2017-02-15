@@ -125,6 +125,16 @@
     (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)))
 
 
+;; Calendar and time
+(with-eval-after-load 'calendar
+  (setq calendar-week-start-day 1
+        ;; Location
+        calendar-latitude +55.0
+        calendar-longitude +12.0
+        calendar-location-name "Copenhagen, DK")
+  (calendar-set-date-style 'iso))
+
+
 ;; text editing and navigation
 (el-get-bundle god-mode)
 (with-eval-after-load 'god-mode
