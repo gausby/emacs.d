@@ -1,4 +1,12 @@
 ;;
+;; Generally for text-modes
+;;
+(defun my-text-mode-hook ()
+  (flyspell-mode 1))
+(add-hook 'text-mode-hook 'my-text-mode-hook)
+
+
+;;
 ;; Olivetti
 ;;
 (el-get-bundle olivetti
