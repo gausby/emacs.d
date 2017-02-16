@@ -53,6 +53,10 @@
         (location-format "archives/%Y-%W-archive.org::* Archived"))
     (setq org-agenda-files (list (expand-file-name "capture.org"))
           org-archive-location (expand-file-name (format-time-string location-format))))
+  ;; Item state changes and log drawer
+  (setq org-log-into-drawer t
+        org-log-done 'time
+        org-log-reschedule 'note)
   ;; Advices -----------------------------------------------------------
   ;; Preserve top level headings when archiving to a file
   ;; http://orgmode.org/worg/org-hacks.html#orgheadline59
