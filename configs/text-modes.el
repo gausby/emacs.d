@@ -36,15 +36,16 @@
 (el-get-bundle org-bullets)
 
 (with-eval-after-load 'org
-  (setq org-src-fontify-natively t     ;; highlight code blocks
-        org-confirm-babel-evaluate nil ;; don't ask about code eval
-        ;; hide asterisks and slashes for bold and italics
-        org-hide-emphasis-markers t
-        ;; make C-a and C-e jump to logical positions
-        org-special-ctrl-a/e t
-        ;; make kill-line delete logical parts of the line (headline
-        ;; first, then tags, etc)
+  ;; Navigation
+  ;; Make C-a and C-e jump to logical positions and make kill-line
+  ;; delete logical parts of the line (headline first, then tags, etc)
+  (setq org-special-ctrl-a/e t
         org-special-ctrl-k t)
+  ;; Code blocks and code evaluation
+  ;; Use the font lock from the given major mode to highlight the code
+  ;; block and don not ask for confirmation when evaluating code
+  (setq org-src-fontify-natively t
+        org-confirm-babel-evaluate nil)
   ;; org-capture and org-agenda
   (setq org-directory "~/Notes/"
         org-default-notes-file "capture.org"
