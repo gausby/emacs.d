@@ -17,7 +17,9 @@
      `(org-level-1 ((t (,@headline :height 1.0))))
      `(org-document-title ((t (,@headline :height 1.25 :underline nil))))
      `(org-block-begin-line ((t (:box nil))))
-     `(org-block-end-line ((t (:box nil)))))))
+     `(org-block-end-line ((t (:box nil))))
+     `(org-block ((t (:foreground nil :background "#1e2930"))))
+     `(org-code ((t (:background "#1e2930")))))))
 
 
 ;; disable files from being created
