@@ -54,6 +54,9 @@
   ;; block and don not ask for confirmation when evaluating code
   (setq org-src-fontify-natively t
         org-confirm-babel-evaluate nil)
+  ;; setup shell for use in code blocks
+  (require 'ob-shell)
+  (add-to-list 'org-babel-load-languages '(shell . t))
   ;; org-capture and org-agenda
   (setq org-directory "~/Notes/"
         org-default-notes-file "capture.org"
