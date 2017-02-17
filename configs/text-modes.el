@@ -82,8 +82,9 @@
   (add-hook 'org-mode-hook (lambda ()
       (org-bullets-mode 1)
       (visual-line-mode 1)
-      (set-visual-wrap-column 90)
-      (set-fill-column 90))))
+      (org-indent-mode 1)
+      (set-fill-column 90)
+      (set-visual-wrap-column 90))))
 
 (with-eval-after-load 'org-agenda
   (setq org-agenda-start-on-weekday nil))
