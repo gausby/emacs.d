@@ -53,6 +53,7 @@
   ;; Use the font lock from the given major mode to highlight the code
   ;; block and don not ask for confirmation when evaluating code
   (setq org-src-fontify-natively t
+        org-src-tab-acts-natively t
         org-confirm-babel-evaluate nil)
   ;; setup shell for use in code blocks
   (require 'ob-shell)
