@@ -33,3 +33,24 @@
       (notmuch-search-filter-by-tag "unread"))))
 
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
+
+
+;;
+;; Elfeed - RSS
+;;
+(el-get-bundle elfeed)
+(el-get-bundle elfeed-org
+  :type github :pkgname "remyhonig/elfeed-org"
+  :depends (elfeed org-mode dash s)
+  (elfeed-org))
+
+(with-eval-after-load 'elfeed-org
+  (setq rmh-elfeed-org-files (list "~/Notes/elfeed.org")))
+
+(with-eval-after-load 'elfeed
+  (setq elfeed-db-directory "~/Notes/elfeeddb"))
+
+(with-eval-after-load 'elfeed-search
+  (defalias 'elfeed-toggle-star
+    (elfeed-expose #'elfeed-search-toggle-all 'star))
+  (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star))
