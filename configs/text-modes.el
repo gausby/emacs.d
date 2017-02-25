@@ -65,11 +65,24 @@
   (let ((default-directory org-directory)
         (location-format "archives/%Y-%W-archive.org::* Archived"))
     (setq org-agenda-files (list (expand-file-name "capture.org"))
-          org-archive-location (expand-file-name (format-time-string location-format))))
+          org-archive-location (expand-file-name (format-time-string location-format))
+          org-id-locations-file (expand-file-name ".org-id-locations")))
   ;; Item state changes and log drawer
   (setq org-log-into-drawer t
         org-log-done 'time
         org-log-reschedule 'note)
+  ;; Helpers -----------------------------------------------------------
+  (defun mg/org-decorate-nodes-with-ids ()
+    "Add ID properties to nodes in the current file which
+does not already have one."
+    (interactive)
+    (org-map-entries 'org-id-get-create))
+  ;; copy the id of a node to the kill-ring (generate id if nonexistent)
+  (defun mg/org-copy-node-id ()
+    (interactive)
+    (let ((temporary-id (funcall 'org-id-get-create)))
+      (kill-new temporary-id)
+      (message "Copied %s to kill-ring" temporary-id)))
   ;; Advices -----------------------------------------------------------
   ;; Preserve top level headings when archiving to a file
   ;; http://orgmode.org/worg/org-hacks.html#orgheadline59
@@ -88,7 +101,9 @@
       (visual-line-mode 1)
       (org-indent-mode 1)
       (set-fill-column 90)
-      (set-visual-wrap-column 90))))
+      ;; (set-visual-wrap-column 90)
+      ;; Keybindings
+      (local-set-key (kbd "C-c w") 'mg/org-copy-node-id))))
 
 (with-eval-after-load 'org-agenda
   (setq org-agenda-start-on-weekday nil))
