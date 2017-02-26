@@ -10,24 +10,24 @@
 * Installation
 ** Fetch dependencies
 
-   Use Git to clone the repo into ~/.emacs.d and start Emacs.
+Use Git to clone the repo into ~/.emacs.d and start Emacs.
 
-   #+BEGIN_SRC shell
-   $ git clone git@github.com:gausby/emacs.d.git ~/.emacs.d/
-   #+END_SRC
+#+BEGIN_SRC shell
+$ git clone git@github.com:gausby/emacs.d.git ~/.emacs.d/
+#+END_SRC
 
 
 *** Fonts
 
-    The font I use is [[https://github.com/adobe-fonts/source-code-pro][Source Code Pro]] from Adobe. Follow the install instructions for your
-    operating system.
+The font I use is [[https://github.com/adobe-fonts/source-code-pro][Source Code Pro]] from Adobe. Follow the install instructions for your
+operating system.
 
-    The package ~unicode-fonts~ require the following fonts to be installed on the system:
+The package ~unicode-fonts~ require the following fonts to be installed on the system:
 
-      - [[https://dejavu-fonts.github.io/Download.html][DejaVu Sanns and DejaVu Sans Mono]]
-      - [[http://www.quivira-font.com/downloads.php][Quivira]]
-      - [[http://www.google.com/get/noto/][Noto Sans and Noto Sans Symbol]]
-      - [[http://www.fontspace.com/unicode-fonts-for-ancient-scripts/symbola][Symbola]] by George Douros
+- [[https://dejavu-fonts.github.io/Download.html][DejaVu Sanns and DejaVu Sans Mono]]
+- [[http://www.quivira-font.com/downloads.php][Quivira]]
+- [[http://www.google.com/get/noto/][Noto Sans and Noto Sans Symbol]]
+- [[http://www.fontspace.com/unicode-fonts-for-ancient-scripts/symbola][Symbola]] by George Douros
 
 
 * Preparing Programming and Text Modes
@@ -36,9 +36,9 @@
 
 ** Elixir
 
-   The setup require emacs-elixir and alchemist.el to be cloned into the
-   *~/Development/github/gausby/*-directory. I have some clones going there but the official
-   repos might work just as well—or even better.
+The setup require emacs-elixir and alchemist.el to be cloned into the
+*~/Development/github/gausby/*-directory. I have some clones going there but the official
+repos might work just as well—or even better.
 
 ** Haskell
 
@@ -52,15 +52,15 @@
 
 ** Gist
 
-   Execute the interactive =gist-list= command and enter your github name/passphrase when
-   asked; then enter the 2-factor-auth code. This will result in an auth token being
-   generated and the proper auth data is added to the *~/.gitconfig*.
+Execute the interactive =gist-list= command and enter your github name/passphrase when
+asked; then enter the 2-factor-auth code. This will result in an auth token being
+generated and the proper auth data is added to the *~/.gitconfig*.
 
-   If there are problems connecting to github try removing the following lines from your
-   *~/.gitconfig*:
+If there are problems connecting to github try removing the following lines from your
+*~/.gitconfig*:
 
-   #+BEGIN_SRC conf
-   [github]
-       user = *GITHUB_USER_NAME*
-       oauth-token = *TOKEN*
-   #+END_SRC
+#+BEGIN_SRC conf
+[github]
+  user = *GITHUB_USER_NAME*
+  oauth-token = *TOKEN*
+#+END_SRC
