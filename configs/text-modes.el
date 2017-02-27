@@ -114,6 +114,7 @@ does not already have one."
   (setq org-agenda-start-on-weekday nil))
 
 (define-key ctl-x-map (kbd "n") 'org-capture)
+(define-key ctl-x-map (kbd "a") 'org-agenda)
 
 
 ;;
