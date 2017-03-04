@@ -57,7 +57,6 @@
               ("*alchemist mix*" :select t :align below :size 0.33)))
     (mg/add-shackle-rule rule)))
 
-
 ;; scratch pad buffer
 (defun mg/alchemist-create-scratch-buffer ()
   "Open a buffer in elixir/alchemist mode; evaluating the
@@ -80,7 +79,7 @@ expressions with Elixir"
 ;;
 ;; Will only install the ocaml modes if OPAM is present on the sytem
 ;;
-(if (string-equal (substring (shell-command-to-string "which opam 2> /dev/null") 0 -1) "opam not found")
+(if (not (executable-find "opam"))
     (message "Please install OPAM and Merlin")
   (el-get-bundle tuareg-mode
     ;; Add opam emacs directory to the load-path
