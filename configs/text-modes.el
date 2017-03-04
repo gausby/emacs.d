@@ -80,6 +80,11 @@
   (setq org-log-into-drawer t
         org-log-done 'time
         org-log-reschedule 'note)
+  ;; enable ordered tasks
+  (setq org-enforce-todo-dependencies t
+        org-track-ordered-property-with-tag t
+        org-agenda-dim-blocked-tasks t
+        org-enforce-todo-dependencies t)
   ;; Helpers -----------------------------------------------------------
   (defun mg/org-decorate-nodes-with-ids ()
     "Add ID properties to nodes in the current file which
