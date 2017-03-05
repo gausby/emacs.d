@@ -178,14 +178,15 @@
 
 
 ;; projects
-(el-get-bundle projectile)
+(el-get-bundle projectile
+  (define-key ctl-x-map (kbd "p e") 'projectile-edit-dir-locals)
+  (define-key ctl-x-map (kbd "p k") 'projectile-kill-buffers)
+  (define-key ctl-x-map (kbd "p t") 'projectile-run-eshell))
 (el-get-bundle counsel-projectile
   (define-key ctl-x-map (kbd "p p") 'counsel-projectile-switch-project)
   (define-key ctl-x-map (kbd "p f") 'counsel-projectile-find-file)
   (define-key ctl-x-map (kbd "p b") 'counsel-projectile-switch-to-buffer)
-  (define-key ctl-x-map (kbd "p s") 'counsel-projectile-ag)
-  (define-key ctl-x-map (kbd "p k") 'projectile-kill-buffers)
-  (define-key ctl-x-map (kbd "p t") 'projectile-run-eshell))
+  (define-key ctl-x-map (kbd "p s") 'counsel-projectile-ag))
 (with-eval-after-load 'projectile
   (setq projectile-completion-system 'ivy))
 
