@@ -197,6 +197,10 @@
   (define-key ctl-x-map (kbd "C-g") 'magit-status))
 (with-eval-after-load 'magit
   (setq magit-completing-read-function 'ivy-completing-read))
+;; can't seem to set this upon `magit-list-repositories' load as its
+;; existence is checked before the list is shown
+(setq magit-repository-directories '(("~/Development/github.com/" . 2)
+                                     ("~/Development/gitlab.com/" . 2)))
 
 (el-get-bundle git)
 (el-get-bundle gist)
