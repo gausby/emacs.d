@@ -179,6 +179,31 @@
 
 ;; projects
 (el-get-bundle projectile
+  ;; Helpers -----------------------------------------------------------
+
+  ;; a function that will update and prune the projectile project list
+  ;; based on my project directory structure
+  (defun mg/update-projectile-project-list ()
+    (interactive)
+    ;; Perform cleanup before adding projects
+    (projectile-cleanup-known-projects)
+    ;; Iterate over some `project sites', represented as folders in
+    ;; ~/Development (i.e. ~/Development/github.com/); within these
+    ;; folders each project should be checked out into a folder
+    ;; structure of `project-owner/project-name', such as gausby/hazel
+    (let* ((default-directory "~/Development")
+           (project-sites (list (expand-file-name "github.com")
+                                (expand-file-name "gitlab.com"))))
+      ;; Filter out nonexistent folders
+      (dolist (project-site (seq-filter 'file-exists-p project-sites))
+        (dolist (profile-dir (directory-files project-site t "[^\\.]$"))
+          (projectile-discover-projects-in-directory profile-dir))))
+    ;; Finally, add my Emacs configuration directory
+    (projectile-discover-projects-in-directory "~/.emacs.d"))
+  ;; Run upon initialization
+  (mg/update-projectile-project-list)
+
+  ;; Keybindings -------------------------------------------------------
   (define-key ctl-x-map (kbd "p e") 'projectile-edit-dir-locals)
   (define-key ctl-x-map (kbd "p k") 'projectile-kill-buffers)
   (define-key ctl-x-map (kbd "p t") 'projectile-run-eshell))
