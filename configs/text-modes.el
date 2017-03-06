@@ -64,9 +64,9 @@
         org-capture-templates '(("i" "Inbox"
                                  entry (file+headline "capture.org" "Inbox")
                                  "* %?\n %i\n ")
-                                ("j" "Journal"
+                                ("j" "Journal Entry"
                                  entry (file+datetree "journal.org")
-                                 "* %U\n%?")))
+                                 "* %U\n%?" :empty-lines 1)))
   (let ((default-directory org-directory)
         (location-format "archive/%Y-%W-archive.org::* From %s"))
     (setq org-agenda-files (list (expand-file-name "capture.org")
