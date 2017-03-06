@@ -66,7 +66,7 @@
                                  "* %?\n %i\n ")
                                 ("j" "Journal Entry"
                                  entry (file+datetree "journal.org")
-                                 "* %U\n%?" :empty-lines 1)))
+                                 "* %U %?" :empty-lines 1)))
   (let ((default-directory org-directory)
         (location-format "archive/%Y-%W-archive.org::* From %s"))
     (setq org-agenda-files (list (expand-file-name "capture.org")
