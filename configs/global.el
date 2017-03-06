@@ -187,7 +187,10 @@
   (define-key ctl-x-map (kbd "p f") 'counsel-projectile-find-file)
   (define-key ctl-x-map (kbd "p b") 'counsel-projectile-switch-to-buffer)
   (define-key ctl-x-map (kbd "p s") 'counsel-projectile-ag))
+
 (with-eval-after-load 'projectile
+  ;; add directories and files to the projectile ignore list
+  (add-to-list 'projectile-globally-ignored-directories "_build")
   (setq projectile-completion-system 'ivy))
 
 
