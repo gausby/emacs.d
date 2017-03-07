@@ -180,26 +180,23 @@
 ;; projects
 (el-get-bundle projectile
   ;; Helpers -----------------------------------------------------------
-
-  ;; a function that will update and prune the projectile project list
-  ;; based on my project directory structure
   (defun mg/update-projectile-project-list ()
-    (interactive)
-    ;; Perform cleanup before adding projects
-    (projectile-cleanup-known-projects)
-    ;; Iterate over some `project sites', represented as folders in
-    ;; ~/Development (i.e. ~/Development/github.com/); within these
-    ;; folders each project should be checked out into a folder
-    ;; structure of `project-owner/project-name', such as gausby/hazel
-    (let* ((default-directory "~/Development")
-           (project-sites (list (expand-file-name "github.com")
-                                (expand-file-name "gitlab.com"))))
-      ;; Filter out nonexistent folders
-      (dolist (project-site (seq-filter 'file-exists-p project-sites))
-        (dolist (profile-dir (directory-files project-site t "[^\\.]$"))
-          (projectile-discover-projects-in-directory profile-dir))))
-    ;; Finally, add my Emacs configuration directory
-    (projectile-discover-projects-in-directory "~/.emacs.d"))
+  "Discover projects in `~/Development/github.com' and
+`~/Development/gitlab.com' and add them to the project list used
+by the Projectile project switcher"
+  (interactive)
+  ;; Perform cleanup before adding projects
+  (projectile-cleanup-known-projects)
+  ;; Find the projects in the structure and add them
+  (let* ((default-directory "~/Development")
+         (project-site-globs '("github.com/*/*" "gitlab.com/*/*")))
+    ;; The project structure is ~/Development/github.com/USER/PROJECT/
+    (dolist (project-site-glob project-site-globs)
+      (let ((projects-glob (expand-file-name project-site-glob)))
+        (dolist (project (file-expand-wildcards projects-glob))
+        (projectile-discover-projects-in-directory project)))))
+  ;; Add my Emacs config folder as well ...
+  (projectile-discover-projects-in-directory "~/.emacs.d"))
   ;; Run upon initialization
   (mg/update-projectile-project-list)
 
