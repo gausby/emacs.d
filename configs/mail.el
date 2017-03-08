@@ -25,6 +25,8 @@
           (:name "connections" :key "c"
                  :query "tag:friend-request date:-7d..now"
                  :count-query "tag:friend-request date:-24h..now")))
+  ;; Enable links to notmuch buffers when using links in org-mode
+  (require 'org-notmuch)
   ;; key-bindings in search lists
   (define-key notmuch-search-mode-map "u"
     (lambda (&optional beg end)

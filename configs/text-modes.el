@@ -124,6 +124,7 @@ does not already have one."
 
 (define-key ctl-x-map (kbd "n") 'org-capture)
 (define-key ctl-x-map (kbd "a") 'org-agenda)
+(global-set-key (kbd "C-c l") 'org-store-link)
 
 
 ;;
