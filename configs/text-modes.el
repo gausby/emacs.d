@@ -63,7 +63,7 @@
         org-default-notes-file "capture.org"
         org-capture-templates '(("i" "Inbox"
                                  entry (file+headline "capture.org" "Inbox")
-                                 "* %?\n %i\n ")
+                                 "* %?\n %i\n " :empty-lines 1)
                                 ("j" "Journal Entry"
                                  entry (file+datetree "journal.org")
                                  "* %U %?" :empty-lines 1)))
