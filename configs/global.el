@@ -38,6 +38,7 @@
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -90,24 +91,12 @@
 
 ;; for max os x systems (gui and terminal) -----------------------------
 (when (eq system-type 'darwin)
-  (progn
-    ;; setup copy paste from and to os x
-    (defun copy-from-osx ()
-      (shell-command-to-string "pbpaste"))
-    (defun paste-to-osx (text &optional push)
-      (let ((process-connection-type nil))
-    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-      (process-send-string proc text)
-      (process-send-eof proc))))
-    ;; enable the mac keys and fix copy-paste between OSX and Emacs
-    (setq interprogram-cut-function 'paste-to-osx
-          interprogram-paste-function 'copy-from-osx
-          ;; use all the special keys on the mac keyboard
-          mac-option-modifier nil
-          ns-function-modifier 'super
-          mac-right-command-modifier 'hyper
-          mac-right-option-modifier 'alt
-          mac-command-modifier 'meta)))
+  ;; use all the special keys on the mac keyboard
+  (setq mac-option-modifier nil
+        ns-function-modifier 'super
+        mac-right-command-modifier 'hyper
+        mac-right-option-modifier 'alt
+        mac-command-modifier 'meta))
 
 
 ;; for max os x systems (only gui) -------------------------------------
