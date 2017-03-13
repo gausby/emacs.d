@@ -62,7 +62,7 @@
   (setq org-directory "~/Notes/"
         org-default-notes-file "capture.org"
         org-capture-templates '(("i" "Inbox"
-                                 entry (file+headline "capture.org" "Inbox")
+                                 entry (file "capture.org")
                                  "* %?\n %i\n " :empty-lines 1)
                                 ("j" "Journal Entry"
                                  entry (file+datetree "journal.org")
