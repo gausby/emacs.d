@@ -109,6 +109,8 @@ does not already have one."
                        (car (org-get-outline-path)))
              org-archive-location)))
       ad-do-it))
+  ;; auto-inserts ------------------------------------------------------
+  (define-auto-insert "wiki\\/.*\\.org$" [ "wiki-file.org" mg/autoinsert-yas-expand ])
   ;; Mode hook ---------------------------------------------------------
   (add-hook 'org-mode-hook (lambda ()
       (org-bullets-mode 1)

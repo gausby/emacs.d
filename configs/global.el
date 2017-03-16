@@ -232,6 +232,21 @@ by the Projectile project switcher"
   :build nil)
 (with-eval-after-load 'yasnippet
   (setq yas-snippet-dirs '("~/.emacs.d/snippets")))
+(yas-global-mode 1)
+
+;;
+;; auto-insert
+;;
+;; My auto-insert setup has been borrowed from Howard Abrams
+;; http://howardism.org/Technical/Emacs/templates-tutorial.html
+(setq auto-insert-query nil
+      auto-insert-directory (locate-user-emacs-file "templates"))
+(add-hook 'find-file-hook 'auto-insert)
+(auto-insert-mode 1)
+
+(defun mg/autoinsert-yas-expand()
+  "Replace text in yasnippet template."
+  (yas-expand-snippet (buffer-string) (point-min) (point-max)))
 
 
 ;;
