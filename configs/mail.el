@@ -59,3 +59,7 @@
       (defalias 'elfeed-toggle-star
         (elfeed-expose #'elfeed-search-toggle-all 'star))
       (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star))))
+
+(with-eval-after-load 'elfeed-show
+  ;; Key-bindings
+  (define-key elfeed-show-mode-map (kbd "C-c C-o") 'shr-browse-url))
