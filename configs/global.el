@@ -58,6 +58,9 @@
 (define-key ctl-x-map (kbd "C-S-c") 'save-buffers-kill-terminal)
 (define-key ctl-x-map (kbd "C-c") 'delete-frame)
 
+;; Remove warnings when using certain commands
+(put 'narrow-to-region 'disabled nil)
+
 
 ;; mode line -----------------------------------------------------------
 (setq uniquify-buffer-name-style 'forward)
