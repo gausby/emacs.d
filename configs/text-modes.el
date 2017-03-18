@@ -61,12 +61,14 @@
   ;; org-capture and org-agenda
   (setq org-directory "~/Notes/"
         org-default-notes-file "capture.org"
-        org-capture-templates '(("i" "Inbox"
-                                 entry (file "capture.org")
+        org-capture-templates '(("i" "Inbox" entry
+                                 (file "capture.org")
                                  "* %?\n %i\n " :empty-lines 1)
-                                ("j" "Journal Entry"
-                                 entry (file+datetree "journal.org")
-                                 "* %U %?" :empty-lines 1)))
+                                ("j" "Journal Entry" entry
+                                 (file+datetree "journal.org")
+                                 "* %U %?" :empty-lines 1)
+                                ("n" "Note (for currently clocked task)" item
+                                 (clock) "  - %U %?" :empty-lines 1)))
   (let ((default-directory org-directory)
         (location-format "archive/%Y-%W-archive.org::* From %s"))
     (setq org-agenda-files (list (expand-file-name "capture.org")
