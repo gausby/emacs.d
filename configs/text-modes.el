@@ -124,7 +124,7 @@ does not already have one."
 (with-eval-after-load 'org-agenda
   (setq org-agenda-start-on-weekday nil))
 
-(define-key ctl-x-map (kbd "n") 'org-capture)
+(define-key ctl-x-map (kbd "C-n") 'org-capture)
 (define-key ctl-x-map (kbd "a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
 
