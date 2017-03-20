@@ -1,3 +1,4 @@
 #+TITLE: `(upcase-initials (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`
+#+KEYWORDS: $1
 
 * ${0:}
