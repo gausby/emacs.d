@@ -127,8 +127,18 @@ does not already have one."
   (setq org-agenda-start-on-weekday nil))
 
 (define-key ctl-x-map (kbd "C-n") 'org-capture)
-(define-key ctl-x-map (kbd "a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
+(define-key ctl-x-map (kbd "a") 'org-agenda)
+(defun mg/open-notes-file ()
+  "Open an org file in the root of my notes directory"
+  (interactive)
+  (let* ((default-directory "~/Notes/")
+         (org-file-glob (expand-file-name "*.org"))
+         (files (mapcar 'file-name-nondirectory
+                        (file-expand-wildcards org-file-glob)))
+         (file (completing-read "Switch to org file: " files)))
+    (find-file (expand-file-name file))))
+(define-key ctl-x-map (kbd "C-a") 'mg/open-notes-file)
 
 
 ;;
