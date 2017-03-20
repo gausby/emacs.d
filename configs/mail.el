@@ -58,7 +58,8 @@
     (with-eval-after-load 'elfeed-search
       (defalias 'elfeed-toggle-star
         (elfeed-expose #'elfeed-search-toggle-all 'star))
-      (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star))))
+      (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star)
+      (define-key elfeed-search-mode-map (kbd "=") 'elfeed-search-fetch))))
 
 (with-eval-after-load 'elfeed-show
   ;; Key-bindings
