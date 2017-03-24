@@ -47,7 +47,7 @@
 (delete-selection-mode t)
 
 (global-hl-line-mode t)
-(set-default 'indicate-empty-lines t)
+(set-default 'indicate-buffer-boundaries '((top . nil) (bottom . right)))
 
 ;; scroll one line at a time
 (setq scroll-step 1
