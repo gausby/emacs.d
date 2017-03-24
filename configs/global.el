@@ -110,11 +110,11 @@
     (let ((font "source code pro"))
       (set-frame-font font)
       (set-face-font 'default font)
-      (set-face-attribute 'default nil :height 152)
-      (set-face-attribute 'mode-line nil :font font :height 100)
-      (set-face-attribute 'mode-line-inactive nil :font font :height 100))
+      (set-face-attribute 'default nil :height 144)
+      (set-face-attribute 'mode-line nil :font font :height 90)
+      (set-face-attribute 'mode-line-inactive nil :font font :height 90))
     (el-get-bundle 'unicode-fonts (unicode-fonts-setup))
-    ;; disable osx native fullscreen and toggle it like most other OS X programs
+    ;; disable osx native fullscreen and toggle it like most other OS X apps
     (setq ns-use-native-fullscreen nil)
     (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)))
 
@@ -236,6 +236,7 @@ by the Projectile project switcher"
 (with-eval-after-load 'yasnippet
   (setq yas-snippet-dirs '("~/.emacs.d/snippets")))
 (yas-global-mode 1)
+
 
 ;;
 ;; auto-insert
