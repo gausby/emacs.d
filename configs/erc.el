@@ -107,5 +107,5 @@
   ;; Mode Hook ---------------------------------------------------------
   (defun mg/erc-view-log-mode-hook ()
     (visual-line-mode)
-    (set-visual-wrap-column 80))
+    (set-visual-wrap-column 74))
   (add-hook 'erc-view-log-mode-hook 'mg/erc-view-log-mode-hook))
