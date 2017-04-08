@@ -32,7 +32,8 @@
     (lambda (&optional beg end)
       "display only unread messages for the current search view"
       (interactive (notmuch-search-interactive-region))
-      (notmuch-search-filter-by-tag "unread"))))
+      (notmuch-search-filter-by-tag "unread")))
+  (define-key notmuch-show-mode-map (kbd "C-c C-o") 'browse-url-at-point))
 
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
 
