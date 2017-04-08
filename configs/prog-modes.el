@@ -161,6 +161,14 @@ expressions with Elixir"
 
 
 ;;
+;; Go-lang
+;;
+(el-get-bundle go-mode)
+(el-get-bundle go-eldoc)
+(el-get-bundle go-company)
+
+
+;;
 ;; Rest client
 ;;
 (el-get-bundle restclient)
