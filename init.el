@@ -7,10 +7,12 @@
     (push "/usr/bin" exec-path)
     (push "/usr/sbin" exec-path)
     (push "~/.cargo/bin" exec-path)
+    (push "~/.go/bin" exec-path)
     (setenv "PATH"
             (concat "/usr/local/bin:/usr/local/sbin:"
                     "/usr/bin:/usr/sbin:"
                     "~/.cargo/bin:"
+                    "~/.go/bin:"
                     (getenv "PATH")))
     )))
 
@@ -53,7 +55,8 @@
 (setq el-get-user-package-directory
       (concat user-emacs-directory "/configs"))
 
-(el-get-bundle exec-path-from-shell)
+(el-get-bundle exec-path-from-shell
+  (exec-path-from-shell-copy-env "GOPATH"))
 
 ;; A function to load config files
 (defun mg/load-config-files (files)

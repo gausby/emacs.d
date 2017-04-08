@@ -166,6 +166,11 @@ expressions with Elixir"
 (el-get-bundle go-mode)
 (el-get-bundle go-eldoc)
 (el-get-bundle go-company)
+;; todo, ob-go will not evaluate code blocks in org, fix
+(el-get-bundle ob-go)
+(with-eval-after-load 'org
+    (require 'ob-go)
+    (add-to-list 'org-babel-load-languages '(go . t)))
 
 
 ;;
