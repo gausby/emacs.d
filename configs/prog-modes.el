@@ -120,6 +120,12 @@ expressions with Elixir"
 
 
 ;;
+;; Idris
+;;
+(el-get-bundle idris-mode)
+
+
+;;
 ;; Elm
 ;;
 ;; elm-format: https://github.com/avh4/elm-format#building-from-source
