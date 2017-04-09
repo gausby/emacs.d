@@ -43,6 +43,15 @@
 (el-get-bundle org-mode)
 (el-get-bundle org-bullets)
 
+;; Todo; ob-async doesn't seem to work too well with my setup, but it
+;; seems pretty neat. Await an update and try again.
+;; (el-get-bundle ob-async
+;;   :type github :pkgname "astahlman/ob-async"
+;;   :features ob-async
+;;   :post-init (with-eval-after-load 'org
+;;                (add-to-list 'org-ctrl-c-ctrl-c-hook
+;;                'ob-async-org-babel-execute-src-block)))
+
 (with-eval-after-load 'org
   ;; Navigation
   ;; Make C-a and C-e jump to logical positions and make kill-line
