@@ -61,7 +61,7 @@
     (erc-spelling-mode 1)
     (erc-fill-disable)
     (visual-line-mode)
-    (set-visual-wrap-column 90))
+    (set-visual-wrap-column 74))
   (add-hook 'erc-mode-hook 'mg/erc-mode-hook))
 
 (with-eval-after-load 'erc-track
