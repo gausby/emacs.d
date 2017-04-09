@@ -169,14 +169,25 @@ expressions with Elixir"
 ;;
 ;; Go-lang
 ;;
-(el-get-bundle go-mode)
-(el-get-bundle go-eldoc)
-(el-get-bundle go-company)
+(el-get-bundle go-mode
+  :post-init
+  (add-hook 'go-mode-hook (lambda ()
+      (setq gofmt-command "goimports")
+      (add-hook 'before-save-hook 'gofmt-before-save)
+      ;; keybindings ---------------------------------------------------
+      (local-set-key (kbd "C-c C-c") 'compile))))
+(el-get-bundle go-eldoc
+  :post-init (add-hook 'go-mode-hook 'go-eldoc-setup))
+(el-get-bundle go-company
+  :post-init
+  (add-hook 'go-mode-hook (lambda ()
+      (set (make-local-variable 'company-backends) '(company-go)))))
 ;; todo, ob-go will not evaluate code blocks in org, fix
-(el-get-bundle ob-go)
-(with-eval-after-load 'org
+(el-get-bundle ob-go
+  :post-init
+  (with-eval-after-load 'org
     (require 'ob-go)
-    (add-to-list 'org-babel-load-languages '(go . t)))
+    (add-to-list 'org-babel-load-languages '(go . t))))
 
 
 ;;
