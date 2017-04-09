@@ -16,8 +16,11 @@
   (with-eval-after-load 'smartparens
     (require 'smartparens-config)
     (show-smartparens-global-mode)))
+
 (el-get-bundle rainbow-delimiters
+  :post-init
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
+
 (with-eval-after-load 'elisp-mode
   (add-hook 'emacs-lisp-mode-hook (lambda ()
       (smartparens-strict-mode 1)
@@ -85,17 +88,19 @@ expressions with Elixir"
 (if (not (executable-find "opam"))
     (message "Please install OPAM and Merlin")
   (el-get-bundle tuareg-mode
-    :post-init (with-eval-after-load 'tuareg
-                 (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
-                 (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
-    ;; Add opam emacs directory to the load-path
-    (add-to-list 'load-path
-                 (concat (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1)
-                         "/emacs/site-lisp"))
-    ;; Load merlin-mode
-    (autoload 'merlin-mode "merlin" nil t nil)
-    ;; Start merlin on ocaml files
-    (add-hook 'tuareg-mode-hook #'merlin-mode))
+    :post-init
+    (progn
+      (with-eval-after-load 'tuareg
+        (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
+        (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
+      ;; Add opam emacs directory to the load-path
+      (add-to-list 'load-path
+        (concat (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1)
+                "/emacs/site-lisp"))
+      ;; Load merlin-mode
+      (autoload 'merlin-mode "merlin" nil t nil)
+      ;; Start merlin on ocaml files
+      (add-hook 'tuareg-mode-hook #'merlin-mode)))
   (el-get-bundle flyckeck-ocaml
     :type github :pkgname "flycheck/flycheck-ocaml"
     :post-init
