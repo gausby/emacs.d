@@ -138,7 +138,9 @@ expressions with Elixir"
   :post-init
   (progn
     (with-eval-after-load 'elm-mode
-      (add-hook 'elm-mode-hook (lambda () (flyspell-prog-mode))))
+      (add-hook 'elm-mode-hook (lambda ()
+          (define-key elm-mode-map [(control return)] #'mg/open-new-line-with-pipe)
+          (flyspell-prog-mode))))
     (with-eval-after-load 'elm-interactive
       (let ((default-directory "~/.elmenv/shims/"))
         (setq elm-oracle-command "~/.nvm/versions/node/v5.8.0/bin/elm-oracle"
