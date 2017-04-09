@@ -1,19 +1,21 @@
 ;;
 ;; Flycheck
 ;;
-(el-get-bundle flycheck)
-(with-eval-after-load 'flycheck
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-  (mg/add-shackle-rule '("*Flycheck errors*" :select t :align below :size 0.33)))
+(el-get-bundle flycheck
+  :post-init
+  (with-eval-after-load 'flycheck
+    (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+    (mg/add-shackle-rule '("*Flycheck errors*" :select t :align below :size 0.33))))
 
 
 ;;
 ;; Mostly lisp related
 ;;
-(el-get-bundle smartparens)
-(with-eval-after-load 'smartparens
-  (require 'smartparens-config)
-  (show-smartparens-global-mode))
+(el-get-bundle smartparens
+  :post-init
+  (with-eval-after-load 'smartparens
+    (require 'smartparens-config)
+    (show-smartparens-global-mode)))
 (el-get-bundle rainbow-delimiters
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
 (with-eval-after-load 'elisp-mode
@@ -69,9 +71,10 @@ expressions with Elixir"
 ;;
 ;; erlang specific
 ;;
-(el-get-bundle erlang-mode)
-(with-eval-after-load 'erlang
-  (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
+(el-get-bundle erlang-mode
+  :post-init
+  (with-eval-after-load 'erlang
+    (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back)))
 
 
 ;;
@@ -82,6 +85,9 @@ expressions with Elixir"
 (if (not (executable-find "opam"))
     (message "Please install OPAM and Merlin")
   (el-get-bundle tuareg-mode
+    :post-init (with-eval-after-load 'tuareg
+                 (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
+                 (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
     ;; Add opam emacs directory to the load-path
     (add-to-list 'load-path
                  (concat (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1)
@@ -91,20 +97,17 @@ expressions with Elixir"
     ;; Start merlin on ocaml files
     (add-hook 'tuareg-mode-hook #'merlin-mode))
   (el-get-bundle flyckeck-ocaml
-    :type github :pkgname "flycheck/flycheck-ocaml"))
-
-(with-eval-after-load 'tuareg
-  (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
-  (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
-(with-eval-after-load 'merlin
-  ;; Setup ocaml flycheck, need to disable merlins own checker first
-  (setq merlin-error-after-save nil)
-  (flycheck-ocaml-setup)
-  ;; Make company aware of merlin
-  (add-to-list 'company-backends 'merlin-company-backend))
-(with-eval-after-load 'org
-  (require 'ob-ocaml)
-  (add-to-list 'org-babel-load-languages '(ocaml . t)))
+    :type github :pkgname "flycheck/flycheck-ocaml"
+    :post-init
+    (with-eval-after-load 'merlin
+      ;; Setup ocaml flycheck, need to disable merlins own checker first
+      (setq merlin-error-after-save nil)
+      (flycheck-ocaml-setup)
+      ;; Make company aware of merlin
+      (add-to-list 'company-backends 'merlin-company-backend)))
+  (with-eval-after-load 'org
+    (require 'ob-ocaml)
+    (add-to-list 'org-babel-load-languages '(ocaml . t))))
 
 
 ;;
@@ -131,26 +134,30 @@ expressions with Elixir"
 ;; elm-format: https://github.com/avh4/elm-format#building-from-source
 ;;
 ;;
-(el-get-bundle elm-mode)
-(with-eval-after-load 'elm-mode
-  (add-hook 'elm-mode-hook (lambda ()
-      (flyspell-prog-mode))))
-(with-eval-after-load 'elm-interactive
-  (let ((default-directory "~/.elmenv/shims/"))
-    (setq elm-oracle-command "~/.nvm/versions/node/v5.8.0/bin/elm-oracle"
-          elm-compile-command (expand-file-name "elm-make")
-          elm-create-package-command (expand-file-name "elm-make --yes")
-          elm-interactive-command (expand-file-name "elm-repl")
-          elm-package-command (expand-file-name "elm-package")
-          elm-reactor-command (expand-file-name "elm-reactor"))))
-(with-eval-after-load 'elm-format
-  (setq elm-format-command "~/.local/bin/elm-format-0.18"))
+(el-get-bundle elm-mode
+  :post-init
+  (progn
+    (with-eval-after-load 'elm-mode
+      (add-hook 'elm-mode-hook (lambda () (flyspell-prog-mode))))
+    (with-eval-after-load 'elm-interactive
+      (let ((default-directory "~/.elmenv/shims/"))
+        (setq elm-oracle-command "~/.nvm/versions/node/v5.8.0/bin/elm-oracle"
+              elm-compile-command (expand-file-name "elm-make")
+              elm-create-package-command (expand-file-name "elm-make --yes")
+              elm-interactive-command (expand-file-name "elm-repl")
+              elm-package-command (expand-file-name "elm-package")
+              elm-reactor-command (expand-file-name "elm-reactor"))))
+    (with-eval-after-load 'elm-format
+      (setq elm-format-command "~/.local/bin/elm-format-0.18"))))
 
 
 ;;
 ;; Rust
 ;;
-(el-get-bundle rust-mode)
+(el-get-bundle rust-mode
+  :post-init
+  (with-eval-after-load 'rust-mode
+  (mg/add-shackle-rule '("*Cargo Run*" :select t :align below :size 0.3))))
 (el-get-bundle flycheck-rust)
 (el-get-bundle cargo)
 (el-get-bundle emacs-racer
@@ -159,11 +166,10 @@ expressions with Elixir"
   :depends (rust-mode company-mode dash s f)
   :prepare (setq racer-cmd "~/.cargo/bin/racer"
                  racer-rust-src-path "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
-  :post-init (progn
-               (add-hook 'rust-mode-hook #'racer-mode)
-               (add-hook 'racer-mode-hook #'eldoc-mode)))
-(with-eval-after-load 'rust-mode
-  (mg/add-shackle-rule '("*Cargo Run*" :select t :align below :size 0.3)))
+  :post-init
+  (progn
+    (add-hook 'rust-mode-hook #'racer-mode)
+    (add-hook 'racer-mode-hook #'eldoc-mode)))
 
 
 ;;
@@ -193,18 +199,22 @@ expressions with Elixir"
 ;;
 ;; Rest client
 ;;
-(el-get-bundle restclient)
-(el-get-bundle company-restclient)
-(with-eval-after-load 'restclient
-  (add-to-list 'company-backends 'company-restclient)
-  (add-hook 'restclient-mode-hook (lambda ()
+(el-get-bundle restclient
+  :post-init
+  (with-eval-after-load 'restclient
+    (add-hook 'restclient-mode-hook (lambda ()
       (smartparens-mode 1)
       (flyspell-prog-mode)))
-  (mg/add-shackle-rule '("*HTTP Response*" :align below :size 0.3)))
+  (mg/add-shackle-rule '("*HTTP Response*" :align below :size 0.3))))
+(el-get-bundle company-restclient
+  :post-init
+  (with-eval-after-load 'restclient
+    (add-to-list 'company-backends 'company-restclient)))
 ;; org-babel support
 (el-get-bundle ob-restclient
   :type github :pkgname "alf/ob-restclient.el"
   :description "An extension to restclient.el for emacs that provides org-babel support"
   :depends (restclient)
-  :post-init (with-eval-after-load 'org
-               (add-to-list 'org-babel-load-languages '(restclient . t))))
+  :post-init
+  (with-eval-after-load 'org
+    (add-to-list 'org-babel-load-languages '(restclient . t))))
