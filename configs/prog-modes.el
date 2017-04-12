@@ -83,38 +83,36 @@ expressions with Elixir"
 ;;
 ;; Ocaml
 ;;
-;; Will only install the ocaml modes if OPAM is present on the sytem
+;; Will only install the ocaml modes if OPAM is present on the system
 ;;
-(if (not (executable-find "opam"))
-    (message "Please install OPAM and Merlin")
-  (el-get-bundle tuareg-mode
-    :post-init
-    (progn
-      (with-eval-after-load 'tuareg
-        (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
-        (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
-      ;; Add opam emacs directory to the load-path
-      (let* ((opam-config-share (shell-command-to-string
-                                 "opam config var share 2> /dev/null"))
-             (opam-share-location (substring opam-config-share 0 -1))
-             (default-directory opam-share-location))
-        (add-to-list 'load-path (expand-file-name "emacs/site-lisp")))
-      ;; Load merlin-mode
-      (autoload 'merlin-mode "merlin" nil t nil)
-      ;; Start merlin on ocaml files
-      (add-hook 'tuareg-mode-hook #'merlin-mode)))
-  (el-get-bundle flyckeck-ocaml
-    :type github :pkgname "flycheck/flycheck-ocaml"
-    :post-init
-    (with-eval-after-load 'merlin
-      ;; Setup ocaml flycheck, need to disable merlins own checker first
-      (setq merlin-error-after-save nil)
-      (flycheck-ocaml-setup)
-      ;; Make company aware of merlin
-      (add-to-list 'company-backends 'merlin-company-backend)))
-  (with-eval-after-load 'org
-    (require 'ob-ocaml)
-    (add-to-list 'org-babel-load-languages '(ocaml . t))))
+(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+  (cond
+   ((and opam-share (file-directory-p opam-share))
+    (el-get-bundle tuareg-mode
+      :post-init
+      (progn
+        (with-eval-after-load 'tuareg
+          (define-key tuareg-mode-map [(control return)] #'mg/open-new-line-with-pipe)
+          (define-key tuareg-mode-map (kbd "C-c SPC") #'imenu))
+        ;; Add opam emacs directory to the load-path
+        (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+        ;; Load merlin-mode
+        (autoload 'merlin-mode "merlin" nil t nil)
+        ;; Start merlin on ocaml files
+        (add-hook 'tuareg-mode-hook #'merlin-mode)))
+    (el-get-bundle flyckeck-ocaml
+      :type github :pkgname "flycheck/flycheck-ocaml"
+      :post-init
+      (with-eval-after-load 'merlin
+        ;; Setup ocaml flycheck, need to disable merlins own checker first
+        (setq merlin-error-after-save nil)
+        (flycheck-ocaml-setup)
+        ;; Make company aware of merlin
+        (add-to-list 'company-backends 'merlin-company-backend)))
+    (with-eval-after-load 'org
+      (require 'ob-ocaml)
+      (add-to-list 'org-babel-load-languages '(ocaml . t))))
+   (t (message "Please install OPAM and Merlin"))))
 
 
 ;;
