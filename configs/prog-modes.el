@@ -44,7 +44,7 @@
   (define-key elixir-mode-map [(control return)] #'mg/open-new-line-with-pipe)
   (define-key elixir-mode-map (kbd "C-c SPC") #'alchemist-mix)
   (define-key elixir-mode-map (kbd "C-c C-c") #'alchemist-mix-compile)
-  (define-key elixir-mode-map (kbd "C-c C-t") #'alchemist-mix-test-stale)
+  (define-key elixir-mode-map (kbd "C-c C-t") #'projectile-test-project)
   ;; Mode hook
   (add-hook 'elixir-mode-hook (lambda ()
       (alchemist-mode 1)
