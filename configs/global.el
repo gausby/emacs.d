@@ -213,7 +213,7 @@ by the Projectile project switcher"
 ;; Git
 ;;
 (el-get-bundle magit
-  (define-key ctl-x-map (kbd "C-g") 'magit-status))
+  (define-key ctl-x-map (kbd "g") 'magit-status))
 (with-eval-after-load 'magit
   (setq magit-completing-read-function 'ivy-completing-read))
 ;; can't seem to set this upon `magit-list-repositories' load as its
