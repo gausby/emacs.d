@@ -169,7 +169,23 @@
   (global-set-key (kbd "C-M-=") 'er/contract-region))
 
 
+;;
+;; Compilation mode
+;;
+(with-eval-after-load 'compile
+  ;; fix some problematic buffers with ansi-colors in them--got this
+  ;; from http://stackoverflow.com/a/20788581
+  (ignore-errors
+    (require 'ansi-color)
+    (add-hook 'compilation-filter-hook
+        (lambda ()
+          (when (eq major-mode 'compilation-mode)
+            (ansi-color-apply-on-region compilation-filter-start (point-max)))))))
+
+
+;;
 ;; projects
+;;
 (el-get-bundle projectile
   ;; Helpers -----------------------------------------------------------
   (defun mg/update-projectile-project-list ()
