@@ -53,7 +53,14 @@
       (alchemist-mode 1)
       (yas/minor-mode 1)
       (smartparens-mode -1)
+      ;; compile mode
+      (set (make-local-variable 'compilation-read-command) nil)
       (flyspell-prog-mode))))
+(with-eval-after-load 'projectile
+  (projectile-register-project-type 'elixir '("mix.exs")
+      "mix compile --no-color"
+      "mix test --no-color"
+      "mix app.start --temporary --no-color"))
 (with-eval-after-load 'alchemist
   (let ((default-directory "~/.exenv/shims/"))
     (setq alchemist-mix-command (expand-file-name "mix")
