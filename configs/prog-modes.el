@@ -46,6 +46,8 @@
   (define-key elixir-mode-map (kbd "C-c C-c") #'projectile-compile-project)
   (define-key elixir-mode-map (kbd "C-c C-t") #'projectile-test-project)
   (define-key elixir-mode-map (kbd "M-g .") #'alchemist-goto-definition-at-point)
+  (define-key elixir-mode-map (kbd "C-c h a") #'alchemist-help)
+  (define-key elixir-mode-map (kbd "C-c h .") #'alchemist-help-search-at-point)
   ;; Mode hook
   (add-hook 'elixir-mode-hook (lambda ()
       (alchemist-mode 1)
