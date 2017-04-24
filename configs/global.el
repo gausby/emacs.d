@@ -61,6 +61,10 @@
 ;; Remove warnings when using certain commands
 (put 'narrow-to-region 'disabled nil)
 
+;; Remap PgUp and PgDn to macro definition and execution. These keys
+;; are located far away from the home-row on a Saber68 keyboard.
+(global-set-key [(prior)] 'kmacro-start-macro-or-insert-counter)
+(global-set-key [(next)] 'kmacro-end-or-call-macro)
 
 ;; mode line -----------------------------------------------------------
 (setq uniquify-buffer-name-style 'forward)
