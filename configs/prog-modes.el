@@ -58,9 +58,9 @@
       (flyspell-prog-mode))))
 (with-eval-after-load 'projectile
   (projectile-register-project-type 'elixir '("mix.exs")
-      "mix compile --no-color"
-      "mix test --no-color"
-      "mix app.start --temporary --no-color"))
+      :compile "mix compile"
+      :test "mix test"
+      :run "mix app.start --temporary"))
 (with-eval-after-load 'alchemist
   (let ((default-directory "~/.exenv/shims/"))
     (setq alchemist-mix-command (expand-file-name "mix")
