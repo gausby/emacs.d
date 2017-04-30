@@ -131,9 +131,8 @@
       (set-face-attribute 'mode-line nil :font font :height 90)
       (set-face-attribute 'mode-line-inactive nil :font font :height 90))
     (el-get-bundle 'unicode-fonts (unicode-fonts-setup))
-    ;; disable osx native fullscreen and toggle it like most other OS X apps
-    (setq ns-use-native-fullscreen nil)
-    (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)))
+    ;; disable osx native fullscreen
+    (setq ns-use-native-fullscreen nil)))
 
 
 ;; Calendar and time
