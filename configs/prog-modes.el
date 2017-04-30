@@ -214,6 +214,12 @@ expressions with Elixir"
 
 
 ;;
+;; YAML
+;;
+(el-get-bundle yaml-mode)
+
+
+;;
 ;; Rest client
 ;;
 (el-get-bundle restclient
