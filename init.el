@@ -57,6 +57,8 @@
 
 (el-get-bundle exec-path-from-shell
   (exec-path-from-shell-copy-env "GOPATH"))
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 ;; A function to load config files
 (defun mg/load-config-files (files)
