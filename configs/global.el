@@ -133,7 +133,10 @@
       (set-face-attribute 'mode-line-inactive nil :font font :height 90))
     (el-get-bundle 'unicode-fonts (unicode-fonts-setup))
     ;; disable osx native fullscreen
-    (setq ns-use-native-fullscreen nil)))
+    (setq ns-use-native-fullscreen nil)
+    (add-hook 'compilation-mode-hook
+              (lambda () (text-scale-set -3)))
+    ))
 
 
 ;; Calendar and time
