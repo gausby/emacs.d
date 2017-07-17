@@ -96,7 +96,8 @@
   (setq shackle-rules
         '(("*Apropos*" :select t :align below :size 0.5)
           ("*Buffer List*" :select t :align below :size 0.33)
-          ("*Help*" :select t :align below :size 0.5))))
+          ("*Help*" :select t :align below :size 0.5)
+          ("*compilation*" :align right :size 0.33))))
 
 (defun mg/add-shackle-rule (rule) (add-to-list 'shackle-rules rule))
 
