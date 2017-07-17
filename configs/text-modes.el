@@ -180,3 +180,17 @@ does not already have one."
         (local-set-key (kbd key) nil))
       (local-set-key (kbd "M-p") 'irfc-head-prev)
       (local-set-key (kbd "M-n") 'irfc-head-next))))
+
+
+;;
+;; PDF Tools and Interleave
+;;
+;; https://github.com/politza/pdf-tools
+;; https://github.com/rudolfochrist/interleave
+;;
+;; todo, look if 'poppler' is installed before executing this code
+(el-get-bundle pdf-tools)
+(el-get-bundle interleave
+  :type github :pkgname "rudolfochrist/interleave/"
+  :features interleave
+  :depends (org-mode pdf-tools))
