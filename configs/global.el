@@ -209,7 +209,16 @@
     (add-hook 'compilation-filter-hook
         (lambda ()
           (when (eq major-mode 'compilation-mode)
-            (ansi-color-apply-on-region compilation-filter-start (point-max)))))))
+            (ansi-color-apply-on-region compilation-filter-start (point-max)))))
+    (add-hook 'next-error-hook 'recenter)))
+
+
+;;
+;; RipGrep (needs the ripgrep command to be present on the system)
+;;
+(el-get-bundle ripgrep
+  :type github :pkgname "nlamirault/ripgrep.el"
+  :post-init (mg/add-shackle-rule '("*ripgrep-search*" :align bottom :size 0.33)))
 
 
 ;;
@@ -245,7 +254,7 @@ by the Projectile project switcher"
   (define-key ctl-x-map (kbd "p p") 'counsel-projectile-switch-project)
   (define-key ctl-x-map (kbd "p f") 'counsel-projectile-find-file)
   (define-key ctl-x-map (kbd "p b") 'counsel-projectile-switch-to-buffer)
-  (define-key ctl-x-map (kbd "p s") 'counsel-projectile-ag))
+  (define-key ctl-x-map (kbd "p s") 'projectile-ripgrep))
 
 (with-eval-after-load 'projectile
   ;; add directories and files to the projectile ignore list
