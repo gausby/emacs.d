@@ -67,7 +67,8 @@
   ;; setup shell for use in code blocks
   (require 'ob-shell)
   (add-to-list 'org-babel-load-languages '(shell . t))
-  ;; org-capture and org-agenda
+  ;; org-capture, org-contacts, and org-agenda
+  (require 'org-contacts)
   (setq org-directory "~/Notes/"
         org-default-notes-file "capture.org"
         org-capture-templates '(("i" "Inbox" entry
@@ -77,14 +78,26 @@
                                  (file+datetree "journal.org")
                                  "* %U %?" :empty-lines 1)
                                 ("n" "Note (for currently clocked task)" item
-                                 (clock) "  - %U %?" :empty-lines 1)))
+                                 (clock) "  - %U %?" :empty-lines 1)
+                                ("c" "Contact" entry
+                                 (file "contacts.org")
+                                 "* PERSON %(org-contacts-template-name)
+:PROPERTIES:
+:EMAIL: %(org-contacts-template-email)
+:NICKNAME: %?
+:END:")
+                                ))
+        org-contacts-icon-use-gravatar nil)
   (let ((default-directory org-directory)
         (location-format "archive/%Y-%W-archive.org::* From %s"))
     (setq org-agenda-files (list (expand-file-name "capture.org")
                                  (expand-file-name "private.org")
-                                 (expand-file-name "work.org"))
+                                 (expand-file-name "work.org")
+                                 (expand-file-name "contacts.org"))
           org-refile-targets '(("private.org" :maxlevel . 2)
-                               ("work.org" :maxlevel . 2))
+                               ("work.org" :maxlevel . 2)
+                               ("contacts.org" :maxlevel . 1))
+          org-contacts-files (list (expand-file-name "contacts.org"))
           org-archive-location (expand-file-name (format-time-string location-format))
           org-id-locations-file (expand-file-name ".org-id-locations")))
   ;; Item state changes and log drawer
@@ -126,7 +139,6 @@ does not already have one."
       (visual-line-mode 1)
       (org-indent-mode 1)
       (set-fill-column 90)
-      ;; (set-visual-wrap-column 90)
       ;; Keybindings
       (local-set-key (kbd "C-c w") 'mg/org-copy-node-id))))
 
