@@ -85,8 +85,7 @@
 :PROPERTIES:
 :EMAIL: %(org-contacts-template-email)
 :NICKNAME: %?
-:END:")
-                                ))
+:END:"))
         org-contacts-icon-use-gravatar nil)
   (let ((default-directory org-directory)
         (location-format "archive/%Y-%W-archive.org::* From %s"))
