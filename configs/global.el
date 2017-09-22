@@ -320,3 +320,15 @@ by the Projectile project switcher"
         company-minimum-prefix-length 2
         company-tooltip-align-annotations t
         company-tooltip-flip-when-above t))
+
+
+;;
+;; eshell
+;;
+(el-get-bundle eshell-prompt-extras
+  :type github :pkgname "kaihaosw/eshell-prompt-extras")
+(with-eval-after-load "esh-opt"
+  (autoload 'epe-theme-lambda "eshell-prompt-extras")
+  (setq eshell-highlight-prompt t
+        epe-git-dirty-char " •"
+        eshell-prompt-function 'epe-theme-lambda))
