@@ -80,7 +80,7 @@
                                 ("n" "Note (for currently clocked task)" item
                                  (clock) "  - %U %?" :empty-lines 1)
                                 ("c" "Contact" entry
-                                 (file "contacts.org")
+                                 (file+headline "contacts.org" "Acquaintances")
                                  "* PERSON %(org-contacts-template-name)
 :PROPERTIES:
 :EMAIL: %(org-contacts-template-email)
