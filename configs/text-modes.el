@@ -184,7 +184,6 @@ does not already have one."
   (add-hook 'irfc-mode-hook (lambda ()
       (god-local-mode 1)
       (setq-local olivetti-body-width 72)
-      (olivetti-mode 1)
       ;; disable custom quit buffer, custom scrolling, and other
       ;; keybinding oddities
       (dolist (key '("q" "e" "J" "K" "," "." "P" "N" "H" "L" ">" "<"))
