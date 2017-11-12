@@ -84,3 +84,40 @@ point reaches the beginning or end of the buffer, stop there."
     (newline)
     (insert "|> ")
     (indent-according-to-mode)))
+
+
+;; The following is very specific to Emacs running in a Darwin
+;; environment, it will use the system speech synthesizer to read the
+;; selected region out loud; the function `mg/speak-and-insert' can be
+;; set as the `flyspell-insert-function' which will speak the inserted
+;; word when using `flyspell-auto-correct-word' like so:
+;;
+;; (setq flyspell-insert-function (function mg/speak-and-insert))
+;;
+(defcustom mg/speak-voice ""
+  "The voice to use, if nil use system voice"
+  :type '(choice
+          (const :tag "Default" "")
+          (const :tag "Magnus" "magnus")
+          (const :tag "Thomas" "thomas")
+          (const :tag "Samantha" "samantha")))
+
+(defcustom mg/speak-speech-rate 160
+  "The rate to use for the speech synthesizer"
+  :type 'integer)
+
+(defun mg/speak (word &optional output-buffer)
+  (when (eq system-type 'darwin)
+    (let ((voice (format "--voice=%s" mg/speak-voice))
+          (rate (format "--rate=%d" mg/speak-speech-rate))
+          (topic (format "/%s" word)))
+      (start-process "speak" output-buffer "say" voice rate topic))))
+
+(defun mg/speak-and-insert (word)
+  (progn (mg/speak word)
+         (insert word)))
+
+(defun mg/speak-region (start end)
+  (interactive "r")
+  (let ((topic (format "%s" (buffer-substring-no-properties start end))))
+    (mg/speak topic)))
