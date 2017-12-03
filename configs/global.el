@@ -261,7 +261,7 @@ by the Projectile project switcher"
 (el-get-bundle counsel-projectile
   (define-key ctl-x-map (kbd "p p") 'counsel-projectile-switch-project)
   (define-key ctl-x-map (kbd "p f") 'counsel-projectile-find-file)
-  (define-key ctl-x-map (kbd "p b") 'counsel-projectile-switch-to-buffer)
+  (define-key ctl-x-map (kbd "C-b") 'counsel-projectile-switch-to-buffer)
   (define-key ctl-x-map (kbd "p s") 'projectile-ripgrep))
 
 (with-eval-after-load 'projectile
