@@ -36,32 +36,3 @@
   (define-key notmuch-show-mode-map (kbd "C-c C-o") 'browse-url-at-point))
 
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
-
-
-;;
-;; Elfeed - RSS
-;;
-(let ((default-directory "~/.elfeed/"))
-  ;; this will only get loaded and enabled if the elfeed directory exist
-  (when (file-exists-p default-directory)
-    (el-get-bundle elfeed)
-    (el-get-bundle elfeed-org
-      :type github :pkgname "remyhonig/elfeed-org"
-      :depends (elfeed org-mode dash s)
-      (elfeed-org))
-
-    (with-eval-after-load 'elfeed-org
-      (setq rmh-elfeed-org-files (list (expand-file-name "elfeed.org"))))
-
-    (with-eval-after-load 'elfeed
-      (setq elfeed-db-directory (expand-file-name "elfeeddb")))
-
-    (with-eval-after-load 'elfeed-search
-      (defalias 'elfeed-toggle-star
-        (elfeed-expose #'elfeed-search-toggle-all 'star))
-      (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star)
-      (define-key elfeed-search-mode-map (kbd "=") 'elfeed-search-fetch))))
-
-(with-eval-after-load 'elfeed-show
-  ;; Key-bindings
-  (define-key elfeed-show-mode-map (kbd "C-c C-o") 'shr-browse-url))
