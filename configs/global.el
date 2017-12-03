@@ -176,7 +176,13 @@
 
 (with-eval-after-load 'ivy
   ;; don't show recent closed items in various buffers
-  (setq ivy-use-virtual-buffers nil))
+  (setq ivy-use-selectable-prompt t
+        ivy-use-virtual-buffers nil))
+
+;; flyspell and spelling
+(el-get-bundle flyspell-correct)
+(with-eval-after-load 'flyspell
+  (setq flyspell-correct-interface 'flyspell-correct-ivy))
 
 (el-get-bundle avy
   (global-set-key (kbd "M-g l") 'avy-goto-line)
