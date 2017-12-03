@@ -182,7 +182,9 @@
 ;; flyspell and spelling
 (el-get-bundle flyspell-correct)
 (with-eval-after-load 'flyspell
-  (setq flyspell-correct-interface 'flyspell-correct-ivy))
+  (require 'flyspell-correct-ivy)
+  (setq flyspell-correct-interface 'flyspell-correct-ivy)
+  (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic))
 
 (el-get-bundle avy
   (global-set-key (kbd "M-g l") 'avy-goto-line)
