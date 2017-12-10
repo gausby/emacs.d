@@ -267,14 +267,13 @@ and how many times.
 Zero times: normal behavior (find file); Once: find file in
 project; Twice: find/open project"
     (interactive)
-    (let ((prefix current-prefix-arg))
-        (cond ((equal prefix nil)
-               (call-interactively 'find-file))
-              ((equal prefix '(4))
-               (counsel-projectile-find-file))
-              ((equal prefix '(16))
-               (call-interactively 'counsel-projectile-switch-project))
-        )))
+    (cond ((equal current-prefix-arg nil)
+           (call-interactively 'find-file))
+          ((equal current-prefix-arg '(4))
+           (counsel-projectile-find-file))
+          ((equal current-prefix-arg '(16))
+           (projectile-switch-project))
+          ))
   ;; bind to `C-x C-f'
   (define-key ctl-x-map (kbd "C-f") 'universal-argument-find-file)
 
@@ -284,14 +283,16 @@ check for whether or not the universal argument has been applied,
 and how many times.
 
 Zero times: normal behavior (ivy-switch-buffer); Once: switch to
-buffer in project"
+buffer in project/erc; twice to switch between open projects."
     (interactive)
-    (let ((prefix current-prefix-arg))
-        (cond ((equal prefix nil)
-               (call-interactively 'ivy-switch-buffer))
-              ((equal prefix '(4))
-               (call-interactively 'counsel-projectile-switch-to-buffer))
-        )))
+    (cond ((and (equal current-prefix-arg '(4)) (equal major-mode 'erc-mode))
+           (call-interactively 'mg/erc-switch-to-buffer))
+          ((and (equal current-prefix-arg '(4)) (projectile-project-p))
+           (call-interactively 'counsel-projectile-switch-to-buffer))
+          ((equal current-prefix-arg '(16))
+           (projectile-switch-open-project))
+          (t (call-interactively 'switch-to-buffer))
+          ))
   (define-key ctl-x-map (kbd "C-b") 'universal-argument-switch-to-buffer)
 
   (defun universal-argument-kill-buffer ()
@@ -302,12 +303,11 @@ or not.
 Zero times: normal behavior (kill-buffer);
 Once: (projectile-kill-buffers)"
     (interactive)
-    (let ((prefix current-prefix-arg))
-        (cond ((equal prefix nil)
-               (call-interactively 'kill-buffer))
-              ((equal prefix '(4))
-               (call-interactively 'projectile-kill-buffers))
-        )))
+    (cond ((equal current-prefix-arg nil)
+           (call-interactively 'kill-buffer))
+          ((equal current-prefix-arg '(4))
+           (call-interactively 'projectile-kill-buffers))
+        ))
   (define-key ctl-x-map (kbd "k") 'universal-argument-kill-buffer))
 
 (with-eval-after-load 'projectile
