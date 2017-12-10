@@ -256,16 +256,10 @@ by the Projectile project switcher"
 
   ;; Keybindings -------------------------------------------------------
   (define-key ctl-x-map (kbd "p e") 'projectile-edit-dir-locals)
-  (define-key ctl-x-map (kbd "p k") 'projectile-kill-buffers)
   (define-key ctl-x-map (kbd "p t") 'projectile-run-eshell))
 (el-get-bundle counsel-projectile
-  ;; (define-key ctl-x-map (kbd "p p") 'counsel-projectile-switch-project)
-  ;; (define-key ctl-x-map (kbd "p f") 'counsel-projectile-find-file)
-  (define-key ctl-x-map (kbd "C-b") 'counsel-projectile-switch-to-buffer)
-  (define-key ctl-x-map (kbd "p s") 'projectile-ripgrep))
-
-(with-eval-after-load 'counsel
-  (defun universal-argument-find-file (&optional)
+  (define-key ctl-x-map (kbd "p s") 'projectile-ripgrep)
+  (defun universal-argument-find-file ()
     "wrap the `find-file'-command, bound to `C-x C-f', with a
 check for whether or not the universal argument has been applied,
 and how many times.
@@ -280,10 +274,41 @@ project; Twice: find/open project"
                (counsel-projectile-find-file))
               ((equal prefix '(16))
                (call-interactively 'counsel-projectile-switch-project))
-              )
-        ))
+        )))
   ;; bind to `C-x C-f'
-  (define-key ctl-x-map (kbd "C-f") 'universal-argument-find-file))
+  (define-key ctl-x-map (kbd "C-f") 'universal-argument-find-file)
+
+  (defun universal-argument-switch-to-buffer ()
+    "wrap the `switch-to-buffer'-command, bound to `C-x b', with a
+check for whether or not the universal argument has been applied,
+and how many times.
+
+Zero times: normal behavior (ivy-switch-buffer); Once: switch to
+buffer in project"
+    (interactive)
+    (let ((prefix current-prefix-arg))
+        (cond ((equal prefix nil)
+               (call-interactively 'ivy-switch-buffer))
+              ((equal prefix '(4))
+               (call-interactively 'counsel-projectile-switch-to-buffer))
+        )))
+  (define-key ctl-x-map (kbd "C-b") 'universal-argument-switch-to-buffer)
+
+  (defun universal-argument-kill-buffer ()
+    "wrap the `kill-buffer'-command, bound to `C-x k', with a
+check for whether or not the universal argument has been applied
+or not.
+
+Zero times: normal behavior (kill-buffer);
+Once: (projectile-kill-buffers)"
+    (interactive)
+    (let ((prefix current-prefix-arg))
+        (cond ((equal prefix nil)
+               (call-interactively 'kill-buffer))
+              ((equal prefix '(4))
+               (call-interactively 'projectile-kill-buffers))
+        )))
+  (define-key ctl-x-map (kbd "k") 'universal-argument-kill-buffer))
 
 (with-eval-after-load 'projectile
   ;; add directories and files to the projectile ignore list
