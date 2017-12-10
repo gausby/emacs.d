@@ -21,6 +21,10 @@
   :post-init
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
 
+(el-get-bundle macrostep
+  (define-key lisp-interaction-mode-map (kbd "C-c e") 'macrostep-expand)
+  (define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand))
+
 (with-eval-after-load 'elisp-mode
   (add-hook 'emacs-lisp-mode-hook (lambda ()
       (smartparens-strict-mode 1)
