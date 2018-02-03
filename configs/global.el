@@ -181,6 +181,8 @@
   (setq ivy-use-selectable-prompt t
         ivy-use-virtual-buffers nil))
 
+(el-get-bundle hydra)
+
 ;; flyspell and spelling
 (el-get-bundle flyspell-correct)
 (with-eval-after-load 'flyspell
