@@ -1,3 +1,13 @@
+;; the following is taken from jwiegley's emacs config. It makes a
+;; convenient way of looking up passwords from the `.authinfo'-file
+(defsubst lookup-password (host user port)
+    (require 'auth-source)
+    (funcall (plist-get (car (auth-source-search :host host
+                                                 :user user
+                                                 :type 'netrc
+                                                 :port port))
+                        :secret)))
+
 ;; The following is taken from Bodil Stokke's emacs configuration,
 ;; which is released under the GNU General Public
 ;; https://github.com/bodil/ohai-emacs/blob/52bd9774aaee38812dc94d4ace3d45e985dbcc92/modules/ohai-editing.el#L93-L123
