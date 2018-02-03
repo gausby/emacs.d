@@ -1,5 +1,7 @@
 ;; get rid of the start up screen
-(setq inhibit-startup-message t)
+(setq inhibit-startup-message t
+      initial-scratch-message
+      ";; - 'Tis but a scratch!\n;; - A scratch? Your arm's off!\n;; - No, it isn't!\n\n")
 
 
 ;; theme
