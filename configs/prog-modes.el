@@ -26,6 +26,9 @@
   (define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand))
 
 (with-eval-after-load 'elisp-mode
+  (define-key emacs-lisp-mode-map (kbd "C-c C-SPC") #'counsel-imenu)
+  (define-key emacs-lisp-mode-map (kbd "M-n") #'sp-beginning-of-next-sexp)
+  (define-key emacs-lisp-mode-map (kbd "M-p") #'sp-beginning-of-previous-sexp)
   (add-hook 'emacs-lisp-mode-hook (lambda ()
       (smartparens-strict-mode 1)
       (flyspell-prog-mode))))
