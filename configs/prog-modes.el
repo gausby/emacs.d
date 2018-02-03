@@ -130,18 +130,6 @@ expressions with Elixir"
 
 
 ;;
-;; Haskell
-;;
-(el-get-bundle haskell-mode)
-(el-get-bundle commercialhaskell/intero
-  :depends (haskell-mode flycheck company-mode)
-  (let ((default-directory (concat emacs-config-dir "el-get/intero/")))
-    (add-to-list 'load-path (expand-file-name "elisp/")))
-  (autoload 'intero-mode "intero" nil t nil)
-  (add-hook 'haskell-mode-hook 'intero-mode))
-
-
-;;
 ;; Idris
 ;;
 (el-get-bundle idris-mode)
