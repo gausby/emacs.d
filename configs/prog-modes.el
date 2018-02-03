@@ -161,27 +161,6 @@ expressions with Elixir"
 
 
 ;;
-;; Rust
-;;
-(el-get-bundle rust-mode
-  :post-init
-  (with-eval-after-load 'rust-mode
-  (mg/add-shackle-rule '("*Cargo Run*" :select t :align below :size 0.3))))
-(el-get-bundle flycheck-rust)
-(el-get-bundle cargo)
-(el-get-bundle emacs-racer
-  :type github :pkgname "racer-rust/emacs-racer"
-  :description "Racer support for Emacs"
-  :depends (rust-mode company-mode dash s f)
-  :prepare (setq racer-cmd "~/.cargo/bin/racer"
-                 racer-rust-src-path "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
-  :post-init
-  (progn
-    (add-hook 'rust-mode-hook #'racer-mode)
-    (add-hook 'racer-mode-hook #'eldoc-mode)))
-
-
-;;
 ;; Go-lang
 ;;
 (el-get-bundle go-mode
