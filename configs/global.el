@@ -317,6 +317,8 @@ Once: (projectile-kill-buffers)"
 (with-eval-after-load 'projectile
   ;; add directories and files to the projectile ignore list
   (add-to-list 'projectile-globally-ignored-directories "_build")
+  (add-to-list 'projectile-globally-ignored-directories "deps")
+  (add-to-list 'projectile-globally-ignored-file-suffixes ".beam")
   (setq projectile-completion-system 'ivy))
 
 
