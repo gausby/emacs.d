@@ -138,7 +138,7 @@
     (setq ns-use-native-fullscreen nil)
     (add-hook 'compilation-mode-hook
               (lambda () (text-scale-set -3)))
-    ))
+    (add-hook 'after-init-hook 'toggle-frame-fullscreen)))
 
 
 ;; Calendar and time
