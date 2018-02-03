@@ -216,6 +216,26 @@ does not already have one."
 
 
 ;;
+;; Epub mode
+;;
+(el-get-bundle nov
+  :type github :pkgname "wasamasa/nov.el"
+  :depends (esxml dash)
+  :features nov)
+(with-eval-after-load 'nov
+  (setq nov-text-width 80)
+  (defun my-nov-font-setup ()
+    (face-remap-add-relative 'variable-pitch
+                             :family "Source Serif Pro"
+                             :height 1.0))
+  (add-hook 'nov-mode-hook 'my-nov-font-setup)
+  (add-hook 'nov-mode-hook (lambda ()
+                             (local-set-key (kbd "p") 'nov-scroll-down)
+                             (local-set-key (kbd "n") 'nov-scroll-up)
+                             )))
+
+
+;;
 ;; PDF Tools and Interleave
 ;;
 ;; https://github.com/politza/pdf-tools
